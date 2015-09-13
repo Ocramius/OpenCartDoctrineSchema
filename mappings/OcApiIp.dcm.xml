@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="OcApiIp" table="oc_api_ip">
+    <indexes>
+      <index name="IDX_11A4283B54963938" columns="api_id"/>
+    </indexes>
     <id name="apiIpId" type="integer" column="api_ip_id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="apiId" type="integer" column="api_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
     <field name="ip" type="string" column="ip" length="40" nullable="false">
       <options>
         <option name="fixed"/>
       </options>
     </field>
+    <many-to-one field="api" target-entity="OcApi" fetch="LAZY">
+      <join-columns>
+        <join-column name="api_id" referenced-column-name="api_id"/>
+      </join-columns>
+    </many-to-one>
   </entity>
 </doctrine-mapping>

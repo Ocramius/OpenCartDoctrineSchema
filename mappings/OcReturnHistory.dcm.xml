@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="OcReturnHistory" table="oc_return_history">
+    <indexes>
+      <index name="IDX_563990EF227416D5" columns="return_id"/>
+      <index name="IDX_563990EF9EEEBE0D" columns="return_status_id"/>
+    </indexes>
     <id name="returnHistoryId" type="integer" column="return_history_id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="returnId" type="integer" column="return_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
-    <field name="returnStatusId" type="integer" column="return_status_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
     <field name="notify" type="boolean" column="notify" nullable="false"/>
     <field name="comment" type="text" column="comment" length="65535" nullable="false">
       <options>
@@ -21,5 +15,15 @@
       </options>
     </field>
     <field name="dateAdded" type="datetime" column="date_added" nullable="false"/>
+    <many-to-one field="returnStatus" target-entity="OcReturnStatus" fetch="LAZY">
+      <join-columns>
+        <join-column name="return_status_id" referenced-column-name="return_status_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="return" target-entity="OcReturn" fetch="LAZY">
+      <join-columns>
+        <join-column name="return_id" referenced-column-name="return_id"/>
+      </join-columns>
+    </many-to-one>
   </entity>
 </doctrine-mapping>

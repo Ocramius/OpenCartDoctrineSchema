@@ -1,29 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="OcProductOptionValue" table="oc_product_option_value">
+    <indexes>
+      <index name="IDX_2DDB7AA9C964ABE2" columns="product_option_id"/>
+      <index name="IDX_2DDB7AA94584665A" columns="product_id"/>
+      <index name="IDX_2DDB7AA9A7C41D6F" columns="option_id"/>
+      <index name="IDX_2DDB7AA9D957CA06" columns="option_value_id"/>
+    </indexes>
     <id name="productOptionValueId" type="integer" column="product_option_value_id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="productOptionId" type="integer" column="product_option_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
-    <field name="productId" type="integer" column="product_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
-    <field name="optionId" type="integer" column="option_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
-    <field name="optionValueId" type="integer" column="option_value_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
     <field name="quantity" type="integer" column="quantity" nullable="false">
       <options>
         <option name="unsigned"/>
@@ -52,5 +38,25 @@
         <option name="fixed"/>
       </options>
     </field>
+    <many-to-one field="optionValue" target-entity="OcOptionValue" fetch="LAZY">
+      <join-columns>
+        <join-column name="option_value_id" referenced-column-name="option_value_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="productOption" target-entity="OcProductOption" fetch="LAZY">
+      <join-columns>
+        <join-column name="product_option_id" referenced-column-name="product_option_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="option" target-entity="OcOption" fetch="LAZY">
+      <join-columns>
+        <join-column name="option_id" referenced-column-name="option_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="product" target-entity="OcProduct" fetch="LAZY">
+      <join-columns>
+        <join-column name="product_id" referenced-column-name="product_id"/>
+      </join-columns>
+    </many-to-one>
   </entity>
 </doctrine-mapping>

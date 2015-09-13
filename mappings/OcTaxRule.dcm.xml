@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="OcTaxRule" table="oc_tax_rule">
+    <indexes>
+      <index name="IDX_E59E9BA94AAAE" columns="tax_class_id"/>
+      <index name="IDX_E59E9BFDD13F95" columns="tax_rate_id"/>
+    </indexes>
     <id name="taxRuleId" type="integer" column="tax_rule_id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="taxClassId" type="integer" column="tax_class_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
-    <field name="taxRateId" type="integer" column="tax_rate_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
     <field name="based" type="string" column="based" length="10" nullable="false">
       <options>
         <option name="fixed"/>
@@ -25,5 +19,15 @@
         <option name="default">1</option>
       </options>
     </field>
+    <many-to-one field="taxRate" target-entity="OcTaxRate" fetch="LAZY">
+      <join-columns>
+        <join-column name="tax_rate_id" referenced-column-name="tax_rate_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="taxClass" target-entity="OcTaxClass" fetch="LAZY">
+      <join-columns>
+        <join-column name="tax_class_id" referenced-column-name="tax_class_id"/>
+      </join-columns>
+    </many-to-one>
   </entity>
 </doctrine-mapping>

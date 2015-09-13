@@ -1,17 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="OcFilterDescription" table="oc_filter_description">
-    <id name="filterId" type="integer" column="filter_id"/>
-    <id name="languageId" type="integer" column="language_id"/>
-    <field name="filterGroupId" type="integer" column="filter_group_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
+    <indexes>
+      <index name="IDX_80BD840DD395B25E" columns="filter_id"/>
+      <index name="IDX_80BD840D82F1BAF4" columns="language_id"/>
+      <index name="IDX_80BD840DC33BDCE7" columns="filter_group_id"/>
+    </indexes>
+    <id name="language" association-key="true"/>
+    <id name="filter" association-key="true"/>
     <field name="name" type="string" column="name" length="64" nullable="false">
       <options>
         <option name="fixed"/>
       </options>
     </field>
+    <one-to-one field="language" target-entity="OcLanguage" fetch="LAZY">
+      <join-columns>
+        <join-column name="language_id" referenced-column-name="language_id"/>
+      </join-columns>
+    </one-to-one>
+    <one-to-one field="filter" target-entity="OcFilter" fetch="LAZY">
+      <join-columns>
+        <join-column name="filter_id" referenced-column-name="filter_id"/>
+      </join-columns>
+    </one-to-one>
+    <many-to-one field="filterGroup" target-entity="OcFilterGroup" fetch="LAZY">
+      <join-columns>
+        <join-column name="filter_group_id" referenced-column-name="filter_group_id"/>
+      </join-columns>
+    </many-to-one>
   </entity>
 </doctrine-mapping>

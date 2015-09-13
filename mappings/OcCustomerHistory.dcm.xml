@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="OcCustomerHistory" table="oc_customer_history">
+    <indexes>
+      <index name="IDX_A41F80539395C3F3" columns="customer_id"/>
+    </indexes>
     <id name="customerHistoryId" type="integer" column="customer_history_id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="customerId" type="integer" column="customer_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
     <field name="comment" type="text" column="comment" length="65535" nullable="false">
       <options>
         <option name="fixed"/>
       </options>
     </field>
     <field name="dateAdded" type="datetime" column="date_added" nullable="false"/>
+    <many-to-one field="customer" target-entity="OcCustomer" fetch="LAZY">
+      <join-columns>
+        <join-column name="customer_id" referenced-column-name="customer_id"/>
+      </join-columns>
+    </many-to-one>
   </entity>
 </doctrine-mapping>

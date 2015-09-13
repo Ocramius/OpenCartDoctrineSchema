@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="OcOrderRecurring" table="oc_order_recurring">
+    <indexes>
+      <index name="IDX_175B7A538D9F6D38" columns="order_id"/>
+      <index name="IDX_175B7A534584665A" columns="product_id"/>
+      <index name="IDX_175B7A53B149C95E" columns="recurring_id"/>
+    </indexes>
     <id name="orderRecurringId" type="integer" column="order_recurring_id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="orderId" type="integer" column="order_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
     <field name="reference" type="string" column="reference" length="255" nullable="false">
       <options>
         <option name="fixed"/>
-      </options>
-    </field>
-    <field name="productId" type="integer" column="product_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
       </options>
     </field>
     <field name="productName" type="string" column="product_name" length="255" nullable="false">
@@ -25,11 +20,6 @@
       </options>
     </field>
     <field name="productQuantity" type="integer" column="product_quantity" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
-    <field name="recurringId" type="integer" column="recurring_id" nullable="false">
       <options>
         <option name="unsigned"/>
       </options>
@@ -79,5 +69,20 @@
     <field name="trialPrice" type="decimal" column="trial_price" precision="10" scale="4" nullable="false"/>
     <field name="status" type="boolean" column="status" nullable="false"/>
     <field name="dateAdded" type="datetime" column="date_added" nullable="false"/>
+    <many-to-one field="recurring" target-entity="OcRecurring" fetch="LAZY">
+      <join-columns>
+        <join-column name="recurring_id" referenced-column-name="recurring_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="order" target-entity="OcOrder" fetch="LAZY">
+      <join-columns>
+        <join-column name="order_id" referenced-column-name="order_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="product" target-entity="OcProduct" fetch="LAZY">
+      <join-columns>
+        <join-column name="product_id" referenced-column-name="product_id"/>
+      </join-columns>
+    </many-to-one>
   </entity>
 </doctrine-mapping>

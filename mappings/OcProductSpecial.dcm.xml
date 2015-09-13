@@ -3,20 +3,11 @@
   <entity name="OcProductSpecial" table="oc_product_special">
     <indexes>
       <index name="product_id" columns="product_id"/>
+      <index name="IDX_5A022715D2919A68" columns="customer_group_id"/>
     </indexes>
     <id name="productSpecialId" type="integer" column="product_special_id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="productId" type="integer" column="product_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
-    <field name="customerGroupId" type="integer" column="customer_group_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
     <field name="priority" type="integer" column="priority" nullable="false">
       <options>
         <option name="unsigned"/>
@@ -38,5 +29,15 @@
         <option name="default">0000-00-00</option>
       </options>
     </field>
+    <many-to-one field="customerGroup" target-entity="OcCustomerGroup" fetch="LAZY">
+      <join-columns>
+        <join-column name="customer_group_id" referenced-column-name="customer_group_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="product" target-entity="OcProduct" fetch="LAZY">
+      <join-columns>
+        <join-column name="product_id" referenced-column-name="product_id"/>
+      </join-columns>
+    </many-to-one>
   </entity>
 </doctrine-mapping>

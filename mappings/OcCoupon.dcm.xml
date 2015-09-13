@@ -45,5 +45,15 @@
     </field>
     <field name="status" type="boolean" column="status" nullable="false"/>
     <field name="dateAdded" type="datetime" column="date_added" nullable="false"/>
+    <many-to-many field="category" target-entity="OcCategory" inversed-by="coupon" fetch="LAZY">
+      <join-table name="oc_coupon_category">
+        <join-columns>
+          <join-column name="coupon_id" referenced-column-name="coupon_id"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="category_id" referenced-column-name="category_id"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
   </entity>
 </doctrine-mapping>

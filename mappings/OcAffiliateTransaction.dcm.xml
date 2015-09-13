@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="OcAffiliateTransaction" table="oc_affiliate_transaction">
+    <indexes>
+      <index name="IDX_A63959C69F12C49A" columns="affiliate_id"/>
+      <index name="IDX_A63959C68D9F6D38" columns="order_id"/>
+    </indexes>
     <id name="affiliateTransactionId" type="integer" column="affiliate_transaction_id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="affiliateId" type="integer" column="affiliate_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
-    <field name="orderId" type="integer" column="order_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
     <field name="description" type="text" column="description" length="65535" nullable="false">
       <options>
         <option name="fixed"/>
@@ -21,5 +15,15 @@
     </field>
     <field name="amount" type="decimal" column="amount" precision="15" scale="4" nullable="false"/>
     <field name="dateAdded" type="datetime" column="date_added" nullable="false"/>
+    <many-to-one field="affiliate" target-entity="OcAffiliate" fetch="LAZY">
+      <join-columns>
+        <join-column name="affiliate_id" referenced-column-name="affiliate_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="order" target-entity="OcOrder" fetch="LAZY">
+      <join-columns>
+        <join-column name="order_id" referenced-column-name="order_id"/>
+      </join-columns>
+    </many-to-one>
   </entity>
 </doctrine-mapping>

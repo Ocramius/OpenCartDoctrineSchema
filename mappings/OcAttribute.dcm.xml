@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="OcAttribute" table="oc_attribute">
+    <indexes>
+      <index name="IDX_BC49E3BF62D643B7" columns="attribute_group_id"/>
+    </indexes>
     <id name="attributeId" type="integer" column="attribute_id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="attributeGroupId" type="integer" column="attribute_group_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
     <field name="sortOrder" type="integer" column="sort_order" nullable="false">
       <options>
         <option name="unsigned"/>
       </options>
     </field>
+    <many-to-one field="attributeGroup" target-entity="OcAttributeGroup" fetch="LAZY">
+      <join-columns>
+        <join-column name="attribute_group_id" referenced-column-name="attribute_group_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-many field="language" target-entity="OcLanguage" inversed-by="attribute" fetch="LAZY">
+      <join-table name="oc_attribute_description">
+        <join-columns>
+          <join-column name="attribute_id" referenced-column-name="attribute_id"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="language_id" referenced-column-name="language_id"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
   </entity>
 </doctrine-mapping>

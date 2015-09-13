@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="OcProductRelated" table="oc_product_related">
-    <id name="productId" type="integer" column="product_id"/>
+    <indexes>
+      <index name="IDX_763E68664584665A" columns="product_id"/>
+    </indexes>
     <id name="relatedId" type="integer" column="related_id"/>
+    <id name="product" association-key="true"/>
+    <one-to-one field="product" target-entity="OcProduct" fetch="LAZY">
+      <join-columns>
+        <join-column name="product_id" referenced-column-name="product_id"/>
+      </join-columns>
+    </one-to-one>
   </entity>
 </doctrine-mapping>

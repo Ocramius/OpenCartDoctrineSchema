@@ -3,15 +3,12 @@
   <entity name="OcAddress" table="oc_address">
     <indexes>
       <index name="customer_id" columns="customer_id"/>
+      <index name="IDX_BAACDB7FF92F3E70" columns="country_id"/>
+      <index name="IDX_BAACDB7F9F2C3FAB" columns="zone_id"/>
     </indexes>
     <id name="addressId" type="integer" column="address_id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="customerId" type="integer" column="customer_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
     <field name="firstname" type="string" column="firstname" length="32" nullable="false">
       <options>
         <option name="fixed"/>
@@ -47,22 +44,25 @@
         <option name="fixed"/>
       </options>
     </field>
-    <field name="countryId" type="integer" column="country_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-        <option name="default">0</option>
-      </options>
-    </field>
-    <field name="zoneId" type="integer" column="zone_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-        <option name="default">0</option>
-      </options>
-    </field>
     <field name="customField" type="text" column="custom_field" length="65535" nullable="false">
       <options>
         <option name="fixed"/>
       </options>
     </field>
+    <many-to-one field="country" target-entity="OcCountry" fetch="LAZY">
+      <join-columns>
+        <join-column name="country_id" referenced-column-name="country_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="zone" target-entity="OcZone" fetch="LAZY">
+      <join-columns>
+        <join-column name="zone_id" referenced-column-name="zone_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="customer" target-entity="OcCustomer" fetch="LAZY">
+      <join-columns>
+        <join-column name="customer_id" referenced-column-name="customer_id"/>
+      </join-columns>
+    </many-to-one>
   </entity>
 </doctrine-mapping>

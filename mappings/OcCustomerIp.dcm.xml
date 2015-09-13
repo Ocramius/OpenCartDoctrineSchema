@@ -3,20 +3,21 @@
   <entity name="OcCustomerIp" table="oc_customer_ip">
     <indexes>
       <index name="ip" columns="ip"/>
+      <index name="IDX_14EC97979395C3F3" columns="customer_id"/>
     </indexes>
     <id name="customerIpId" type="integer" column="customer_ip_id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="customerId" type="integer" column="customer_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
     <field name="ip" type="string" column="ip" length="40" nullable="false">
       <options>
         <option name="fixed"/>
       </options>
     </field>
     <field name="dateAdded" type="datetime" column="date_added" nullable="false"/>
+    <many-to-one field="customer" target-entity="OcCustomer" fetch="LAZY">
+      <join-columns>
+        <join-column name="customer_id" referenced-column-name="customer_id"/>
+      </join-columns>
+    </many-to-one>
   </entity>
 </doctrine-mapping>

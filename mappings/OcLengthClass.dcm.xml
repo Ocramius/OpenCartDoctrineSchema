@@ -5,5 +5,15 @@
       <generator strategy="IDENTITY"/>
     </id>
     <field name="value" type="decimal" column="value" precision="15" scale="8" nullable="false"/>
+    <many-to-many field="language" target-entity="OcLanguage" inversed-by="lengthClass" fetch="LAZY">
+      <join-table name="oc_length_class_description">
+        <join-columns>
+          <join-column name="length_class_id" referenced-column-name="length_class_id"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="language_id" referenced-column-name="language_id"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
   </entity>
 </doctrine-mapping>

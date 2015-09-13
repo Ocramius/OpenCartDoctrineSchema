@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="OcCustomerReward" table="oc_customer_reward">
+    <indexes>
+      <index name="IDX_38A4AD449395C3F3" columns="customer_id"/>
+      <index name="IDX_38A4AD448D9F6D38" columns="order_id"/>
+    </indexes>
     <id name="customerRewardId" type="integer" column="customer_reward_id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="customerId" type="integer" column="customer_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-        <option name="default">0</option>
-      </options>
-    </field>
-    <field name="orderId" type="integer" column="order_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-        <option name="default">0</option>
-      </options>
-    </field>
     <field name="description" type="text" column="description" length="65535" nullable="false">
       <options>
         <option name="fixed"/>
@@ -28,5 +20,15 @@
       </options>
     </field>
     <field name="dateAdded" type="datetime" column="date_added" nullable="false"/>
+    <many-to-one field="customer" target-entity="OcCustomer" fetch="LAZY">
+      <join-columns>
+        <join-column name="customer_id" referenced-column-name="customer_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="order" target-entity="OcOrder" fetch="LAZY">
+      <join-columns>
+        <join-column name="order_id" referenced-column-name="order_id"/>
+      </join-columns>
+    </many-to-one>
   </entity>
 </doctrine-mapping>

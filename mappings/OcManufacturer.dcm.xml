@@ -19,5 +19,15 @@
         <option name="unsigned"/>
       </options>
     </field>
+    <many-to-many field="store" target-entity="OcStore" inversed-by="manufacturer" fetch="LAZY">
+      <join-table name="oc_manufacturer_to_store">
+        <join-columns>
+          <join-column name="manufacturer_id" referenced-column-name="manufacturer_id"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="store_id" referenced-column-name="store_id"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
   </entity>
 </doctrine-mapping>

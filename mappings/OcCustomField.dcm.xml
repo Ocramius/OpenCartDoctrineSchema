@@ -25,5 +25,25 @@
         <option name="unsigned"/>
       </options>
     </field>
+    <many-to-many field="language" target-entity="OcLanguage" inversed-by="customField" fetch="LAZY">
+      <join-table name="oc_custom_field_description">
+        <join-columns>
+          <join-column name="custom_field_id" referenced-column-name="custom_field_id"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="language_id" referenced-column-name="language_id"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+    <many-to-many field="customerGroup" target-entity="OcCustomerGroup" inversed-by="customField" fetch="LAZY">
+      <join-table name="oc_custom_field_customer_group">
+        <join-columns>
+          <join-column name="custom_field_id" referenced-column-name="custom_field_id"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="customer_group_id" referenced-column-name="customer_group_id"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
   </entity>
 </doctrine-mapping>

@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="OcAffiliateActivity" table="oc_affiliate_activity">
+    <indexes>
+      <index name="IDX_F0A5AEEB9F12C49A" columns="affiliate_id"/>
+    </indexes>
     <id name="activityId" type="integer" column="activity_id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="affiliateId" type="integer" column="affiliate_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
     <field name="key" type="string" column="key" length="64" nullable="false">
       <options>
         <option name="fixed"/>
@@ -25,5 +23,10 @@
       </options>
     </field>
     <field name="dateAdded" type="datetime" column="date_added" nullable="false"/>
+    <many-to-one field="affiliate" target-entity="OcAffiliate" fetch="LAZY">
+      <join-columns>
+        <join-column name="affiliate_id" referenced-column-name="affiliate_id"/>
+      </join-columns>
+    </many-to-one>
   </entity>
 </doctrine-mapping>

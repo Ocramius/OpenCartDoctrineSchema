@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="OcReturnAction" table="oc_return_action">
+    <indexes>
+      <index name="IDX_75A9A1D682F1BAF4" columns="language_id"/>
+    </indexes>
     <id name="returnActionId" type="integer" column="return_action_id"/>
-    <id name="languageId" type="integer" column="language_id"/>
+    <id name="language" association-key="true"/>
     <field name="name" type="string" column="name" length="64" nullable="false">
       <options>
         <option name="fixed"/>
       </options>
     </field>
+    <one-to-one field="language" target-entity="OcLanguage" fetch="LAZY">
+      <join-columns>
+        <join-column name="language_id" referenced-column-name="language_id"/>
+      </join-columns>
+    </one-to-one>
   </entity>
 </doctrine-mapping>

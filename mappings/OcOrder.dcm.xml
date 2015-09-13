@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="OcOrder" table="oc_order">
+    <indexes>
+      <index name="IDX_1864E5A1B092A811" columns="store_id"/>
+      <index name="IDX_1864E5A19395C3F3" columns="customer_id"/>
+      <index name="IDX_1864E5A1D2919A68" columns="customer_group_id"/>
+      <index name="IDX_1864E5A1D7707B45" columns="order_status_id"/>
+      <index name="IDX_1864E5A19F12C49A" columns="affiliate_id"/>
+      <index name="IDX_1864E5A1C6DCB66C" columns="marketing_id"/>
+      <index name="IDX_1864E5A182F1BAF4" columns="language_id"/>
+      <index name="IDX_1864E5A138248176" columns="currency_id"/>
+    </indexes>
     <id name="orderId" type="integer" column="order_id">
       <generator strategy="IDENTITY"/>
     </id>
@@ -15,12 +25,6 @@
         <option name="fixed"/>
       </options>
     </field>
-    <field name="storeId" type="integer" column="store_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-        <option name="default">0</option>
-      </options>
-    </field>
     <field name="storeName" type="string" column="store_name" length="64" nullable="false">
       <options>
         <option name="fixed"/>
@@ -29,18 +33,6 @@
     <field name="storeUrl" type="string" column="store_url" length="255" nullable="false">
       <options>
         <option name="fixed"/>
-      </options>
-    </field>
-    <field name="customerId" type="integer" column="customer_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-        <option name="default">0</option>
-      </options>
-    </field>
-    <field name="customerGroupId" type="integer" column="customer_group_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-        <option name="default">0</option>
       </options>
     </field>
     <field name="firstname" type="string" column="firstname" length="32" nullable="false">
@@ -233,36 +225,10 @@
         <option name="default">0.0000</option>
       </options>
     </field>
-    <field name="orderStatusId" type="integer" column="order_status_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-        <option name="default">0</option>
-      </options>
-    </field>
-    <field name="affiliateId" type="integer" column="affiliate_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
     <field name="commission" type="decimal" column="commission" precision="15" scale="4" nullable="false"/>
-    <field name="marketingId" type="integer" column="marketing_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
     <field name="tracking" type="string" column="tracking" length="64" nullable="false">
       <options>
         <option name="fixed"/>
-      </options>
-    </field>
-    <field name="languageId" type="integer" column="language_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
-    <field name="currencyId" type="integer" column="currency_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
       </options>
     </field>
     <field name="currencyCode" type="string" column="currency_code" length="3" nullable="false">
@@ -297,5 +263,45 @@
     </field>
     <field name="dateAdded" type="datetime" column="date_added" nullable="false"/>
     <field name="dateModified" type="datetime" column="date_modified" nullable="false"/>
+    <many-to-one field="marketing" target-entity="OcMarketing" fetch="LAZY">
+      <join-columns>
+        <join-column name="marketing_id" referenced-column-name="marketing_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="customerGroup" target-entity="OcCustomerGroup" fetch="LAZY">
+      <join-columns>
+        <join-column name="customer_group_id" referenced-column-name="customer_group_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="orderStatus" target-entity="OcOrderStatus" fetch="LAZY">
+      <join-columns>
+        <join-column name="order_status_id" referenced-column-name="order_status_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="store" target-entity="OcStore" fetch="LAZY">
+      <join-columns>
+        <join-column name="store_id" referenced-column-name="store_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="affiliate" target-entity="OcAffiliate" fetch="LAZY">
+      <join-columns>
+        <join-column name="affiliate_id" referenced-column-name="affiliate_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="language" target-entity="OcLanguage" fetch="LAZY">
+      <join-columns>
+        <join-column name="language_id" referenced-column-name="language_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="customer" target-entity="OcCustomer" fetch="LAZY">
+      <join-columns>
+        <join-column name="customer_id" referenced-column-name="customer_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="currency" target-entity="OcCurrency" fetch="LAZY">
+      <join-columns>
+        <join-column name="currency_id" referenced-column-name="currency_id"/>
+      </join-columns>
+    </many-to-one>
   </entity>
 </doctrine-mapping>

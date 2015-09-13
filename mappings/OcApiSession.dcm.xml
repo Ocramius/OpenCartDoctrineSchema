@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="OcApiSession" table="oc_api_session">
+    <indexes>
+      <index name="IDX_A0D921AA54963938" columns="api_id"/>
+    </indexes>
     <id name="apiSessionId" type="integer" column="api_session_id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="apiId" type="integer" column="api_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
     <field name="token" type="string" column="token" length="32" nullable="false">
       <options>
         <option name="fixed"/>
@@ -31,5 +29,10 @@
     </field>
     <field name="dateAdded" type="datetime" column="date_added" nullable="false"/>
     <field name="dateModified" type="datetime" column="date_modified" nullable="false"/>
+    <many-to-one field="api" target-entity="OcApi" fetch="LAZY">
+      <join-columns>
+        <join-column name="api_id" referenced-column-name="api_id"/>
+      </join-columns>
+    </many-to-one>
   </entity>
 </doctrine-mapping>

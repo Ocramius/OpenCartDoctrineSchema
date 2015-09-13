@@ -1,8 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="OcProductRecurring" table="oc_product_recurring">
-    <id name="productId" type="integer" column="product_id"/>
-    <id name="recurringId" type="integer" column="recurring_id"/>
-    <id name="customerGroupId" type="integer" column="customer_group_id"/>
+    <indexes>
+      <index name="IDX_3DE6CAE94584665A" columns="product_id"/>
+      <index name="IDX_3DE6CAE9B149C95E" columns="recurring_id"/>
+      <index name="IDX_3DE6CAE9D2919A68" columns="customer_group_id"/>
+    </indexes>
+    <id name="product" association-key="true"/>
+    <id name="recurring" association-key="true"/>
+    <id name="customerGroup" association-key="true"/>
+    <one-to-one field="customerGroup" target-entity="OcCustomerGroup" fetch="LAZY">
+      <join-columns>
+        <join-column name="customer_group_id" referenced-column-name="customer_group_id"/>
+      </join-columns>
+    </one-to-one>
+    <one-to-one field="recurring" target-entity="OcRecurring" fetch="LAZY">
+      <join-columns>
+        <join-column name="recurring_id" referenced-column-name="recurring_id"/>
+      </join-columns>
+    </one-to-one>
+    <one-to-one field="product" target-entity="OcProduct" fetch="LAZY">
+      <join-columns>
+        <join-column name="product_id" referenced-column-name="product_id"/>
+      </join-columns>
+    </one-to-one>
   </entity>
 </doctrine-mapping>

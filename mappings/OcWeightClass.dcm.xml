@@ -9,5 +9,15 @@
         <option name="default">0.00000000</option>
       </options>
     </field>
+    <many-to-many field="language" target-entity="OcLanguage" inversed-by="weightClass" fetch="LAZY">
+      <join-table name="oc_weight_class_description">
+        <join-columns>
+          <join-column name="weight_class_id" referenced-column-name="weight_class_id"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="language_id" referenced-column-name="language_id"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
   </entity>
 </doctrine-mapping>

@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="OcCategoryToLayout" table="oc_category_to_layout">
-    <id name="categoryId" type="integer" column="category_id"/>
-    <id name="storeId" type="integer" column="store_id"/>
-    <field name="layoutId" type="integer" column="layout_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
+    <indexes>
+      <index name="IDX_4FD3A4B512469DE2" columns="category_id"/>
+      <index name="IDX_4FD3A4B5B092A811" columns="store_id"/>
+      <index name="IDX_4FD3A4B58C22AA1A" columns="layout_id"/>
+    </indexes>
+    <id name="category" association-key="true"/>
+    <id name="store" association-key="true"/>
+    <one-to-one field="category" target-entity="OcCategory" fetch="LAZY">
+      <join-columns>
+        <join-column name="category_id" referenced-column-name="category_id"/>
+      </join-columns>
+    </one-to-one>
+    <one-to-one field="store" target-entity="OcStore" fetch="LAZY">
+      <join-columns>
+        <join-column name="store_id" referenced-column-name="store_id"/>
+      </join-columns>
+    </one-to-one>
+    <many-to-one field="layout" target-entity="OcLayout" fetch="LAZY">
+      <join-columns>
+        <join-column name="layout_id" referenced-column-name="layout_id"/>
+      </join-columns>
+    </many-to-one>
   </entity>
 </doctrine-mapping>

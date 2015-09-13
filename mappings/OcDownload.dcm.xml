@@ -15,5 +15,16 @@
       </options>
     </field>
     <field name="dateAdded" type="datetime" column="date_added" nullable="false"/>
+    <many-to-many field="product" target-entity="OcProduct" mapped-by="download" fetch="LAZY"/>
+    <many-to-many field="language" target-entity="OcLanguage" inversed-by="download" fetch="LAZY">
+      <join-table name="oc_download_description">
+        <join-columns>
+          <join-column name="download_id" referenced-column-name="download_id"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="language_id" referenced-column-name="language_id"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
   </entity>
 </doctrine-mapping>

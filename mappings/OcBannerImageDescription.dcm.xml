@@ -1,17 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="OcBannerImageDescription" table="oc_banner_image_description">
-    <id name="bannerImageId" type="integer" column="banner_image_id"/>
-    <id name="languageId" type="integer" column="language_id"/>
-    <field name="bannerId" type="integer" column="banner_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
+    <indexes>
+      <index name="IDX_9CEBD833F9CEB4E" columns="banner_image_id"/>
+      <index name="IDX_9CEBD8382F1BAF4" columns="language_id"/>
+      <index name="IDX_9CEBD83684EC833" columns="banner_id"/>
+    </indexes>
+    <id name="bannerImage" association-key="true"/>
+    <id name="language" association-key="true"/>
     <field name="title" type="string" column="title" length="64" nullable="false">
       <options>
         <option name="fixed"/>
       </options>
     </field>
+    <one-to-one field="bannerImage" target-entity="OcBannerImage" fetch="LAZY">
+      <join-columns>
+        <join-column name="banner_image_id" referenced-column-name="banner_image_id"/>
+      </join-columns>
+    </one-to-one>
+    <one-to-one field="language" target-entity="OcLanguage" fetch="LAZY">
+      <join-columns>
+        <join-column name="language_id" referenced-column-name="language_id"/>
+      </join-columns>
+    </one-to-one>
+    <many-to-one field="banner" target-entity="OcBanner" fetch="LAZY">
+      <join-columns>
+        <join-column name="banner_id" referenced-column-name="banner_id"/>
+      </join-columns>
+    </many-to-one>
   </entity>
 </doctrine-mapping>

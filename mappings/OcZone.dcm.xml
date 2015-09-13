@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="OcZone" table="oc_zone">
+    <indexes>
+      <index name="IDX_551ED987F92F3E70" columns="country_id"/>
+    </indexes>
     <id name="zoneId" type="integer" column="zone_id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="countryId" type="integer" column="country_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
     <field name="name" type="string" column="name" length="128" nullable="false">
       <options>
         <option name="fixed"/>
@@ -24,5 +22,10 @@
         <option name="default">1</option>
       </options>
     </field>
+    <many-to-one field="country" target-entity="OcCountry" fetch="LAZY">
+      <join-columns>
+        <join-column name="country_id" referenced-column-name="country_id"/>
+      </join-columns>
+    </many-to-one>
   </entity>
 </doctrine-mapping>

@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="OcVoucherHistory" table="oc_voucher_history">
+    <indexes>
+      <index name="IDX_23C7590A28AA1B6F" columns="voucher_id"/>
+      <index name="IDX_23C7590A8D9F6D38" columns="order_id"/>
+    </indexes>
     <id name="voucherHistoryId" type="integer" column="voucher_history_id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="voucherId" type="integer" column="voucher_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
-    <field name="orderId" type="integer" column="order_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
     <field name="amount" type="decimal" column="amount" precision="15" scale="4" nullable="false"/>
     <field name="dateAdded" type="datetime" column="date_added" nullable="false"/>
+    <many-to-one field="order" target-entity="OcOrder" fetch="LAZY">
+      <join-columns>
+        <join-column name="order_id" referenced-column-name="order_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="voucher" target-entity="OcVoucher" fetch="LAZY">
+      <join-columns>
+        <join-column name="voucher_id" referenced-column-name="voucher_id"/>
+      </join-columns>
+    </many-to-one>
   </entity>
 </doctrine-mapping>

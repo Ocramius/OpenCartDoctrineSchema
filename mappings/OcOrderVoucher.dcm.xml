@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="OcOrderVoucher" table="oc_order_voucher">
+    <indexes>
+      <index name="IDX_9350BB088D9F6D38" columns="order_id"/>
+      <index name="IDX_9350BB0828AA1B6F" columns="voucher_id"/>
+      <index name="IDX_9350BB08C7A52C0E" columns="voucher_theme_id"/>
+    </indexes>
     <id name="orderVoucherId" type="integer" column="order_voucher_id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="orderId" type="integer" column="order_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
-    <field name="voucherId" type="integer" column="voucher_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
     <field name="description" type="string" column="description" length="255" nullable="false">
       <options>
         <option name="fixed"/>
@@ -44,16 +39,26 @@
         <option name="fixed"/>
       </options>
     </field>
-    <field name="voucherThemeId" type="integer" column="voucher_theme_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
     <field name="message" type="text" column="message" length="65535" nullable="false">
       <options>
         <option name="fixed"/>
       </options>
     </field>
     <field name="amount" type="decimal" column="amount" precision="15" scale="4" nullable="false"/>
+    <many-to-one field="voucherTheme" target-entity="OcVoucherTheme" fetch="LAZY">
+      <join-columns>
+        <join-column name="voucher_theme_id" referenced-column-name="voucher_theme_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="order" target-entity="OcOrder" fetch="LAZY">
+      <join-columns>
+        <join-column name="order_id" referenced-column-name="order_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="voucher" target-entity="OcVoucher" fetch="LAZY">
+      <join-columns>
+        <join-column name="voucher_id" referenced-column-name="voucher_id"/>
+      </join-columns>
+    </many-to-one>
   </entity>
 </doctrine-mapping>

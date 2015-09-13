@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="OcProductOption" table="oc_product_option">
+    <indexes>
+      <index name="IDX_5F51B36F4584665A" columns="product_id"/>
+      <index name="IDX_5F51B36FA7C41D6F" columns="option_id"/>
+    </indexes>
     <id name="productOptionId" type="integer" column="product_option_id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="productId" type="integer" column="product_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
-    <field name="optionId" type="integer" column="option_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
     <field name="value" type="text" column="value" length="65535" nullable="false">
       <options>
         <option name="fixed"/>
       </options>
     </field>
     <field name="required" type="boolean" column="required" nullable="false"/>
+    <many-to-one field="option" target-entity="OcOption" fetch="LAZY">
+      <join-columns>
+        <join-column name="option_id" referenced-column-name="option_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="product" target-entity="OcProduct" fetch="LAZY">
+      <join-columns>
+        <join-column name="product_id" referenced-column-name="product_id"/>
+      </join-columns>
+    </many-to-one>
   </entity>
 </doctrine-mapping>

@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="OcProduct" table="oc_product">
+    <indexes>
+      <index name="IDX_64A8B053F36AE655" columns="stock_status_id"/>
+      <index name="IDX_64A8B053A23B42D" columns="manufacturer_id"/>
+      <index name="IDX_64A8B053A94AAAE" columns="tax_class_id"/>
+      <index name="IDX_64A8B053A0206A65" columns="weight_class_id"/>
+      <index name="IDX_64A8B053DEBB62E6" columns="length_class_id"/>
+    </indexes>
     <id name="productId" type="integer" column="product_id">
       <generator strategy="IDENTITY"/>
     </id>
@@ -50,19 +57,9 @@
         <option name="default">0</option>
       </options>
     </field>
-    <field name="stockStatusId" type="integer" column="stock_status_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
     <field name="image" type="string" column="image" length="255" nullable="true">
       <options>
         <option name="fixed"/>
-      </options>
-    </field>
-    <field name="manufacturerId" type="integer" column="manufacturer_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
       </options>
     </field>
     <field name="shipping" type="boolean" column="shipping" nullable="false">
@@ -81,11 +78,6 @@
         <option name="default">0</option>
       </options>
     </field>
-    <field name="taxClassId" type="integer" column="tax_class_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
     <field name="dateAvailable" type="date" column="date_available" nullable="false">
       <options>
         <option name="default">0000-00-00</option>
@@ -94,12 +86,6 @@
     <field name="weight" type="decimal" column="weight" precision="15" scale="8" nullable="false">
       <options>
         <option name="default">0.00000000</option>
-      </options>
-    </field>
-    <field name="weightClassId" type="integer" column="weight_class_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-        <option name="default">0</option>
       </options>
     </field>
     <field name="length" type="decimal" column="length" precision="15" scale="8" nullable="false">
@@ -115,12 +101,6 @@
     <field name="height" type="decimal" column="height" precision="15" scale="8" nullable="false">
       <options>
         <option name="default">0.00000000</option>
-      </options>
-    </field>
-    <field name="lengthClassId" type="integer" column="length_class_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-        <option name="default">0</option>
       </options>
     </field>
     <field name="subtract" type="boolean" column="subtract" nullable="false">
@@ -153,5 +133,80 @@
     </field>
     <field name="dateAdded" type="datetime" column="date_added" nullable="false"/>
     <field name="dateModified" type="datetime" column="date_modified" nullable="false"/>
+    <many-to-one field="weightClass" target-entity="OcWeightClass" fetch="LAZY">
+      <join-columns>
+        <join-column name="weight_class_id" referenced-column-name="weight_class_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="lengthClass" target-entity="OcLengthClass" fetch="LAZY">
+      <join-columns>
+        <join-column name="length_class_id" referenced-column-name="length_class_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="stockStatus" target-entity="OcStockStatus" fetch="LAZY">
+      <join-columns>
+        <join-column name="stock_status_id" referenced-column-name="stock_status_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="taxClass" target-entity="OcTaxClass" fetch="LAZY">
+      <join-columns>
+        <join-column name="tax_class_id" referenced-column-name="tax_class_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="manufacturer" target-entity="OcManufacturer" fetch="LAZY">
+      <join-columns>
+        <join-column name="manufacturer_id" referenced-column-name="manufacturer_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-many field="download" target-entity="OcDownload" inversed-by="product" fetch="LAZY">
+      <join-table name="oc_product_to_download">
+        <join-columns>
+          <join-column name="product_id" referenced-column-name="product_id"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="download_id" referenced-column-name="download_id"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+    <many-to-many field="store" target-entity="OcStore" inversed-by="product" fetch="LAZY">
+      <join-table name="oc_product_to_store">
+        <join-columns>
+          <join-column name="product_id" referenced-column-name="product_id"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="store_id" referenced-column-name="store_id"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+    <many-to-many field="filter" target-entity="OcFilter" inversed-by="product" fetch="LAZY">
+      <join-table name="oc_product_filter">
+        <join-columns>
+          <join-column name="product_id" referenced-column-name="product_id"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="filter_id" referenced-column-name="filter_id"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+    <many-to-many field="language" target-entity="OcLanguage" inversed-by="product" fetch="LAZY">
+      <join-table name="oc_product_description">
+        <join-columns>
+          <join-column name="product_id" referenced-column-name="product_id"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="language_id" referenced-column-name="language_id"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+    <many-to-many field="category" target-entity="OcCategory" inversed-by="product" fetch="LAZY">
+      <join-table name="oc_product_to_category">
+        <join-columns>
+          <join-column name="product_id" referenced-column-name="product_id"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="category_id" referenced-column-name="category_id"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
   </entity>
 </doctrine-mapping>

@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="OcCategoryPath" table="oc_category_path">
-    <id name="categoryId" type="integer" column="category_id"/>
+    <indexes>
+      <index name="IDX_F67746D312469DE2" columns="category_id"/>
+    </indexes>
     <id name="pathId" type="integer" column="path_id"/>
+    <id name="category" association-key="true"/>
     <field name="level" type="integer" column="level" nullable="false">
       <options>
         <option name="unsigned"/>
       </options>
     </field>
+    <one-to-one field="category" target-entity="OcCategory" fetch="LAZY">
+      <join-columns>
+        <join-column name="category_id" referenced-column-name="category_id"/>
+      </join-columns>
+    </one-to-one>
   </entity>
 </doctrine-mapping>

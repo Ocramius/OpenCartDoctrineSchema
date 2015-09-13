@@ -39,5 +39,19 @@
       </options>
     </field>
     <field name="status" type="boolean" column="status" nullable="false"/>
+    <many-to-many field="option" target-entity="OcOption" mapped-by="language" fetch="LAZY"/>
+    <many-to-many field="lengthClass" target-entity="OcLengthClass" mapped-by="language" fetch="LAZY"/>
+    <many-to-many field="product" target-entity="OcProduct" mapped-by="language" fetch="LAZY"/>
+    <many-to-many field="recurring" target-entity="OcRecurring" mapped-by="language" fetch="LAZY"/>
+    <many-to-many field="weightClass" target-entity="OcWeightClass" mapped-by="language" fetch="LAZY"/>
+    <many-to-many field="voucherTheme" target-entity="OcVoucherTheme" mapped-by="language" fetch="LAZY"/>
+    <many-to-many field="information" target-entity="OcInformation" mapped-by="language" fetch="LAZY"/>
+    <many-to-many field="filterGroup" target-entity="OcFilterGroup" mapped-by="language" fetch="LAZY"/>
+    <many-to-many field="category" target-entity="OcCategory" mapped-by="language" fetch="LAZY"/>
+    <many-to-many field="attributeGroup" target-entity="OcAttributeGroup" mapped-by="language" fetch="LAZY"/>
+    <many-to-many field="customField" target-entity="OcCustomField" mapped-by="language" fetch="LAZY"/>
+    <many-to-many field="customerGroup" target-entity="OcCustomerGroup" mapped-by="language" fetch="LAZY"/>
+    <many-to-many field="download" target-entity="OcDownload" mapped-by="language" fetch="LAZY"/>
+    <many-to-many field="attribute" target-entity="OcAttribute" mapped-by="language" fetch="LAZY"/>
   </entity>
 </doctrine-mapping>

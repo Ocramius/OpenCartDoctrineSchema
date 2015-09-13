@@ -3,20 +3,11 @@
   <entity name="OcReview" table="oc_review">
     <indexes>
       <index name="product_id" columns="product_id"/>
+      <index name="IDX_26AB44B89395C3F3" columns="customer_id"/>
     </indexes>
     <id name="reviewId" type="integer" column="review_id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="productId" type="integer" column="product_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
-    <field name="customerId" type="integer" column="customer_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
     <field name="author" type="string" column="author" length="64" nullable="false">
       <options>
         <option name="fixed"/>
@@ -39,5 +30,15 @@
     </field>
     <field name="dateAdded" type="datetime" column="date_added" nullable="false"/>
     <field name="dateModified" type="datetime" column="date_modified" nullable="false"/>
+    <many-to-one field="customer" target-entity="OcCustomer" fetch="LAZY">
+      <join-columns>
+        <join-column name="customer_id" referenced-column-name="customer_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="product" target-entity="OcProduct" fetch="LAZY">
+      <join-columns>
+        <join-column name="product_id" referenced-column-name="product_id"/>
+      </join-columns>
+    </many-to-one>
   </entity>
 </doctrine-mapping>

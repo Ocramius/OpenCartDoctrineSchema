@@ -1,24 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="OcReturn" table="oc_return">
+    <indexes>
+      <index name="IDX_F876FA718D9F6D38" columns="order_id"/>
+      <index name="IDX_F876FA714584665A" columns="product_id"/>
+      <index name="IDX_F876FA719395C3F3" columns="customer_id"/>
+      <index name="IDX_F876FA71ACA2AB22" columns="return_reason_id"/>
+      <index name="IDX_F876FA71682B4E85" columns="return_action_id"/>
+      <index name="IDX_F876FA719EEEBE0D" columns="return_status_id"/>
+    </indexes>
     <id name="returnId" type="integer" column="return_id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="orderId" type="integer" column="order_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
-    <field name="productId" type="integer" column="product_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
-    <field name="customerId" type="integer" column="customer_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
     <field name="firstname" type="string" column="firstname" length="32" nullable="false">
       <options>
         <option name="fixed"/>
@@ -55,21 +48,6 @@
       </options>
     </field>
     <field name="opened" type="boolean" column="opened" nullable="false"/>
-    <field name="returnReasonId" type="integer" column="return_reason_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
-    <field name="returnActionId" type="integer" column="return_action_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
-    <field name="returnStatusId" type="integer" column="return_status_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
     <field name="comment" type="text" column="comment" length="65535" nullable="true">
       <options>
         <option name="fixed"/>
@@ -82,5 +60,35 @@
     </field>
     <field name="dateAdded" type="datetime" column="date_added" nullable="false"/>
     <field name="dateModified" type="datetime" column="date_modified" nullable="false"/>
+    <many-to-one field="returnStatus" target-entity="OcReturnStatus" fetch="LAZY">
+      <join-columns>
+        <join-column name="return_status_id" referenced-column-name="return_status_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="returnReason" target-entity="OcReturnReason" fetch="LAZY">
+      <join-columns>
+        <join-column name="return_reason_id" referenced-column-name="return_reason_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="customer" target-entity="OcCustomer" fetch="LAZY">
+      <join-columns>
+        <join-column name="customer_id" referenced-column-name="customer_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="order" target-entity="OcOrder" fetch="LAZY">
+      <join-columns>
+        <join-column name="order_id" referenced-column-name="order_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="returnAction" target-entity="OcReturnAction" fetch="LAZY">
+      <join-columns>
+        <join-column name="return_action_id" referenced-column-name="return_action_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="product2" target-entity="OcProduct" fetch="LAZY">
+      <join-columns>
+        <join-column name="product_id" referenced-column-name="product_id"/>
+      </join-columns>
+    </many-to-one>
   </entity>
 </doctrine-mapping>

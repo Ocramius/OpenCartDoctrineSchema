@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="OcAffiliate" table="oc_affiliate">
+    <indexes>
+      <index name="IDX_1F49A98BF92F3E70" columns="country_id"/>
+      <index name="IDX_1F49A98B9F2C3FAB" columns="zone_id"/>
+    </indexes>
     <id name="affiliateId" type="integer" column="affiliate_id">
       <generator strategy="IDENTITY"/>
     </id>
@@ -69,16 +73,6 @@
         <option name="fixed"/>
       </options>
     </field>
-    <field name="countryId" type="integer" column="country_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
-    <field name="zoneId" type="integer" column="zone_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
     <field name="code" type="string" column="code" length="64" nullable="false">
       <options>
         <option name="fixed"/>
@@ -142,5 +136,15 @@
     <field name="status" type="boolean" column="status" nullable="false"/>
     <field name="approved" type="boolean" column="approved" nullable="false"/>
     <field name="dateAdded" type="datetime" column="date_added" nullable="false"/>
+    <many-to-one field="country" target-entity="OcCountry" fetch="LAZY">
+      <join-columns>
+        <join-column name="country_id" referenced-column-name="country_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="zone" target-entity="OcZone" fetch="LAZY">
+      <join-columns>
+        <join-column name="zone_id" referenced-column-name="zone_id"/>
+      </join-columns>
+    </many-to-one>
   </entity>
 </doctrine-mapping>

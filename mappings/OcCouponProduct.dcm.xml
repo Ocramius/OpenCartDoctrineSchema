@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="OcCouponProduct" table="oc_coupon_product">
+    <indexes>
+      <index name="IDX_5B89B54066C5951B" columns="coupon_id"/>
+      <index name="IDX_5B89B5404584665A" columns="product_id"/>
+    </indexes>
     <id name="couponProductId" type="integer" column="coupon_product_id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="couponId" type="integer" column="coupon_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
-    <field name="productId" type="integer" column="product_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
+    <many-to-one field="coupon" target-entity="OcCoupon" fetch="LAZY">
+      <join-columns>
+        <join-column name="coupon_id" referenced-column-name="coupon_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="product" target-entity="OcProduct" fetch="LAZY">
+      <join-columns>
+        <join-column name="product_id" referenced-column-name="product_id"/>
+      </join-columns>
+    </many-to-one>
   </entity>
 </doctrine-mapping>

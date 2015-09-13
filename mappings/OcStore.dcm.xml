@@ -19,5 +19,9 @@
         <option name="fixed"/>
       </options>
     </field>
+    <many-to-many field="product" target-entity="OcProduct" mapped-by="store" fetch="LAZY"/>
+    <many-to-many field="manufacturer" target-entity="OcManufacturer" mapped-by="store" fetch="LAZY"/>
+    <many-to-many field="information" target-entity="OcInformation" mapped-by="store" fetch="LAZY"/>
+    <many-to-many field="category" target-entity="OcCategory" mapped-by="store" fetch="LAZY"/>
   </entity>
 </doctrine-mapping>

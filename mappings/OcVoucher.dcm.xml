@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="OcVoucher" table="oc_voucher">
+    <indexes>
+      <index name="IDX_A47011268D9F6D38" columns="order_id"/>
+      <index name="IDX_A4701126C7A52C0E" columns="voucher_theme_id"/>
+    </indexes>
     <id name="voucherId" type="integer" column="voucher_id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="orderId" type="integer" column="order_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
     <field name="code" type="string" column="code" length="10" nullable="false">
       <options>
         <option name="fixed"/>
@@ -34,11 +33,6 @@
         <option name="fixed"/>
       </options>
     </field>
-    <field name="voucherThemeId" type="integer" column="voucher_theme_id" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
     <field name="message" type="text" column="message" length="65535" nullable="false">
       <options>
         <option name="fixed"/>
@@ -47,5 +41,15 @@
     <field name="amount" type="decimal" column="amount" precision="15" scale="4" nullable="false"/>
     <field name="status" type="boolean" column="status" nullable="false"/>
     <field name="dateAdded" type="datetime" column="date_added" nullable="false"/>
+    <many-to-one field="voucherTheme" target-entity="OcVoucherTheme" fetch="LAZY">
+      <join-columns>
+        <join-column name="voucher_theme_id" referenced-column-name="voucher_theme_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="order" target-entity="OcOrder" fetch="LAZY">
+      <join-columns>
+        <join-column name="order_id" referenced-column-name="order_id"/>
+      </join-columns>
+    </many-to-one>
   </entity>
 </doctrine-mapping>
