@@ -86,5 +86,12 @@ foreach ($entityManager->getMetadataFactory()->getAllMetadata() as $metadataClas
         )
     ));
 
-    file_put_contents($metadataClass->getReflectionClass()->getFileName(), "<?php\n\n\n" . $classGenerator->generate());
+    file_put_contents(
+        $metadataClass->getReflectionClass()->getFileName(),
+        preg_replace(
+            '/private \\$([A-Za-z0-9]+) = null;/i',
+            'private \$${1};',
+            "<?php\n\n\n" . $classGenerator->generate()
+        )
+    );
 }
