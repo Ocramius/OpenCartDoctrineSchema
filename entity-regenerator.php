@@ -79,7 +79,7 @@ foreach ($entityManager->getMetadataFactory()->getAllMetadata() as $metadataClas
                 function (ParameterGenerator $parameterGenerator) {
                     $name = $parameterGenerator->getName();
 
-                    return '$this->' . $name = '$' . $name . ';';
+                    return '$this->' . $name . ' = $' . $name . ';';
                 },
                 array_merge($requiredParameters, $optionalParameters)
             )
