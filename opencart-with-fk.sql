@@ -36,7 +36,12 @@ CREATE TABLE `oc_address` (
   `zone_id` int(11) NOT NULL DEFAULT '0',
   `custom_field` text NOT NULL,
   PRIMARY KEY (`address_id`),
-  KEY `customer_id` (`customer_id`)
+  KEY `customer_id` (`customer_id`),
+  KEY `IDX_BAACDB7FF92F3E70` (`country_id`),
+  KEY `IDX_BAACDB7F9F2C3FAB` (`zone_id`),
+  CONSTRAINT `FK_BAACDB7F9395C3F3` FOREIGN KEY (`customer_id`) REFERENCES `oc_customer` (`customer_id`),
+  CONSTRAINT `FK_BAACDB7F9F2C3FAB` FOREIGN KEY (`zone_id`) REFERENCES `oc_zone` (`zone_id`),
+  CONSTRAINT `FK_BAACDB7FF92F3E70` FOREIGN KEY (`country_id`) REFERENCES `oc_country` (`country_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -79,7 +84,11 @@ CREATE TABLE `oc_affiliate` (
   `status` tinyint(1) NOT NULL,
   `approved` tinyint(1) NOT NULL,
   `date_added` datetime NOT NULL,
-  PRIMARY KEY (`affiliate_id`)
+  PRIMARY KEY (`affiliate_id`),
+  KEY `IDX_1F49A98BF92F3E70` (`country_id`),
+  KEY `IDX_1F49A98B9F2C3FAB` (`zone_id`),
+  CONSTRAINT `FK_1F49A98B9F2C3FAB` FOREIGN KEY (`zone_id`) REFERENCES `oc_zone` (`zone_id`),
+  CONSTRAINT `FK_1F49A98BF92F3E70` FOREIGN KEY (`country_id`) REFERENCES `oc_country` (`country_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -97,7 +106,9 @@ CREATE TABLE `oc_affiliate_activity` (
   `data` text NOT NULL,
   `ip` varchar(40) NOT NULL,
   `date_added` datetime NOT NULL,
-  PRIMARY KEY (`activity_id`)
+  PRIMARY KEY (`activity_id`),
+  KEY `IDX_F0A5AEEB9F12C49A` (`affiliate_id`),
+  CONSTRAINT `FK_F0A5AEEB9F12C49A` FOREIGN KEY (`affiliate_id`) REFERENCES `oc_affiliate` (`affiliate_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -135,7 +146,11 @@ CREATE TABLE `oc_affiliate_transaction` (
   `description` text NOT NULL,
   `amount` decimal(15,4) NOT NULL,
   `date_added` datetime NOT NULL,
-  PRIMARY KEY (`affiliate_transaction_id`)
+  PRIMARY KEY (`affiliate_transaction_id`),
+  KEY `IDX_A63959C69F12C49A` (`affiliate_id`),
+  KEY `IDX_A63959C68D9F6D38` (`order_id`),
+  CONSTRAINT `FK_A63959C68D9F6D38` FOREIGN KEY (`order_id`) REFERENCES `oc_order` (`order_id`),
+  CONSTRAINT `FK_A63959C69F12C49A` FOREIGN KEY (`affiliate_id`) REFERENCES `oc_affiliate` (`affiliate_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -168,7 +183,9 @@ CREATE TABLE `oc_api_ip` (
   `api_ip_id` int(11) NOT NULL AUTO_INCREMENT,
   `api_id` int(11) NOT NULL,
   `ip` varchar(40) NOT NULL,
-  PRIMARY KEY (`api_ip_id`)
+  PRIMARY KEY (`api_ip_id`),
+  KEY `IDX_11A4283B54963938` (`api_id`),
+  CONSTRAINT `FK_11A4283B54963938` FOREIGN KEY (`api_id`) REFERENCES `oc_api` (`api_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -188,7 +205,9 @@ CREATE TABLE `oc_api_session` (
   `ip` varchar(40) NOT NULL,
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL,
-  PRIMARY KEY (`api_session_id`)
+  PRIMARY KEY (`api_session_id`),
+  KEY `IDX_A0D921AA54963938` (`api_id`),
+  CONSTRAINT `FK_A0D921AA54963938` FOREIGN KEY (`api_id`) REFERENCES `oc_api` (`api_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -203,7 +222,9 @@ CREATE TABLE `oc_attribute` (
   `attribute_id` int(11) NOT NULL AUTO_INCREMENT,
   `attribute_group_id` int(11) NOT NULL,
   `sort_order` int(3) NOT NULL,
-  PRIMARY KEY (`attribute_id`)
+  PRIMARY KEY (`attribute_id`),
+  KEY `IDX_BC49E3BF62D643B7` (`attribute_group_id`),
+  CONSTRAINT `FK_BC49E3BF62D643B7` FOREIGN KEY (`attribute_group_id`) REFERENCES `oc_attribute_group` (`attribute_group_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -218,7 +239,11 @@ CREATE TABLE `oc_attribute_description` (
   `attribute_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
-  PRIMARY KEY (`attribute_id`,`language_id`)
+  PRIMARY KEY (`attribute_id`,`language_id`),
+  KEY `IDX_470BEE08B6E62EFA` (`attribute_id`),
+  KEY `IDX_470BEE0882F1BAF4` (`language_id`),
+  CONSTRAINT `FK_470BEE0882F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `oc_language` (`language_id`),
+  CONSTRAINT `FK_470BEE08B6E62EFA` FOREIGN KEY (`attribute_id`) REFERENCES `oc_attribute` (`attribute_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -247,7 +272,11 @@ CREATE TABLE `oc_attribute_group_description` (
   `attribute_group_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
-  PRIMARY KEY (`attribute_group_id`,`language_id`)
+  PRIMARY KEY (`attribute_group_id`,`language_id`),
+  KEY `IDX_12B880E62D643B7` (`attribute_group_id`),
+  KEY `IDX_12B880E82F1BAF4` (`language_id`),
+  CONSTRAINT `FK_12B880E62D643B7` FOREIGN KEY (`attribute_group_id`) REFERENCES `oc_attribute_group` (`attribute_group_id`),
+  CONSTRAINT `FK_12B880E82F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `oc_language` (`language_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -279,7 +308,9 @@ CREATE TABLE `oc_banner_image` (
   `link` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
   `sort_order` int(3) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`banner_image_id`)
+  PRIMARY KEY (`banner_image_id`),
+  KEY `IDX_CA43E08684EC833` (`banner_id`),
+  CONSTRAINT `FK_CA43E08684EC833` FOREIGN KEY (`banner_id`) REFERENCES `oc_banner` (`banner_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -295,7 +326,13 @@ CREATE TABLE `oc_banner_image_description` (
   `language_id` int(11) NOT NULL,
   `banner_id` int(11) NOT NULL,
   `title` varchar(64) NOT NULL,
-  PRIMARY KEY (`banner_image_id`,`language_id`)
+  PRIMARY KEY (`banner_image_id`,`language_id`),
+  KEY `IDX_9CEBD833F9CEB4E` (`banner_image_id`),
+  KEY `IDX_9CEBD8382F1BAF4` (`language_id`),
+  KEY `IDX_9CEBD83684EC833` (`banner_id`),
+  CONSTRAINT `FK_9CEBD833F9CEB4E` FOREIGN KEY (`banner_image_id`) REFERENCES `oc_banner_image` (`banner_image_id`),
+  CONSTRAINT `FK_9CEBD83684EC833` FOREIGN KEY (`banner_id`) REFERENCES `oc_banner` (`banner_id`),
+  CONSTRAINT `FK_9CEBD8382F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `oc_language` (`language_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -337,7 +374,11 @@ CREATE TABLE `oc_category_description` (
   `meta_description` varchar(255) NOT NULL,
   `meta_keyword` varchar(255) NOT NULL,
   PRIMARY KEY (`category_id`,`language_id`),
-  KEY `name` (`name`)
+  KEY `name` (`name`),
+  KEY `IDX_5E9CBFD312469DE2` (`category_id`),
+  KEY `IDX_5E9CBFD382F1BAF4` (`language_id`),
+  CONSTRAINT `FK_5E9CBFD312469DE2` FOREIGN KEY (`category_id`) REFERENCES `oc_category` (`category_id`),
+  CONSTRAINT `FK_5E9CBFD382F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `oc_language` (`language_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -351,7 +392,11 @@ DROP TABLE IF EXISTS `oc_category_filter`;
 CREATE TABLE `oc_category_filter` (
   `category_id` int(11) NOT NULL,
   `filter_id` int(11) NOT NULL,
-  PRIMARY KEY (`category_id`,`filter_id`)
+  PRIMARY KEY (`category_id`,`filter_id`),
+  KEY `IDX_B79C962012469DE2` (`category_id`),
+  KEY `IDX_B79C9620D395B25E` (`filter_id`),
+  CONSTRAINT `FK_B79C962012469DE2` FOREIGN KEY (`category_id`) REFERENCES `oc_category` (`category_id`),
+  CONSTRAINT `FK_B79C9620D395B25E` FOREIGN KEY (`filter_id`) REFERENCES `oc_filter` (`filter_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -366,7 +411,9 @@ CREATE TABLE `oc_category_path` (
   `category_id` int(11) NOT NULL,
   `path_id` int(11) NOT NULL,
   `level` int(11) NOT NULL,
-  PRIMARY KEY (`category_id`,`path_id`)
+  PRIMARY KEY (`category_id`,`path_id`),
+  KEY `IDX_F67746D312469DE2` (`category_id`),
+  CONSTRAINT `FK_F67746D312469DE2` FOREIGN KEY (`category_id`) REFERENCES `oc_category` (`category_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -381,7 +428,13 @@ CREATE TABLE `oc_category_to_layout` (
   `category_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL,
   `layout_id` int(11) NOT NULL,
-  PRIMARY KEY (`category_id`,`store_id`)
+  PRIMARY KEY (`category_id`,`store_id`),
+  KEY `IDX_4FD3A4B512469DE2` (`category_id`),
+  KEY `IDX_4FD3A4B5B092A811` (`store_id`),
+  KEY `IDX_4FD3A4B58C22AA1A` (`layout_id`),
+  CONSTRAINT `FK_4FD3A4B512469DE2` FOREIGN KEY (`category_id`) REFERENCES `oc_category` (`category_id`),
+  CONSTRAINT `FK_4FD3A4B58C22AA1A` FOREIGN KEY (`layout_id`) REFERENCES `oc_layout` (`layout_id`),
+  CONSTRAINT `FK_4FD3A4B5B092A811` FOREIGN KEY (`store_id`) REFERENCES `oc_store` (`store_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -395,7 +448,11 @@ DROP TABLE IF EXISTS `oc_category_to_store`;
 CREATE TABLE `oc_category_to_store` (
   `category_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL,
-  PRIMARY KEY (`category_id`,`store_id`)
+  PRIMARY KEY (`category_id`,`store_id`),
+  KEY `IDX_7C3B93B512469DE2` (`category_id`),
+  KEY `IDX_7C3B93B5B092A811` (`store_id`),
+  CONSTRAINT `FK_7C3B93B512469DE2` FOREIGN KEY (`category_id`) REFERENCES `oc_category` (`category_id`),
+  CONSTRAINT `FK_7C3B93B5B092A811` FOREIGN KEY (`store_id`) REFERENCES `oc_store` (`store_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -454,7 +511,11 @@ DROP TABLE IF EXISTS `oc_coupon_category`;
 CREATE TABLE `oc_coupon_category` (
   `coupon_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
-  PRIMARY KEY (`coupon_id`,`category_id`)
+  PRIMARY KEY (`coupon_id`,`category_id`),
+  KEY `IDX_D87F44B566C5951B` (`coupon_id`),
+  KEY `IDX_D87F44B512469DE2` (`category_id`),
+  CONSTRAINT `FK_D87F44B512469DE2` FOREIGN KEY (`category_id`) REFERENCES `oc_category` (`category_id`),
+  CONSTRAINT `FK_D87F44B566C5951B` FOREIGN KEY (`coupon_id`) REFERENCES `oc_coupon` (`coupon_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -472,7 +533,13 @@ CREATE TABLE `oc_coupon_history` (
   `customer_id` int(11) NOT NULL,
   `amount` decimal(15,4) NOT NULL,
   `date_added` datetime NOT NULL,
-  PRIMARY KEY (`coupon_history_id`)
+  PRIMARY KEY (`coupon_history_id`),
+  KEY `IDX_AF79C1A666C5951B` (`coupon_id`),
+  KEY `IDX_AF79C1A68D9F6D38` (`order_id`),
+  KEY `IDX_AF79C1A69395C3F3` (`customer_id`),
+  CONSTRAINT `FK_AF79C1A666C5951B` FOREIGN KEY (`coupon_id`) REFERENCES `oc_coupon` (`coupon_id`),
+  CONSTRAINT `FK_AF79C1A68D9F6D38` FOREIGN KEY (`order_id`) REFERENCES `oc_order` (`order_id`),
+  CONSTRAINT `FK_AF79C1A69395C3F3` FOREIGN KEY (`customer_id`) REFERENCES `oc_customer` (`customer_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -487,7 +554,11 @@ CREATE TABLE `oc_coupon_product` (
   `coupon_product_id` int(11) NOT NULL AUTO_INCREMENT,
   `coupon_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
-  PRIMARY KEY (`coupon_product_id`)
+  PRIMARY KEY (`coupon_product_id`),
+  KEY `IDX_5B89B54066C5951B` (`coupon_id`),
+  KEY `IDX_5B89B5404584665A` (`product_id`),
+  CONSTRAINT `FK_5B89B5404584665A` FOREIGN KEY (`product_id`) REFERENCES `oc_product` (`product_id`),
+  CONSTRAINT `FK_5B89B54066C5951B` FOREIGN KEY (`coupon_id`) REFERENCES `oc_coupon` (`coupon_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -541,7 +612,11 @@ CREATE TABLE `oc_custom_field_customer_group` (
   `custom_field_id` int(11) NOT NULL,
   `customer_group_id` int(11) NOT NULL,
   `required` tinyint(1) NOT NULL,
-  PRIMARY KEY (`custom_field_id`,`customer_group_id`)
+  PRIMARY KEY (`custom_field_id`,`customer_group_id`),
+  KEY `IDX_AB2D22F0A1E5E0D4` (`custom_field_id`),
+  KEY `IDX_AB2D22F0D2919A68` (`customer_group_id`),
+  CONSTRAINT `FK_AB2D22F0A1E5E0D4` FOREIGN KEY (`custom_field_id`) REFERENCES `oc_custom_field` (`custom_field_id`),
+  CONSTRAINT `FK_AB2D22F0D2919A68` FOREIGN KEY (`customer_group_id`) REFERENCES `oc_customer_group` (`customer_group_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -556,7 +631,11 @@ CREATE TABLE `oc_custom_field_description` (
   `custom_field_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `name` varchar(128) NOT NULL,
-  PRIMARY KEY (`custom_field_id`,`language_id`)
+  PRIMARY KEY (`custom_field_id`,`language_id`),
+  KEY `IDX_55838BBEA1E5E0D4` (`custom_field_id`),
+  KEY `IDX_55838BBE82F1BAF4` (`language_id`),
+  CONSTRAINT `FK_55838BBE82F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `oc_language` (`language_id`),
+  CONSTRAINT `FK_55838BBEA1E5E0D4` FOREIGN KEY (`custom_field_id`) REFERENCES `oc_custom_field` (`custom_field_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -571,7 +650,9 @@ CREATE TABLE `oc_custom_field_value` (
   `custom_field_value_id` int(11) NOT NULL AUTO_INCREMENT,
   `custom_field_id` int(11) NOT NULL,
   `sort_order` int(3) NOT NULL,
-  PRIMARY KEY (`custom_field_value_id`)
+  PRIMARY KEY (`custom_field_value_id`),
+  KEY `IDX_94B76AFFA1E5E0D4` (`custom_field_id`),
+  CONSTRAINT `FK_94B76AFFA1E5E0D4` FOREIGN KEY (`custom_field_id`) REFERENCES `oc_custom_field` (`custom_field_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -587,7 +668,13 @@ CREATE TABLE `oc_custom_field_value_description` (
   `language_id` int(11) NOT NULL,
   `custom_field_id` int(11) NOT NULL,
   `name` varchar(128) NOT NULL,
-  PRIMARY KEY (`custom_field_value_id`,`language_id`)
+  PRIMARY KEY (`custom_field_value_id`,`language_id`),
+  KEY `IDX_4C68CE735FD09B5` (`custom_field_value_id`),
+  KEY `IDX_4C68CE7382F1BAF4` (`language_id`),
+  KEY `IDX_4C68CE73A1E5E0D4` (`custom_field_id`),
+  CONSTRAINT `FK_4C68CE735FD09B5` FOREIGN KEY (`custom_field_value_id`) REFERENCES `oc_custom_field_value` (`custom_field_value_id`),
+  CONSTRAINT `FK_4C68CE7382F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `oc_language` (`language_id`),
+  CONSTRAINT `FK_4C68CE73A1E5E0D4` FOREIGN KEY (`custom_field_id`) REFERENCES `oc_custom_field` (`custom_field_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -620,7 +707,13 @@ CREATE TABLE `oc_customer` (
   `safe` tinyint(1) NOT NULL,
   `token` text NOT NULL,
   `date_added` datetime NOT NULL,
-  PRIMARY KEY (`customer_id`)
+  PRIMARY KEY (`customer_id`),
+  KEY `IDX_DB8BB3A6D2919A68` (`customer_group_id`),
+  KEY `IDX_DB8BB3A6B092A811` (`store_id`),
+  KEY `IDX_DB8BB3A6F5B7AF75` (`address_id`),
+  CONSTRAINT `FK_DB8BB3A6B092A811` FOREIGN KEY (`store_id`) REFERENCES `oc_store` (`store_id`),
+  CONSTRAINT `FK_DB8BB3A6D2919A68` FOREIGN KEY (`customer_group_id`) REFERENCES `oc_customer_group` (`customer_group_id`),
+  CONSTRAINT `FK_DB8BB3A6F5B7AF75` FOREIGN KEY (`address_id`) REFERENCES `oc_address` (`address_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -638,7 +731,9 @@ CREATE TABLE `oc_customer_activity` (
   `data` text NOT NULL,
   `ip` varchar(40) NOT NULL,
   `date_added` datetime NOT NULL,
-  PRIMARY KEY (`activity_id`)
+  PRIMARY KEY (`activity_id`),
+  KEY `IDX_BF9B34FC9395C3F3` (`customer_id`),
+  CONSTRAINT `FK_BF9B34FC9395C3F3` FOREIGN KEY (`customer_id`) REFERENCES `oc_customer` (`customer_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -669,7 +764,11 @@ CREATE TABLE `oc_customer_group_description` (
   `language_id` int(11) NOT NULL,
   `name` varchar(32) NOT NULL,
   `description` text NOT NULL,
-  PRIMARY KEY (`customer_group_id`,`language_id`)
+  PRIMARY KEY (`customer_group_id`,`language_id`),
+  KEY `IDX_B18044E6D2919A68` (`customer_group_id`),
+  KEY `IDX_B18044E682F1BAF4` (`language_id`),
+  CONSTRAINT `FK_B18044E682F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `oc_language` (`language_id`),
+  CONSTRAINT `FK_B18044E6D2919A68` FOREIGN KEY (`customer_group_id`) REFERENCES `oc_customer_group` (`customer_group_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -685,7 +784,9 @@ CREATE TABLE `oc_customer_history` (
   `customer_id` int(11) NOT NULL,
   `comment` text NOT NULL,
   `date_added` datetime NOT NULL,
-  PRIMARY KEY (`customer_history_id`)
+  PRIMARY KEY (`customer_history_id`),
+  KEY `IDX_A41F80539395C3F3` (`customer_id`),
+  CONSTRAINT `FK_A41F80539395C3F3` FOREIGN KEY (`customer_id`) REFERENCES `oc_customer` (`customer_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -702,7 +803,9 @@ CREATE TABLE `oc_customer_ip` (
   `ip` varchar(40) NOT NULL,
   `date_added` datetime NOT NULL,
   PRIMARY KEY (`customer_ip_id`),
-  KEY `ip` (`ip`)
+  KEY `ip` (`ip`),
+  KEY `IDX_14EC97979395C3F3` (`customer_id`),
+  CONSTRAINT `FK_14EC97979395C3F3` FOREIGN KEY (`customer_id`) REFERENCES `oc_customer` (`customer_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -739,7 +842,9 @@ CREATE TABLE `oc_customer_online` (
   `url` text NOT NULL,
   `referer` text NOT NULL,
   `date_added` datetime NOT NULL,
-  PRIMARY KEY (`ip`)
+  PRIMARY KEY (`ip`),
+  KEY `IDX_E84761FD9395C3F3` (`customer_id`),
+  CONSTRAINT `FK_E84761FD9395C3F3` FOREIGN KEY (`customer_id`) REFERENCES `oc_customer` (`customer_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -757,7 +862,11 @@ CREATE TABLE `oc_customer_reward` (
   `description` text NOT NULL,
   `points` int(8) NOT NULL DEFAULT '0',
   `date_added` datetime NOT NULL,
-  PRIMARY KEY (`customer_reward_id`)
+  PRIMARY KEY (`customer_reward_id`),
+  KEY `IDX_38A4AD449395C3F3` (`customer_id`),
+  KEY `IDX_38A4AD448D9F6D38` (`order_id`),
+  CONSTRAINT `FK_38A4AD448D9F6D38` FOREIGN KEY (`order_id`) REFERENCES `oc_order` (`order_id`),
+  CONSTRAINT `FK_38A4AD449395C3F3` FOREIGN KEY (`customer_id`) REFERENCES `oc_customer` (`customer_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -775,7 +884,11 @@ CREATE TABLE `oc_customer_transaction` (
   `description` text NOT NULL,
   `amount` decimal(15,4) NOT NULL,
   `date_added` datetime NOT NULL,
-  PRIMARY KEY (`customer_transaction_id`)
+  PRIMARY KEY (`customer_transaction_id`),
+  KEY `IDX_F59F93479395C3F3` (`customer_id`),
+  KEY `IDX_F59F93478D9F6D38` (`order_id`),
+  CONSTRAINT `FK_F59F93478D9F6D38` FOREIGN KEY (`order_id`) REFERENCES `oc_order` (`order_id`),
+  CONSTRAINT `FK_F59F93479395C3F3` FOREIGN KEY (`customer_id`) REFERENCES `oc_customer` (`customer_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -806,7 +919,11 @@ CREATE TABLE `oc_download_description` (
   `download_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
-  PRIMARY KEY (`download_id`,`language_id`)
+  PRIMARY KEY (`download_id`,`language_id`),
+  KEY `IDX_C78A3200C667AEAB` (`download_id`),
+  KEY `IDX_C78A320082F1BAF4` (`language_id`),
+  CONSTRAINT `FK_C78A320082F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `oc_language` (`language_id`),
+  CONSTRAINT `FK_C78A3200C667AEAB` FOREIGN KEY (`download_id`) REFERENCES `oc_download` (`download_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -852,7 +969,9 @@ CREATE TABLE `oc_filter` (
   `filter_id` int(11) NOT NULL AUTO_INCREMENT,
   `filter_group_id` int(11) NOT NULL,
   `sort_order` int(3) NOT NULL,
-  PRIMARY KEY (`filter_id`)
+  PRIMARY KEY (`filter_id`),
+  KEY `IDX_202C9A63C33BDCE7` (`filter_group_id`),
+  CONSTRAINT `FK_202C9A63C33BDCE7` FOREIGN KEY (`filter_group_id`) REFERENCES `oc_filter_group` (`filter_group_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -868,7 +987,13 @@ CREATE TABLE `oc_filter_description` (
   `language_id` int(11) NOT NULL,
   `filter_group_id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
-  PRIMARY KEY (`filter_id`,`language_id`)
+  PRIMARY KEY (`filter_id`,`language_id`),
+  KEY `IDX_80BD840DD395B25E` (`filter_id`),
+  KEY `IDX_80BD840D82F1BAF4` (`language_id`),
+  KEY `IDX_80BD840DC33BDCE7` (`filter_group_id`),
+  CONSTRAINT `FK_80BD840D82F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `oc_language` (`language_id`),
+  CONSTRAINT `FK_80BD840DC33BDCE7` FOREIGN KEY (`filter_group_id`) REFERENCES `oc_filter_group` (`filter_group_id`),
+  CONSTRAINT `FK_80BD840DD395B25E` FOREIGN KEY (`filter_id`) REFERENCES `oc_filter` (`filter_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -897,7 +1022,11 @@ CREATE TABLE `oc_filter_group_description` (
   `filter_group_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
-  PRIMARY KEY (`filter_group_id`,`language_id`)
+  PRIMARY KEY (`filter_group_id`,`language_id`),
+  KEY `IDX_2E9DE7D2C33BDCE7` (`filter_group_id`),
+  KEY `IDX_2E9DE7D282F1BAF4` (`language_id`),
+  CONSTRAINT `FK_2E9DE7D282F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `oc_language` (`language_id`),
+  CONSTRAINT `FK_2E9DE7D2C33BDCE7` FOREIGN KEY (`filter_group_id`) REFERENCES `oc_filter_group` (`filter_group_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -949,7 +1078,11 @@ CREATE TABLE `oc_information_description` (
   `meta_title` varchar(255) NOT NULL,
   `meta_description` varchar(255) NOT NULL,
   `meta_keyword` varchar(255) NOT NULL,
-  PRIMARY KEY (`information_id`,`language_id`)
+  PRIMARY KEY (`information_id`,`language_id`),
+  KEY `IDX_8BDE06A52EF03101` (`information_id`),
+  KEY `IDX_8BDE06A582F1BAF4` (`language_id`),
+  CONSTRAINT `FK_8BDE06A52EF03101` FOREIGN KEY (`information_id`) REFERENCES `oc_information` (`information_id`),
+  CONSTRAINT `FK_8BDE06A582F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `oc_language` (`language_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -964,7 +1097,13 @@ CREATE TABLE `oc_information_to_layout` (
   `information_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL,
   `layout_id` int(11) NOT NULL,
-  PRIMARY KEY (`information_id`,`store_id`)
+  PRIMARY KEY (`information_id`,`store_id`),
+  KEY `IDX_B5573F032EF03101` (`information_id`),
+  KEY `IDX_B5573F03B092A811` (`store_id`),
+  KEY `IDX_B5573F038C22AA1A` (`layout_id`),
+  CONSTRAINT `FK_B5573F032EF03101` FOREIGN KEY (`information_id`) REFERENCES `oc_information` (`information_id`),
+  CONSTRAINT `FK_B5573F038C22AA1A` FOREIGN KEY (`layout_id`) REFERENCES `oc_layout` (`layout_id`),
+  CONSTRAINT `FK_B5573F03B092A811` FOREIGN KEY (`store_id`) REFERENCES `oc_store` (`store_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -978,7 +1117,11 @@ DROP TABLE IF EXISTS `oc_information_to_store`;
 CREATE TABLE `oc_information_to_store` (
   `information_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL,
-  PRIMARY KEY (`information_id`,`store_id`)
+  PRIMARY KEY (`information_id`,`store_id`),
+  KEY `IDX_F79D46AB2EF03101` (`information_id`),
+  KEY `IDX_F79D46ABB092A811` (`store_id`),
+  CONSTRAINT `FK_F79D46AB2EF03101` FOREIGN KEY (`information_id`) REFERENCES `oc_information` (`information_id`),
+  CONSTRAINT `FK_F79D46ABB092A811` FOREIGN KEY (`store_id`) REFERENCES `oc_store` (`store_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1030,7 +1173,9 @@ CREATE TABLE `oc_layout_module` (
   `code` varchar(64) NOT NULL,
   `position` varchar(14) NOT NULL,
   `sort_order` int(3) NOT NULL,
-  PRIMARY KEY (`layout_module_id`)
+  PRIMARY KEY (`layout_module_id`),
+  KEY `IDX_1A486758C22AA1A` (`layout_id`),
+  CONSTRAINT `FK_1A486758C22AA1A` FOREIGN KEY (`layout_id`) REFERENCES `oc_layout` (`layout_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1046,7 +1191,11 @@ CREATE TABLE `oc_layout_route` (
   `layout_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL,
   `route` varchar(255) NOT NULL,
-  PRIMARY KEY (`layout_route_id`)
+  PRIMARY KEY (`layout_route_id`),
+  KEY `IDX_EF0E43F38C22AA1A` (`layout_id`),
+  KEY `IDX_EF0E43F3B092A811` (`store_id`),
+  CONSTRAINT `FK_EF0E43F38C22AA1A` FOREIGN KEY (`layout_id`) REFERENCES `oc_layout` (`layout_id`),
+  CONSTRAINT `FK_EF0E43F3B092A811` FOREIGN KEY (`store_id`) REFERENCES `oc_store` (`store_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1076,7 +1225,11 @@ CREATE TABLE `oc_length_class_description` (
   `language_id` int(11) NOT NULL,
   `title` varchar(32) NOT NULL,
   `unit` varchar(4) NOT NULL,
-  PRIMARY KEY (`length_class_id`,`language_id`)
+  PRIMARY KEY (`length_class_id`,`language_id`),
+  KEY `IDX_CDC4CCB3DEBB62E6` (`length_class_id`),
+  KEY `IDX_CDC4CCB382F1BAF4` (`language_id`),
+  CONSTRAINT `FK_CDC4CCB382F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `oc_language` (`language_id`),
+  CONSTRAINT `FK_CDC4CCB3DEBB62E6` FOREIGN KEY (`length_class_id`) REFERENCES `oc_length_class` (`length_class_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1128,7 +1281,11 @@ DROP TABLE IF EXISTS `oc_manufacturer_to_store`;
 CREATE TABLE `oc_manufacturer_to_store` (
   `manufacturer_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL,
-  PRIMARY KEY (`manufacturer_id`,`store_id`)
+  PRIMARY KEY (`manufacturer_id`,`store_id`),
+  KEY `IDX_6680A42FA23B42D` (`manufacturer_id`),
+  KEY `IDX_6680A42FB092A811` (`store_id`),
+  CONSTRAINT `FK_6680A42FA23B42D` FOREIGN KEY (`manufacturer_id`) REFERENCES `oc_manufacturer` (`manufacturer_id`),
+  CONSTRAINT `FK_6680A42FB092A811` FOREIGN KEY (`store_id`) REFERENCES `oc_store` (`store_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1213,7 +1370,11 @@ CREATE TABLE `oc_option_description` (
   `option_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `name` varchar(128) NOT NULL,
-  PRIMARY KEY (`option_id`,`language_id`)
+  PRIMARY KEY (`option_id`,`language_id`),
+  KEY `IDX_DF8B0868A7C41D6F` (`option_id`),
+  KEY `IDX_DF8B086882F1BAF4` (`language_id`),
+  CONSTRAINT `FK_DF8B086882F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `oc_language` (`language_id`),
+  CONSTRAINT `FK_DF8B0868A7C41D6F` FOREIGN KEY (`option_id`) REFERENCES `oc_option` (`option_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1229,7 +1390,9 @@ CREATE TABLE `oc_option_value` (
   `option_id` int(11) NOT NULL,
   `image` varchar(255) NOT NULL,
   `sort_order` int(3) NOT NULL,
-  PRIMARY KEY (`option_value_id`)
+  PRIMARY KEY (`option_value_id`),
+  KEY `IDX_406AEE1CA7C41D6F` (`option_id`),
+  CONSTRAINT `FK_406AEE1CA7C41D6F` FOREIGN KEY (`option_id`) REFERENCES `oc_option` (`option_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1245,7 +1408,13 @@ CREATE TABLE `oc_option_value_description` (
   `language_id` int(11) NOT NULL,
   `option_id` int(11) NOT NULL,
   `name` varchar(128) NOT NULL,
-  PRIMARY KEY (`option_value_id`,`language_id`)
+  PRIMARY KEY (`option_value_id`,`language_id`),
+  KEY `IDX_575F4DBAD957CA06` (`option_value_id`),
+  KEY `IDX_575F4DBA82F1BAF4` (`language_id`),
+  KEY `IDX_575F4DBAA7C41D6F` (`option_id`),
+  CONSTRAINT `FK_575F4DBA82F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `oc_language` (`language_id`),
+  CONSTRAINT `FK_575F4DBAA7C41D6F` FOREIGN KEY (`option_id`) REFERENCES `oc_option` (`option_id`),
+  CONSTRAINT `FK_575F4DBAD957CA06` FOREIGN KEY (`option_value_id`) REFERENCES `oc_option_value` (`option_value_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1318,7 +1487,23 @@ CREATE TABLE `oc_order` (
   `accept_language` varchar(255) NOT NULL,
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL,
-  PRIMARY KEY (`order_id`)
+  PRIMARY KEY (`order_id`),
+  KEY `IDX_1864E5A1B092A811` (`store_id`),
+  KEY `IDX_1864E5A19395C3F3` (`customer_id`),
+  KEY `IDX_1864E5A1D2919A68` (`customer_group_id`),
+  KEY `IDX_1864E5A1D7707B45` (`order_status_id`),
+  KEY `IDX_1864E5A19F12C49A` (`affiliate_id`),
+  KEY `IDX_1864E5A1C6DCB66C` (`marketing_id`),
+  KEY `IDX_1864E5A182F1BAF4` (`language_id`),
+  KEY `IDX_1864E5A138248176` (`currency_id`),
+  CONSTRAINT `FK_1864E5A138248176` FOREIGN KEY (`currency_id`) REFERENCES `oc_currency` (`currency_id`),
+  CONSTRAINT `FK_1864E5A182F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `oc_language` (`language_id`),
+  CONSTRAINT `FK_1864E5A19395C3F3` FOREIGN KEY (`customer_id`) REFERENCES `oc_customer` (`customer_id`),
+  CONSTRAINT `FK_1864E5A19F12C49A` FOREIGN KEY (`affiliate_id`) REFERENCES `oc_affiliate` (`affiliate_id`),
+  CONSTRAINT `FK_1864E5A1B092A811` FOREIGN KEY (`store_id`) REFERENCES `oc_store` (`store_id`),
+  CONSTRAINT `FK_1864E5A1C6DCB66C` FOREIGN KEY (`marketing_id`) REFERENCES `oc_marketing` (`marketing_id`),
+  CONSTRAINT `FK_1864E5A1D2919A68` FOREIGN KEY (`customer_group_id`) REFERENCES `oc_customer_group` (`customer_group_id`),
+  CONSTRAINT `FK_1864E5A1D7707B45` FOREIGN KEY (`order_status_id`) REFERENCES `oc_order_status` (`order_status_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1338,7 +1523,13 @@ CREATE TABLE `oc_order_custom_field` (
   `value` text NOT NULL,
   `type` varchar(32) NOT NULL,
   `location` varchar(16) NOT NULL,
-  PRIMARY KEY (`order_custom_field_id`)
+  PRIMARY KEY (`order_custom_field_id`),
+  KEY `IDX_86338A18D9F6D38` (`order_id`),
+  KEY `IDX_86338A1A1E5E0D4` (`custom_field_id`),
+  KEY `IDX_86338A15FD09B5` (`custom_field_value_id`),
+  CONSTRAINT `FK_86338A15FD09B5` FOREIGN KEY (`custom_field_value_id`) REFERENCES `oc_custom_field_value` (`custom_field_value_id`),
+  CONSTRAINT `FK_86338A18D9F6D38` FOREIGN KEY (`order_id`) REFERENCES `oc_order` (`order_id`),
+  CONSTRAINT `FK_86338A1A1E5E0D4` FOREIGN KEY (`custom_field_id`) REFERENCES `oc_custom_field` (`custom_field_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1356,7 +1547,11 @@ CREATE TABLE `oc_order_history` (
   `notify` tinyint(1) NOT NULL DEFAULT '0',
   `comment` text NOT NULL,
   `date_added` datetime NOT NULL,
-  PRIMARY KEY (`order_history_id`)
+  PRIMARY KEY (`order_history_id`),
+  KEY `IDX_A7786E9B8D9F6D38` (`order_id`),
+  KEY `IDX_A7786E9BD7707B45` (`order_status_id`),
+  CONSTRAINT `FK_A7786E9B8D9F6D38` FOREIGN KEY (`order_id`) REFERENCES `oc_order` (`order_id`),
+  CONSTRAINT `FK_A7786E9BD7707B45` FOREIGN KEY (`order_status_id`) REFERENCES `oc_order_status` (`order_status_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1376,7 +1571,15 @@ CREATE TABLE `oc_order_option` (
   `name` varchar(255) NOT NULL,
   `value` text NOT NULL,
   `type` varchar(32) NOT NULL,
-  PRIMARY KEY (`order_option_id`)
+  PRIMARY KEY (`order_option_id`),
+  KEY `IDX_FDFF1B258D9F6D38` (`order_id`),
+  KEY `IDX_FDFF1B25F65E9B0F` (`order_product_id`),
+  KEY `IDX_FDFF1B25C964ABE2` (`product_option_id`),
+  KEY `IDX_FDFF1B25EBDCCF9B` (`product_option_value_id`),
+  CONSTRAINT `FK_FDFF1B258D9F6D38` FOREIGN KEY (`order_id`) REFERENCES `oc_order` (`order_id`),
+  CONSTRAINT `FK_FDFF1B25C964ABE2` FOREIGN KEY (`product_option_id`) REFERENCES `oc_product_option` (`product_option_id`),
+  CONSTRAINT `FK_FDFF1B25EBDCCF9B` FOREIGN KEY (`product_option_value_id`) REFERENCES `oc_product_option_value` (`product_option_value_id`),
+  CONSTRAINT `FK_FDFF1B25F65E9B0F` FOREIGN KEY (`order_product_id`) REFERENCES `oc_order_product` (`order_product_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1398,7 +1601,11 @@ CREATE TABLE `oc_order_product` (
   `total` decimal(15,4) NOT NULL DEFAULT '0.0000',
   `tax` decimal(15,4) NOT NULL DEFAULT '0.0000',
   `reward` int(8) NOT NULL,
-  PRIMARY KEY (`order_product_id`)
+  PRIMARY KEY (`order_product_id`),
+  KEY `IDX_53881A7D8D9F6D38` (`order_id`),
+  KEY `IDX_53881A7D4584665A` (`product_id`),
+  CONSTRAINT `FK_53881A7D4584665A` FOREIGN KEY (`product_id`) REFERENCES `oc_product` (`product_id`),
+  CONSTRAINT `FK_53881A7D8D9F6D38` FOREIGN KEY (`order_id`) REFERENCES `oc_order` (`order_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1430,7 +1637,13 @@ CREATE TABLE `oc_order_recurring` (
   `trial_price` decimal(10,4) NOT NULL,
   `status` tinyint(4) NOT NULL,
   `date_added` datetime NOT NULL,
-  PRIMARY KEY (`order_recurring_id`)
+  PRIMARY KEY (`order_recurring_id`),
+  KEY `IDX_175B7A538D9F6D38` (`order_id`),
+  KEY `IDX_175B7A534584665A` (`product_id`),
+  KEY `IDX_175B7A53B149C95E` (`recurring_id`),
+  CONSTRAINT `FK_175B7A534584665A` FOREIGN KEY (`product_id`) REFERENCES `oc_product` (`product_id`),
+  CONSTRAINT `FK_175B7A538D9F6D38` FOREIGN KEY (`order_id`) REFERENCES `oc_order` (`order_id`),
+  CONSTRAINT `FK_175B7A53B149C95E` FOREIGN KEY (`recurring_id`) REFERENCES `oc_recurring` (`recurring_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1448,7 +1661,9 @@ CREATE TABLE `oc_order_recurring_transaction` (
   `type` varchar(255) NOT NULL,
   `amount` decimal(10,4) NOT NULL,
   `date_added` datetime NOT NULL,
-  PRIMARY KEY (`order_recurring_transaction_id`)
+  PRIMARY KEY (`order_recurring_transaction_id`),
+  KEY `IDX_F2B767A3B5895D34` (`order_recurring_id`),
+  CONSTRAINT `FK_F2B767A3B5895D34` FOREIGN KEY (`order_recurring_id`) REFERENCES `oc_order_recurring` (`order_recurring_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1463,7 +1678,9 @@ CREATE TABLE `oc_order_status` (
   `order_status_id` int(11) NOT NULL AUTO_INCREMENT,
   `language_id` int(11) NOT NULL,
   `name` varchar(32) NOT NULL,
-  PRIMARY KEY (`order_status_id`,`language_id`)
+  PRIMARY KEY (`order_status_id`,`language_id`),
+  KEY `IDX_DC797E8982F1BAF4` (`language_id`),
+  CONSTRAINT `FK_DC797E8982F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `oc_language` (`language_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1482,7 +1699,8 @@ CREATE TABLE `oc_order_total` (
   `value` decimal(15,4) NOT NULL DEFAULT '0.0000',
   `sort_order` int(3) NOT NULL,
   PRIMARY KEY (`order_total_id`),
-  KEY `order_id` (`order_id`)
+  KEY `order_id` (`order_id`),
+  CONSTRAINT `FK_DC1215BA8D9F6D38` FOREIGN KEY (`order_id`) REFERENCES `oc_order` (`order_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1506,7 +1724,13 @@ CREATE TABLE `oc_order_voucher` (
   `voucher_theme_id` int(11) NOT NULL,
   `message` text NOT NULL,
   `amount` decimal(15,4) NOT NULL,
-  PRIMARY KEY (`order_voucher_id`)
+  PRIMARY KEY (`order_voucher_id`),
+  KEY `IDX_9350BB088D9F6D38` (`order_id`),
+  KEY `IDX_9350BB0828AA1B6F` (`voucher_id`),
+  KEY `IDX_9350BB08C7A52C0E` (`voucher_theme_id`),
+  CONSTRAINT `FK_9350BB0828AA1B6F` FOREIGN KEY (`voucher_id`) REFERENCES `oc_voucher` (`voucher_id`),
+  CONSTRAINT `FK_9350BB088D9F6D38` FOREIGN KEY (`order_id`) REFERENCES `oc_order` (`order_id`),
+  CONSTRAINT `FK_9350BB08C7A52C0E` FOREIGN KEY (`voucher_theme_id`) REFERENCES `oc_voucher_theme` (`voucher_theme_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1549,7 +1773,17 @@ CREATE TABLE `oc_product` (
   `viewed` int(5) NOT NULL DEFAULT '0',
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL,
-  PRIMARY KEY (`product_id`)
+  PRIMARY KEY (`product_id`),
+  KEY `IDX_64A8B053F36AE655` (`stock_status_id`),
+  KEY `IDX_64A8B053A23B42D` (`manufacturer_id`),
+  KEY `IDX_64A8B053A94AAAE` (`tax_class_id`),
+  KEY `IDX_64A8B053A0206A65` (`weight_class_id`),
+  KEY `IDX_64A8B053DEBB62E6` (`length_class_id`),
+  CONSTRAINT `FK_64A8B053A0206A65` FOREIGN KEY (`weight_class_id`) REFERENCES `oc_weight_class` (`weight_class_id`),
+  CONSTRAINT `FK_64A8B053A23B42D` FOREIGN KEY (`manufacturer_id`) REFERENCES `oc_manufacturer` (`manufacturer_id`),
+  CONSTRAINT `FK_64A8B053A94AAAE` FOREIGN KEY (`tax_class_id`) REFERENCES `oc_tax_class` (`tax_class_id`),
+  CONSTRAINT `FK_64A8B053DEBB62E6` FOREIGN KEY (`length_class_id`) REFERENCES `oc_length_class` (`length_class_id`),
+  CONSTRAINT `FK_64A8B053F36AE655` FOREIGN KEY (`stock_status_id`) REFERENCES `oc_stock_status` (`stock_status_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1565,7 +1799,13 @@ CREATE TABLE `oc_product_attribute` (
   `attribute_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `text` text NOT NULL,
-  PRIMARY KEY (`product_id`,`attribute_id`,`language_id`)
+  PRIMARY KEY (`product_id`,`attribute_id`,`language_id`),
+  KEY `IDX_ABF027FF4584665A` (`product_id`),
+  KEY `IDX_ABF027FFB6E62EFA` (`attribute_id`),
+  KEY `IDX_ABF027FF82F1BAF4` (`language_id`),
+  CONSTRAINT `FK_ABF027FF4584665A` FOREIGN KEY (`product_id`) REFERENCES `oc_product` (`product_id`),
+  CONSTRAINT `FK_ABF027FF82F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `oc_language` (`language_id`),
+  CONSTRAINT `FK_ABF027FFB6E62EFA` FOREIGN KEY (`attribute_id`) REFERENCES `oc_attribute` (`attribute_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1586,7 +1826,11 @@ CREATE TABLE `oc_product_description` (
   `meta_description` varchar(255) NOT NULL,
   `meta_keyword` varchar(255) NOT NULL,
   PRIMARY KEY (`product_id`,`language_id`),
-  KEY `name` (`name`)
+  KEY `name` (`name`),
+  KEY `IDX_9C379E2A4584665A` (`product_id`),
+  KEY `IDX_9C379E2A82F1BAF4` (`language_id`),
+  CONSTRAINT `FK_9C379E2A4584665A` FOREIGN KEY (`product_id`) REFERENCES `oc_product` (`product_id`),
+  CONSTRAINT `FK_9C379E2A82F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `oc_language` (`language_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1607,7 +1851,10 @@ CREATE TABLE `oc_product_discount` (
   `date_start` date NOT NULL DEFAULT '0000-00-00',
   `date_end` date NOT NULL DEFAULT '0000-00-00',
   PRIMARY KEY (`product_discount_id`),
-  KEY `product_id` (`product_id`)
+  KEY `product_id` (`product_id`),
+  KEY `IDX_B5288A3FD2919A68` (`customer_group_id`),
+  CONSTRAINT `FK_B5288A3F4584665A` FOREIGN KEY (`product_id`) REFERENCES `oc_product` (`product_id`),
+  CONSTRAINT `FK_B5288A3FD2919A68` FOREIGN KEY (`customer_group_id`) REFERENCES `oc_customer_group` (`customer_group_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=441 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1621,7 +1868,11 @@ DROP TABLE IF EXISTS `oc_product_filter`;
 CREATE TABLE `oc_product_filter` (
   `product_id` int(11) NOT NULL,
   `filter_id` int(11) NOT NULL,
-  PRIMARY KEY (`product_id`,`filter_id`)
+  PRIMARY KEY (`product_id`,`filter_id`),
+  KEY `IDX_7A13ECC24584665A` (`product_id`),
+  KEY `IDX_7A13ECC2D395B25E` (`filter_id`),
+  CONSTRAINT `FK_7A13ECC24584665A` FOREIGN KEY (`product_id`) REFERENCES `oc_product` (`product_id`),
+  CONSTRAINT `FK_7A13ECC2D395B25E` FOREIGN KEY (`filter_id`) REFERENCES `oc_filter` (`filter_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1638,7 +1889,8 @@ CREATE TABLE `oc_product_image` (
   `image` varchar(255) DEFAULT NULL,
   `sort_order` int(3) NOT NULL DEFAULT '0',
   PRIMARY KEY (`product_image_id`),
-  KEY `product_id` (`product_id`)
+  KEY `product_id` (`product_id`),
+  CONSTRAINT `FK_12D9C8984584665A` FOREIGN KEY (`product_id`) REFERENCES `oc_product` (`product_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2352 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1655,7 +1907,11 @@ CREATE TABLE `oc_product_option` (
   `option_id` int(11) NOT NULL,
   `value` text NOT NULL,
   `required` tinyint(1) NOT NULL,
-  PRIMARY KEY (`product_option_id`)
+  PRIMARY KEY (`product_option_id`),
+  KEY `IDX_5F51B36F4584665A` (`product_id`),
+  KEY `IDX_5F51B36FA7C41D6F` (`option_id`),
+  CONSTRAINT `FK_5F51B36F4584665A` FOREIGN KEY (`product_id`) REFERENCES `oc_product` (`product_id`),
+  CONSTRAINT `FK_5F51B36FA7C41D6F` FOREIGN KEY (`option_id`) REFERENCES `oc_option` (`option_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=227 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1680,7 +1936,15 @@ CREATE TABLE `oc_product_option_value` (
   `points_prefix` varchar(1) NOT NULL,
   `weight` decimal(15,8) NOT NULL,
   `weight_prefix` varchar(1) NOT NULL,
-  PRIMARY KEY (`product_option_value_id`)
+  PRIMARY KEY (`product_option_value_id`),
+  KEY `IDX_2DDB7AA9C964ABE2` (`product_option_id`),
+  KEY `IDX_2DDB7AA94584665A` (`product_id`),
+  KEY `IDX_2DDB7AA9A7C41D6F` (`option_id`),
+  KEY `IDX_2DDB7AA9D957CA06` (`option_value_id`),
+  CONSTRAINT `FK_2DDB7AA94584665A` FOREIGN KEY (`product_id`) REFERENCES `oc_product` (`product_id`),
+  CONSTRAINT `FK_2DDB7AA9A7C41D6F` FOREIGN KEY (`option_id`) REFERENCES `oc_option` (`option_id`),
+  CONSTRAINT `FK_2DDB7AA9C964ABE2` FOREIGN KEY (`product_option_id`) REFERENCES `oc_product_option` (`product_option_id`),
+  CONSTRAINT `FK_2DDB7AA9D957CA06` FOREIGN KEY (`option_value_id`) REFERENCES `oc_option_value` (`option_value_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1695,7 +1959,13 @@ CREATE TABLE `oc_product_recurring` (
   `product_id` int(11) NOT NULL,
   `recurring_id` int(11) NOT NULL,
   `customer_group_id` int(11) NOT NULL,
-  PRIMARY KEY (`product_id`,`recurring_id`,`customer_group_id`)
+  PRIMARY KEY (`product_id`,`recurring_id`,`customer_group_id`),
+  KEY `IDX_3DE6CAE94584665A` (`product_id`),
+  KEY `IDX_3DE6CAE9B149C95E` (`recurring_id`),
+  KEY `IDX_3DE6CAE9D2919A68` (`customer_group_id`),
+  CONSTRAINT `FK_3DE6CAE94584665A` FOREIGN KEY (`product_id`) REFERENCES `oc_product` (`product_id`),
+  CONSTRAINT `FK_3DE6CAE9B149C95E` FOREIGN KEY (`recurring_id`) REFERENCES `oc_recurring` (`recurring_id`),
+  CONSTRAINT `FK_3DE6CAE9D2919A68` FOREIGN KEY (`customer_group_id`) REFERENCES `oc_customer_group` (`customer_group_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1709,7 +1979,9 @@ DROP TABLE IF EXISTS `oc_product_related`;
 CREATE TABLE `oc_product_related` (
   `product_id` int(11) NOT NULL,
   `related_id` int(11) NOT NULL,
-  PRIMARY KEY (`product_id`,`related_id`)
+  PRIMARY KEY (`product_id`,`related_id`),
+  KEY `IDX_763E68664584665A` (`product_id`),
+  CONSTRAINT `FK_763E68664584665A` FOREIGN KEY (`product_id`) REFERENCES `oc_product` (`product_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1725,7 +1997,11 @@ CREATE TABLE `oc_product_reward` (
   `product_id` int(11) NOT NULL DEFAULT '0',
   `customer_group_id` int(11) NOT NULL DEFAULT '0',
   `points` int(8) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`product_reward_id`)
+  PRIMARY KEY (`product_reward_id`),
+  KEY `IDX_4B06C18C4584665A` (`product_id`),
+  KEY `IDX_4B06C18CD2919A68` (`customer_group_id`),
+  CONSTRAINT `FK_4B06C18C4584665A` FOREIGN KEY (`product_id`) REFERENCES `oc_product` (`product_id`),
+  CONSTRAINT `FK_4B06C18CD2919A68` FOREIGN KEY (`customer_group_id`) REFERENCES `oc_customer_group` (`customer_group_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=546 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1745,7 +2021,10 @@ CREATE TABLE `oc_product_special` (
   `date_start` date NOT NULL DEFAULT '0000-00-00',
   `date_end` date NOT NULL DEFAULT '0000-00-00',
   PRIMARY KEY (`product_special_id`),
-  KEY `product_id` (`product_id`)
+  KEY `product_id` (`product_id`),
+  KEY `IDX_5A022715D2919A68` (`customer_group_id`),
+  CONSTRAINT `FK_5A0227154584665A` FOREIGN KEY (`product_id`) REFERENCES `oc_product` (`product_id`),
+  CONSTRAINT `FK_5A022715D2919A68` FOREIGN KEY (`customer_group_id`) REFERENCES `oc_customer_group` (`customer_group_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=440 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1760,7 +2039,10 @@ CREATE TABLE `oc_product_to_category` (
   `product_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
   PRIMARY KEY (`product_id`,`category_id`),
-  KEY `category_id` (`category_id`)
+  KEY `category_id` (`category_id`),
+  KEY `IDX_3AC659634584665A` (`product_id`),
+  CONSTRAINT `FK_3AC6596312469DE2` FOREIGN KEY (`category_id`) REFERENCES `oc_category` (`category_id`),
+  CONSTRAINT `FK_3AC659634584665A` FOREIGN KEY (`product_id`) REFERENCES `oc_product` (`product_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1774,7 +2056,11 @@ DROP TABLE IF EXISTS `oc_product_to_download`;
 CREATE TABLE `oc_product_to_download` (
   `product_id` int(11) NOT NULL,
   `download_id` int(11) NOT NULL,
-  PRIMARY KEY (`product_id`,`download_id`)
+  PRIMARY KEY (`product_id`,`download_id`),
+  KEY `IDX_4490C2D24584665A` (`product_id`),
+  KEY `IDX_4490C2D2C667AEAB` (`download_id`),
+  CONSTRAINT `FK_4490C2D24584665A` FOREIGN KEY (`product_id`) REFERENCES `oc_product` (`product_id`),
+  CONSTRAINT `FK_4490C2D2C667AEAB` FOREIGN KEY (`download_id`) REFERENCES `oc_download` (`download_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1789,7 +2075,13 @@ CREATE TABLE `oc_product_to_layout` (
   `product_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL,
   `layout_id` int(11) NOT NULL,
-  PRIMARY KEY (`product_id`,`store_id`)
+  PRIMARY KEY (`product_id`,`store_id`),
+  KEY `IDX_4D62AF7B4584665A` (`product_id`),
+  KEY `IDX_4D62AF7BB092A811` (`store_id`),
+  KEY `IDX_4D62AF7B8C22AA1A` (`layout_id`),
+  CONSTRAINT `FK_4D62AF7B4584665A` FOREIGN KEY (`product_id`) REFERENCES `oc_product` (`product_id`),
+  CONSTRAINT `FK_4D62AF7B8C22AA1A` FOREIGN KEY (`layout_id`) REFERENCES `oc_layout` (`layout_id`),
+  CONSTRAINT `FK_4D62AF7BB092A811` FOREIGN KEY (`store_id`) REFERENCES `oc_store` (`store_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1803,7 +2095,11 @@ DROP TABLE IF EXISTS `oc_product_to_store`;
 CREATE TABLE `oc_product_to_store` (
   `product_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`product_id`,`store_id`)
+  PRIMARY KEY (`product_id`,`store_id`),
+  KEY `IDX_A0A357764584665A` (`product_id`),
+  KEY `IDX_A0A35776B092A811` (`store_id`),
+  CONSTRAINT `FK_A0A357764584665A` FOREIGN KEY (`product_id`) REFERENCES `oc_product` (`product_id`),
+  CONSTRAINT `FK_A0A35776B092A811` FOREIGN KEY (`store_id`) REFERENCES `oc_store` (`store_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1842,7 +2138,11 @@ CREATE TABLE `oc_recurring_description` (
   `recurring_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  PRIMARY KEY (`recurring_id`,`language_id`)
+  PRIMARY KEY (`recurring_id`,`language_id`),
+  KEY `IDX_DBB082AFB149C95E` (`recurring_id`),
+  KEY `IDX_DBB082AF82F1BAF4` (`language_id`),
+  CONSTRAINT `FK_DBB082AF82F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `oc_language` (`language_id`),
+  CONSTRAINT `FK_DBB082AFB149C95E` FOREIGN KEY (`recurring_id`) REFERENCES `oc_recurring` (`recurring_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1873,7 +2173,19 @@ CREATE TABLE `oc_return` (
   `date_ordered` date NOT NULL DEFAULT '0000-00-00',
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL,
-  PRIMARY KEY (`return_id`)
+  PRIMARY KEY (`return_id`),
+  KEY `IDX_F876FA718D9F6D38` (`order_id`),
+  KEY `IDX_F876FA714584665A` (`product_id`),
+  KEY `IDX_F876FA719395C3F3` (`customer_id`),
+  KEY `IDX_F876FA71ACA2AB22` (`return_reason_id`),
+  KEY `IDX_F876FA71682B4E85` (`return_action_id`),
+  KEY `IDX_F876FA719EEEBE0D` (`return_status_id`),
+  CONSTRAINT `FK_F876FA714584665A` FOREIGN KEY (`product_id`) REFERENCES `oc_product` (`product_id`),
+  CONSTRAINT `FK_F876FA71682B4E85` FOREIGN KEY (`return_action_id`) REFERENCES `oc_return_action` (`return_action_id`),
+  CONSTRAINT `FK_F876FA718D9F6D38` FOREIGN KEY (`order_id`) REFERENCES `oc_order` (`order_id`),
+  CONSTRAINT `FK_F876FA719395C3F3` FOREIGN KEY (`customer_id`) REFERENCES `oc_customer` (`customer_id`),
+  CONSTRAINT `FK_F876FA719EEEBE0D` FOREIGN KEY (`return_status_id`) REFERENCES `oc_return_status` (`return_status_id`),
+  CONSTRAINT `FK_F876FA71ACA2AB22` FOREIGN KEY (`return_reason_id`) REFERENCES `oc_return_reason` (`return_reason_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1888,7 +2200,9 @@ CREATE TABLE `oc_return_action` (
   `return_action_id` int(11) NOT NULL AUTO_INCREMENT,
   `language_id` int(11) NOT NULL DEFAULT '0',
   `name` varchar(64) NOT NULL,
-  PRIMARY KEY (`return_action_id`,`language_id`)
+  PRIMARY KEY (`return_action_id`,`language_id`),
+  KEY `IDX_75A9A1D682F1BAF4` (`language_id`),
+  CONSTRAINT `FK_75A9A1D682F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `oc_language` (`language_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1906,7 +2220,11 @@ CREATE TABLE `oc_return_history` (
   `notify` tinyint(1) NOT NULL,
   `comment` text NOT NULL,
   `date_added` datetime NOT NULL,
-  PRIMARY KEY (`return_history_id`)
+  PRIMARY KEY (`return_history_id`),
+  KEY `IDX_563990EF227416D5` (`return_id`),
+  KEY `IDX_563990EF9EEEBE0D` (`return_status_id`),
+  CONSTRAINT `FK_563990EF227416D5` FOREIGN KEY (`return_id`) REFERENCES `oc_return` (`return_id`),
+  CONSTRAINT `FK_563990EF9EEEBE0D` FOREIGN KEY (`return_status_id`) REFERENCES `oc_return_status` (`return_status_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1921,7 +2239,9 @@ CREATE TABLE `oc_return_reason` (
   `return_reason_id` int(11) NOT NULL AUTO_INCREMENT,
   `language_id` int(11) NOT NULL DEFAULT '0',
   `name` varchar(128) NOT NULL,
-  PRIMARY KEY (`return_reason_id`,`language_id`)
+  PRIMARY KEY (`return_reason_id`,`language_id`),
+  KEY `IDX_9DDA54882F1BAF4` (`language_id`),
+  CONSTRAINT `FK_9DDA54882F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `oc_language` (`language_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1936,7 +2256,9 @@ CREATE TABLE `oc_return_status` (
   `return_status_id` int(11) NOT NULL AUTO_INCREMENT,
   `language_id` int(11) NOT NULL DEFAULT '0',
   `name` varchar(32) NOT NULL,
-  PRIMARY KEY (`return_status_id`,`language_id`)
+  PRIMARY KEY (`return_status_id`,`language_id`),
+  KEY `IDX_4965485882F1BAF4` (`language_id`),
+  CONSTRAINT `FK_4965485882F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `oc_language` (`language_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1958,7 +2280,10 @@ CREATE TABLE `oc_review` (
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL,
   PRIMARY KEY (`review_id`),
-  KEY `product_id` (`product_id`)
+  KEY `product_id` (`product_id`),
+  KEY `IDX_26AB44B89395C3F3` (`customer_id`),
+  CONSTRAINT `FK_26AB44B84584665A` FOREIGN KEY (`product_id`) REFERENCES `oc_product` (`product_id`),
+  CONSTRAINT `FK_26AB44B89395C3F3` FOREIGN KEY (`customer_id`) REFERENCES `oc_customer` (`customer_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1976,7 +2301,9 @@ CREATE TABLE `oc_setting` (
   `key` varchar(64) NOT NULL,
   `value` text NOT NULL,
   `serialized` tinyint(1) NOT NULL,
-  PRIMARY KEY (`setting_id`)
+  PRIMARY KEY (`setting_id`),
+  KEY `IDX_28960C66B092A811` (`store_id`),
+  CONSTRAINT `FK_28960C66B092A811` FOREIGN KEY (`store_id`) REFERENCES `oc_store` (`store_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=289 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1991,7 +2318,9 @@ CREATE TABLE `oc_stock_status` (
   `stock_status_id` int(11) NOT NULL AUTO_INCREMENT,
   `language_id` int(11) NOT NULL,
   `name` varchar(32) NOT NULL,
-  PRIMARY KEY (`stock_status_id`,`language_id`)
+  PRIMARY KEY (`stock_status_id`,`language_id`),
+  KEY `IDX_D5D0BCCA82F1BAF4` (`language_id`),
+  CONSTRAINT `FK_D5D0BCCA82F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `oc_language` (`language_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -2043,7 +2372,9 @@ CREATE TABLE `oc_tax_rate` (
   `type` char(1) NOT NULL,
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL,
-  PRIMARY KEY (`tax_rate_id`)
+  PRIMARY KEY (`tax_rate_id`),
+  KEY `IDX_99D10D6E283AB2A9` (`geo_zone_id`),
+  CONSTRAINT `FK_99D10D6E283AB2A9` FOREIGN KEY (`geo_zone_id`) REFERENCES `oc_geo_zone` (`geo_zone_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -2057,7 +2388,11 @@ DROP TABLE IF EXISTS `oc_tax_rate_to_customer_group`;
 CREATE TABLE `oc_tax_rate_to_customer_group` (
   `tax_rate_id` int(11) NOT NULL,
   `customer_group_id` int(11) NOT NULL,
-  PRIMARY KEY (`tax_rate_id`,`customer_group_id`)
+  PRIMARY KEY (`tax_rate_id`,`customer_group_id`),
+  KEY `IDX_A7019E9BFDD13F95` (`tax_rate_id`),
+  KEY `IDX_A7019E9BD2919A68` (`customer_group_id`),
+  CONSTRAINT `FK_A7019E9BD2919A68` FOREIGN KEY (`customer_group_id`) REFERENCES `oc_customer_group` (`customer_group_id`),
+  CONSTRAINT `FK_A7019E9BFDD13F95` FOREIGN KEY (`tax_rate_id`) REFERENCES `oc_tax_rate` (`tax_rate_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -2074,7 +2409,11 @@ CREATE TABLE `oc_tax_rule` (
   `tax_rate_id` int(11) NOT NULL,
   `based` varchar(10) NOT NULL,
   `priority` int(5) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`tax_rule_id`)
+  PRIMARY KEY (`tax_rule_id`),
+  KEY `IDX_E59E9BA94AAAE` (`tax_class_id`),
+  KEY `IDX_E59E9BFDD13F95` (`tax_rate_id`),
+  CONSTRAINT `FK_E59E9BA94AAAE` FOREIGN KEY (`tax_class_id`) REFERENCES `oc_tax_class` (`tax_class_id`),
+  CONSTRAINT `FK_E59E9BFDD13F95` FOREIGN KEY (`tax_rate_id`) REFERENCES `oc_tax_rate` (`tax_rate_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=129 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -2133,7 +2472,9 @@ CREATE TABLE `oc_user` (
   `ip` varchar(40) NOT NULL,
   `status` tinyint(1) NOT NULL,
   `date_added` datetime NOT NULL,
-  PRIMARY KEY (`user_id`)
+  PRIMARY KEY (`user_id`),
+  KEY `IDX_7866CFC91ED93D47` (`user_group_id`),
+  CONSTRAINT `FK_7866CFC91ED93D47` FOREIGN KEY (`user_group_id`) REFERENCES `oc_user_group` (`user_group_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -2172,7 +2513,11 @@ CREATE TABLE `oc_voucher` (
   `amount` decimal(15,4) NOT NULL,
   `status` tinyint(1) NOT NULL,
   `date_added` datetime NOT NULL,
-  PRIMARY KEY (`voucher_id`)
+  PRIMARY KEY (`voucher_id`),
+  KEY `IDX_A47011268D9F6D38` (`order_id`),
+  KEY `IDX_A4701126C7A52C0E` (`voucher_theme_id`),
+  CONSTRAINT `FK_A47011268D9F6D38` FOREIGN KEY (`order_id`) REFERENCES `oc_order` (`order_id`),
+  CONSTRAINT `FK_A4701126C7A52C0E` FOREIGN KEY (`voucher_theme_id`) REFERENCES `oc_voucher_theme` (`voucher_theme_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -2189,7 +2534,11 @@ CREATE TABLE `oc_voucher_history` (
   `order_id` int(11) NOT NULL,
   `amount` decimal(15,4) NOT NULL,
   `date_added` datetime NOT NULL,
-  PRIMARY KEY (`voucher_history_id`)
+  PRIMARY KEY (`voucher_history_id`),
+  KEY `IDX_23C7590A28AA1B6F` (`voucher_id`),
+  KEY `IDX_23C7590A8D9F6D38` (`order_id`),
+  CONSTRAINT `FK_23C7590A28AA1B6F` FOREIGN KEY (`voucher_id`) REFERENCES `oc_voucher` (`voucher_id`),
+  CONSTRAINT `FK_23C7590A8D9F6D38` FOREIGN KEY (`order_id`) REFERENCES `oc_order` (`order_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -2218,7 +2567,11 @@ CREATE TABLE `oc_voucher_theme_description` (
   `voucher_theme_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `name` varchar(32) NOT NULL,
-  PRIMARY KEY (`voucher_theme_id`,`language_id`)
+  PRIMARY KEY (`voucher_theme_id`,`language_id`),
+  KEY `IDX_19FFAB1DC7A52C0E` (`voucher_theme_id`),
+  KEY `IDX_19FFAB1D82F1BAF4` (`language_id`),
+  CONSTRAINT `FK_19FFAB1D82F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `oc_language` (`language_id`),
+  CONSTRAINT `FK_19FFAB1DC7A52C0E` FOREIGN KEY (`voucher_theme_id`) REFERENCES `oc_voucher_theme` (`voucher_theme_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -2248,7 +2601,11 @@ CREATE TABLE `oc_weight_class_description` (
   `language_id` int(11) NOT NULL,
   `title` varchar(32) NOT NULL,
   `unit` varchar(4) NOT NULL,
-  PRIMARY KEY (`weight_class_id`,`language_id`)
+  PRIMARY KEY (`weight_class_id`,`language_id`),
+  KEY `IDX_9D1EA5FBA0206A65` (`weight_class_id`),
+  KEY `IDX_9D1EA5FB82F1BAF4` (`language_id`),
+  CONSTRAINT `FK_9D1EA5FB82F1BAF4` FOREIGN KEY (`language_id`) REFERENCES `oc_language` (`language_id`),
+  CONSTRAINT `FK_9D1EA5FBA0206A65` FOREIGN KEY (`weight_class_id`) REFERENCES `oc_weight_class` (`weight_class_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -2265,7 +2622,9 @@ CREATE TABLE `oc_zone` (
   `name` varchar(128) NOT NULL,
   `code` varchar(32) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`zone_id`)
+  PRIMARY KEY (`zone_id`),
+  KEY `IDX_551ED987F92F3E70` (`country_id`),
+  CONSTRAINT `FK_551ED987F92F3E70` FOREIGN KEY (`country_id`) REFERENCES `oc_country` (`country_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4232 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -2283,7 +2642,13 @@ CREATE TABLE `oc_zone_to_geo_zone` (
   `geo_zone_id` int(11) NOT NULL,
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL,
-  PRIMARY KEY (`zone_to_geo_zone_id`)
+  PRIMARY KEY (`zone_to_geo_zone_id`),
+  KEY `IDX_56C72664F92F3E70` (`country_id`),
+  KEY `IDX_56C726649F2C3FAB` (`zone_id`),
+  KEY `IDX_56C72664283AB2A9` (`geo_zone_id`),
+  CONSTRAINT `FK_56C72664283AB2A9` FOREIGN KEY (`geo_zone_id`) REFERENCES `oc_geo_zone` (`geo_zone_id`),
+  CONSTRAINT `FK_56C726649F2C3FAB` FOREIGN KEY (`zone_id`) REFERENCES `oc_zone` (`zone_id`),
+  CONSTRAINT `FK_56C72664F92F3E70` FOREIGN KEY (`country_id`) REFERENCES `oc_country` (`country_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -2296,4 +2661,4 @@ CREATE TABLE `oc_zone_to_geo_zone` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-09-13 16:16:51
+-- Dump completed on 2015-09-13 17:05:14
