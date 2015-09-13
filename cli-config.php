@@ -22,12 +22,12 @@ $entityManager = EntityManager::create(
         'driverClass' => Driver::class,
         'user'        => 'root',
         'password'    => null,
-        'dbname'      => 'opencart',
+        'dbname'      => 'opencart_fixed',
     ],
     $configuration
 );
 
-$configuration->setSQLLogger(new EchoSQLLogger());
+//$configuration->setSQLLogger(new EchoSQLLogger());
 
 $entityManager->getConnection()->getDatabasePlatform()->registerDoctrineTypeMapping('enum', 'string');
 
