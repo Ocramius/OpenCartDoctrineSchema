@@ -34,10 +34,10 @@ class OcManufacturer
 
     public function __construct(Doctrine\Common\Collections\Collection $store, $name, $sortOrder, $image = null)
     {
-        $this->$store;
-        $this->$name;
-        $this->$sortOrder;
-        $this->$image;
+        $this->store = $store;
+        $this->name = $name;
+        $this->sortOrder = $sortOrder;
+        $this->image = $image;
     }
 
 

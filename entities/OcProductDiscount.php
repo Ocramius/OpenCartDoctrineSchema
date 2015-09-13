@@ -49,13 +49,13 @@ class OcProductDiscount
 
     public function __construct(OcCustomerGroup $customerGroup, OcProduct $product, $quantity, $priority, $price, $dateStart, $dateEnd)
     {
-        $this->$customerGroup;
-        $this->$product;
-        $this->$quantity;
-        $this->$priority;
-        $this->$price;
-        $this->$dateStart;
-        $this->$dateEnd;
+        $this->customerGroup = $customerGroup;
+        $this->product = $product;
+        $this->quantity = $quantity;
+        $this->priority = $priority;
+        $this->price = $price;
+        $this->dateStart = $dateStart;
+        $this->dateEnd = $dateEnd;
     }
 
 

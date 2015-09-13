@@ -39,11 +39,11 @@ class OcApi
 
     public function __construct($name, $key, $status, DateTime $dateAdded, DateTime $dateModified)
     {
-        $this->$name;
-        $this->$key;
-        $this->$status;
-        $this->$dateAdded;
-        $this->$dateModified;
+        $this->name = $name;
+        $this->key = $key;
+        $this->status = $status;
+        $this->dateAdded = $dateAdded;
+        $this->dateModified = $dateModified;
     }
 
 

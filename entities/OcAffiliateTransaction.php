@@ -39,11 +39,11 @@ class OcAffiliateTransaction
 
     public function __construct(OcAffiliate $affiliate, OcOrder $order, $description, $amount, DateTime $dateAdded)
     {
-        $this->$affiliate;
-        $this->$order;
-        $this->$description;
-        $this->$amount;
-        $this->$dateAdded;
+        $this->affiliate = $affiliate;
+        $this->order = $order;
+        $this->description = $description;
+        $this->amount = $amount;
+        $this->dateAdded = $dateAdded;
     }
 
 

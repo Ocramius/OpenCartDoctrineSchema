@@ -109,25 +109,25 @@ class OcOrderRecurring
 
     public function __construct(OcRecurring $recurring, OcOrder $order, OcProduct $product, $reference, $productName, $productQuantity, $recurringName, $recurringDescription, $recurringFrequency, $recurringCycle, $recurringDuration, $recurringPrice, $trial, $trialFrequency, $trialCycle, $trialDuration, $trialPrice, $status, DateTime $dateAdded)
     {
-        $this->$recurring;
-        $this->$order;
-        $this->$product;
-        $this->$reference;
-        $this->$productName;
-        $this->$productQuantity;
-        $this->$recurringName;
-        $this->$recurringDescription;
-        $this->$recurringFrequency;
-        $this->$recurringCycle;
-        $this->$recurringDuration;
-        $this->$recurringPrice;
-        $this->$trial;
-        $this->$trialFrequency;
-        $this->$trialCycle;
-        $this->$trialDuration;
-        $this->$trialPrice;
-        $this->$status;
-        $this->$dateAdded;
+        $this->recurring = $recurring;
+        $this->order = $order;
+        $this->product = $product;
+        $this->reference = $reference;
+        $this->productName = $productName;
+        $this->productQuantity = $productQuantity;
+        $this->recurringName = $recurringName;
+        $this->recurringDescription = $recurringDescription;
+        $this->recurringFrequency = $recurringFrequency;
+        $this->recurringCycle = $recurringCycle;
+        $this->recurringDuration = $recurringDuration;
+        $this->recurringPrice = $recurringPrice;
+        $this->trial = $trial;
+        $this->trialFrequency = $trialFrequency;
+        $this->trialCycle = $trialCycle;
+        $this->trialDuration = $trialDuration;
+        $this->trialPrice = $trialPrice;
+        $this->status = $status;
+        $this->dateAdded = $dateAdded;
     }
 
 

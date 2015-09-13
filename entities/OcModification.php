@@ -54,14 +54,14 @@ class OcModification
 
     public function __construct($name, $code, $author, $version, $link, $xml, $status, DateTime $dateAdded)
     {
-        $this->$name;
-        $this->$code;
-        $this->$author;
-        $this->$version;
-        $this->$link;
-        $this->$xml;
-        $this->$status;
-        $this->$dateAdded;
+        $this->name = $name;
+        $this->code = $code;
+        $this->author = $author;
+        $this->version = $version;
+        $this->link = $link;
+        $this->xml = $xml;
+        $this->status = $status;
+        $this->dateAdded = $dateAdded;
     }
 
 

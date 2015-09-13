@@ -24,9 +24,9 @@ class OcOrderStatus
 
     public function __construct(OcLanguage $language, $name, $orderStatusId)
     {
-        $this->$language;
-        $this->$name;
-        $this->$orderStatusId;
+        $this->language = $language;
+        $this->name = $name;
+        $this->orderStatusId = $orderStatusId;
     }
 
 

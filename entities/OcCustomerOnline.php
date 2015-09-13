@@ -34,10 +34,10 @@ class OcCustomerOnline
 
     public function __construct(OcCustomer $customer, $url, $referer, DateTime $dateAdded)
     {
-        $this->$customer;
-        $this->$url;
-        $this->$referer;
-        $this->$dateAdded;
+        $this->customer = $customer;
+        $this->url = $url;
+        $this->referer = $referer;
+        $this->dateAdded = $dateAdded;
     }
 
 

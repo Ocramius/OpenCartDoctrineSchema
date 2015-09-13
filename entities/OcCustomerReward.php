@@ -39,11 +39,11 @@ class OcCustomerReward
 
     public function __construct(OcCustomer $customer, OcOrder $order, $description, $points, DateTime $dateAdded)
     {
-        $this->$customer;
-        $this->$order;
-        $this->$description;
-        $this->$points;
-        $this->$dateAdded;
+        $this->customer = $customer;
+        $this->order = $order;
+        $this->description = $description;
+        $this->points = $points;
+        $this->dateAdded = $dateAdded;
     }
 
 

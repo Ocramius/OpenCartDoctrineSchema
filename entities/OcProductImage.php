@@ -29,9 +29,9 @@ class OcProductImage
 
     public function __construct(OcProduct $product, $sortOrder, $image = null)
     {
-        $this->$product;
-        $this->$sortOrder;
-        $this->$image;
+        $this->product = $product;
+        $this->sortOrder = $sortOrder;
+        $this->image = $image;
     }
 
 

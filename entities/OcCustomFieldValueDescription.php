@@ -29,10 +29,10 @@ class OcCustomFieldValueDescription
 
     public function __construct(OcCustomFieldValue $customFieldValue, OcLanguage $language, OcCustomField $customField, $name)
     {
-        $this->$customFieldValue;
-        $this->$language;
-        $this->$customField;
-        $this->$name;
+        $this->customFieldValue = $customFieldValue;
+        $this->language = $language;
+        $this->customField = $customField;
+        $this->name = $name;
     }
 
 

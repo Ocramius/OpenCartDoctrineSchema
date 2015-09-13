@@ -49,13 +49,13 @@ class OcApiSession
 
     public function __construct(OcApi $api, $token, $sessionId, $sessionName, $ip, DateTime $dateAdded, DateTime $dateModified)
     {
-        $this->$api;
-        $this->$token;
-        $this->$sessionId;
-        $this->$sessionName;
-        $this->$ip;
-        $this->$dateAdded;
-        $this->$dateModified;
+        $this->api = $api;
+        $this->token = $token;
+        $this->sessionId = $sessionId;
+        $this->sessionName = $sessionName;
+        $this->ip = $ip;
+        $this->dateAdded = $dateAdded;
+        $this->dateModified = $dateModified;
     }
 
 

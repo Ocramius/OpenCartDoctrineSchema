@@ -24,8 +24,8 @@ class OcExtension
 
     public function __construct($type, $code)
     {
-        $this->$type;
-        $this->$code;
+        $this->type = $type;
+        $this->code = $code;
     }
 
 

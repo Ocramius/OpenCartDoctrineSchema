@@ -24,9 +24,9 @@ class OcStockStatus
 
     public function __construct(OcLanguage $language, $name, $stockStatusId)
     {
-        $this->$language;
-        $this->$name;
-        $this->$stockStatusId;
+        $this->language = $language;
+        $this->name = $name;
+        $this->stockStatusId = $stockStatusId;
     }
 
 

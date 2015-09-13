@@ -29,10 +29,10 @@ class OcProductAttribute
 
     public function __construct(OcAttribute $attribute, OcLanguage $language, OcProduct $product, $text)
     {
-        $this->$attribute;
-        $this->$language;
-        $this->$product;
-        $this->$text;
+        $this->attribute = $attribute;
+        $this->language = $language;
+        $this->product = $product;
+        $this->text = $text;
     }
 
 

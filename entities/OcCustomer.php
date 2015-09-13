@@ -114,26 +114,26 @@ class OcCustomer
 
     public function __construct(OcAddress $address, OcCustomerGroup $customerGroup, OcStore $store, $firstname, $lastname, $email, $telephone, $fax, $password, $salt, $newsletter, $customField, $ip, $status, $approved, $safe, $token, DateTime $dateAdded, $cart = null, $wishlist = null)
     {
-        $this->$address;
-        $this->$customerGroup;
-        $this->$store;
-        $this->$firstname;
-        $this->$lastname;
-        $this->$email;
-        $this->$telephone;
-        $this->$fax;
-        $this->$password;
-        $this->$salt;
-        $this->$newsletter;
-        $this->$customField;
-        $this->$ip;
-        $this->$status;
-        $this->$approved;
-        $this->$safe;
-        $this->$token;
-        $this->$dateAdded;
-        $this->$cart;
-        $this->$wishlist;
+        $this->address = $address;
+        $this->customerGroup = $customerGroup;
+        $this->store = $store;
+        $this->firstname = $firstname;
+        $this->lastname = $lastname;
+        $this->email = $email;
+        $this->telephone = $telephone;
+        $this->fax = $fax;
+        $this->password = $password;
+        $this->salt = $salt;
+        $this->newsletter = $newsletter;
+        $this->customField = $customField;
+        $this->ip = $ip;
+        $this->status = $status;
+        $this->approved = $approved;
+        $this->safe = $safe;
+        $this->token = $token;
+        $this->dateAdded = $dateAdded;
+        $this->cart = $cart;
+        $this->wishlist = $wishlist;
     }
 
 

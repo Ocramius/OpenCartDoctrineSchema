@@ -164,36 +164,36 @@ class OcAffiliate
 
     public function __construct(OcCountry $country, OcZone $zone, $firstname, $lastname, $email, $telephone, $fax, $password, $salt, $company, $website, $address1, $address2, $city, $postcode, $code, $commission, $tax, $payment, $cheque, $paypal, $bankName, $bankBranchNumber, $bankSwiftCode, $bankAccountName, $bankAccountNumber, $ip, $status, $approved, DateTime $dateAdded)
     {
-        $this->$country;
-        $this->$zone;
-        $this->$firstname;
-        $this->$lastname;
-        $this->$email;
-        $this->$telephone;
-        $this->$fax;
-        $this->$password;
-        $this->$salt;
-        $this->$company;
-        $this->$website;
-        $this->$address1;
-        $this->$address2;
-        $this->$city;
-        $this->$postcode;
-        $this->$code;
-        $this->$commission;
-        $this->$tax;
-        $this->$payment;
-        $this->$cheque;
-        $this->$paypal;
-        $this->$bankName;
-        $this->$bankBranchNumber;
-        $this->$bankSwiftCode;
-        $this->$bankAccountName;
-        $this->$bankAccountNumber;
-        $this->$ip;
-        $this->$status;
-        $this->$approved;
-        $this->$dateAdded;
+        $this->country = $country;
+        $this->zone = $zone;
+        $this->firstname = $firstname;
+        $this->lastname = $lastname;
+        $this->email = $email;
+        $this->telephone = $telephone;
+        $this->fax = $fax;
+        $this->password = $password;
+        $this->salt = $salt;
+        $this->company = $company;
+        $this->website = $website;
+        $this->address1 = $address1;
+        $this->address2 = $address2;
+        $this->city = $city;
+        $this->postcode = $postcode;
+        $this->code = $code;
+        $this->commission = $commission;
+        $this->tax = $tax;
+        $this->payment = $payment;
+        $this->cheque = $cheque;
+        $this->paypal = $paypal;
+        $this->bankName = $bankName;
+        $this->bankBranchNumber = $bankBranchNumber;
+        $this->bankSwiftCode = $bankSwiftCode;
+        $this->bankAccountName = $bankAccountName;
+        $this->bankAccountNumber = $bankAccountNumber;
+        $this->ip = $ip;
+        $this->status = $status;
+        $this->approved = $approved;
+        $this->dateAdded = $dateAdded;
     }
 
 

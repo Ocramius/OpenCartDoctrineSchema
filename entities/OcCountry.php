@@ -44,12 +44,12 @@ class OcCountry
 
     public function __construct($name, $isoCode2, $isoCode3, $addressFormat, $postcodeRequired, $status)
     {
-        $this->$name;
-        $this->$isoCode2;
-        $this->$isoCode3;
-        $this->$addressFormat;
-        $this->$postcodeRequired;
-        $this->$status;
+        $this->name = $name;
+        $this->isoCode2 = $isoCode2;
+        $this->isoCode3 = $isoCode3;
+        $this->addressFormat = $addressFormat;
+        $this->postcodeRequired = $postcodeRequired;
+        $this->status = $status;
     }
 
 

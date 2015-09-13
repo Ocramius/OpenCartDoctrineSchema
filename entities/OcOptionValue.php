@@ -29,9 +29,9 @@ class OcOptionValue
 
     public function __construct(OcOption $option, $image, $sortOrder)
     {
-        $this->$option;
-        $this->$image;
-        $this->$sortOrder;
+        $this->option = $option;
+        $this->image = $image;
+        $this->sortOrder = $sortOrder;
     }
 
 

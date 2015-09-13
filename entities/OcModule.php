@@ -29,9 +29,9 @@ class OcModule
 
     public function __construct($name, $code, $setting)
     {
-        $this->$name;
-        $this->$code;
-        $this->$setting;
+        $this->name = $name;
+        $this->code = $code;
+        $this->setting = $setting;
     }
 
 

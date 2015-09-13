@@ -39,11 +39,11 @@ class OcInformation
 
     public function __construct(Doctrine\Common\Collections\Collection $store, Doctrine\Common\Collections\Collection $language, $bottom, $sortOrder, $status)
     {
-        $this->$store;
-        $this->$language;
-        $this->$bottom;
-        $this->$sortOrder;
-        $this->$status;
+        $this->store = $store;
+        $this->language = $language;
+        $this->bottom = $bottom;
+        $this->sortOrder = $sortOrder;
+        $this->status = $status;
     }
 
 

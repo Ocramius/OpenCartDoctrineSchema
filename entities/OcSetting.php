@@ -39,11 +39,11 @@ class OcSetting
 
     public function __construct(OcStore $store, $code, $key, $value, $serialized)
     {
-        $this->$store;
-        $this->$code;
-        $this->$key;
-        $this->$value;
-        $this->$serialized;
+        $this->store = $store;
+        $this->code = $code;
+        $this->key = $key;
+        $this->value = $value;
+        $this->serialized = $serialized;
     }
 
 

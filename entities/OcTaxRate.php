@@ -49,13 +49,13 @@ class OcTaxRate
 
     public function __construct(OcGeoZone $geoZone, Doctrine\Common\Collections\Collection $customerGroup, $name, $rate, $type, DateTime $dateAdded, DateTime $dateModified)
     {
-        $this->$geoZone;
-        $this->$customerGroup;
-        $this->$name;
-        $this->$rate;
-        $this->$type;
-        $this->$dateAdded;
-        $this->$dateModified;
+        $this->geoZone = $geoZone;
+        $this->customerGroup = $customerGroup;
+        $this->name = $name;
+        $this->rate = $rate;
+        $this->type = $type;
+        $this->dateAdded = $dateAdded;
+        $this->dateModified = $dateModified;
     }
 
 

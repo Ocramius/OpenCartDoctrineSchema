@@ -39,11 +39,11 @@ class OcCustomerActivity
 
     public function __construct(OcCustomer $customer, $key, $data, $ip, DateTime $dateAdded)
     {
-        $this->$customer;
-        $this->$key;
-        $this->$data;
-        $this->$ip;
-        $this->$dateAdded;
+        $this->customer = $customer;
+        $this->key = $key;
+        $this->data = $data;
+        $this->ip = $ip;
+        $this->dateAdded = $dateAdded;
     }
 
 

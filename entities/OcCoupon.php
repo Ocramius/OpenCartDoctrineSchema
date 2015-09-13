@@ -84,20 +84,20 @@ class OcCoupon
 
     public function __construct(Doctrine\Common\Collections\Collection $category, $name, $code, $type, $discount, $logged, $shipping, $total, $dateStart, $dateEnd, $usesTotal, $usesCustomer, $status, DateTime $dateAdded)
     {
-        $this->$category;
-        $this->$name;
-        $this->$code;
-        $this->$type;
-        $this->$discount;
-        $this->$logged;
-        $this->$shipping;
-        $this->$total;
-        $this->$dateStart;
-        $this->$dateEnd;
-        $this->$usesTotal;
-        $this->$usesCustomer;
-        $this->$status;
-        $this->$dateAdded;
+        $this->category = $category;
+        $this->name = $name;
+        $this->code = $code;
+        $this->type = $type;
+        $this->discount = $discount;
+        $this->logged = $logged;
+        $this->shipping = $shipping;
+        $this->total = $total;
+        $this->dateStart = $dateStart;
+        $this->dateEnd = $dateEnd;
+        $this->usesTotal = $usesTotal;
+        $this->usesCustomer = $usesCustomer;
+        $this->status = $status;
+        $this->dateAdded = $dateAdded;
     }
 
 

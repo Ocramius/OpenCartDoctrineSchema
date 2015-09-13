@@ -29,10 +29,10 @@ class OcOptionValueDescription
 
     public function __construct(OcLanguage $language, OcOptionValue $optionValue, OcOption $option, $name)
     {
-        $this->$language;
-        $this->$optionValue;
-        $this->$option;
-        $this->$name;
+        $this->language = $language;
+        $this->optionValue = $optionValue;
+        $this->option = $option;
+        $this->name = $name;
     }
 
 

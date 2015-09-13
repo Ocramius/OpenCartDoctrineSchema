@@ -44,12 +44,12 @@ class OcProductSpecial
 
     public function __construct(OcCustomerGroup $customerGroup, OcProduct $product, $priority, $price, $dateStart, $dateEnd)
     {
-        $this->$customerGroup;
-        $this->$product;
-        $this->$priority;
-        $this->$price;
-        $this->$dateStart;
-        $this->$dateEnd;
+        $this->customerGroup = $customerGroup;
+        $this->product = $product;
+        $this->priority = $priority;
+        $this->price = $price;
+        $this->dateStart = $dateStart;
+        $this->dateEnd = $dateEnd;
     }
 
 

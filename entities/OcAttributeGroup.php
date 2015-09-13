@@ -24,8 +24,8 @@ class OcAttributeGroup
 
     public function __construct(Doctrine\Common\Collections\Collection $language, $sortOrder)
     {
-        $this->$language;
-        $this->$sortOrder;
+        $this->language = $language;
+        $this->sortOrder = $sortOrder;
     }
 
 

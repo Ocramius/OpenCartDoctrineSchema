@@ -49,13 +49,13 @@ class OcOrderOption
 
     public function __construct(OcOrderProduct $orderProduct, OcProductOptionValue $productOptionValue, OcProductOption $productOption, OcOrder $order, $name, $value, $type)
     {
-        $this->$orderProduct;
-        $this->$productOptionValue;
-        $this->$productOption;
-        $this->$order;
-        $this->$name;
-        $this->$value;
-        $this->$type;
+        $this->orderProduct = $orderProduct;
+        $this->productOptionValue = $productOptionValue;
+        $this->productOption = $productOption;
+        $this->order = $order;
+        $this->name = $name;
+        $this->value = $value;
+        $this->type = $type;
     }
 
 

@@ -39,11 +39,11 @@ class OcCustomerLogin
 
     public function __construct($email, $ip, $total, DateTime $dateAdded, DateTime $dateModified)
     {
-        $this->$email;
-        $this->$ip;
-        $this->$total;
-        $this->$dateAdded;
-        $this->$dateModified;
+        $this->email = $email;
+        $this->ip = $ip;
+        $this->total = $total;
+        $this->dateAdded = $dateAdded;
+        $this->dateModified = $dateModified;
     }
 
 

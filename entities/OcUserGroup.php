@@ -24,8 +24,8 @@ class OcUserGroup
 
     public function __construct($name, $permission)
     {
-        $this->$name;
-        $this->$permission;
+        $this->name = $name;
+        $this->permission = $permission;
     }
 
 

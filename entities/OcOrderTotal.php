@@ -39,11 +39,11 @@ class OcOrderTotal
 
     public function __construct(OcOrder $order, $code, $title, $value, $sortOrder)
     {
-        $this->$order;
-        $this->$code;
-        $this->$title;
-        $this->$value;
-        $this->$sortOrder;
+        $this->order = $order;
+        $this->code = $code;
+        $this->title = $title;
+        $this->value = $value;
+        $this->sortOrder = $sortOrder;
     }
 
 

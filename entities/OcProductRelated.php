@@ -19,8 +19,8 @@ class OcProductRelated
 
     public function __construct(OcProduct $product, $relatedId)
     {
-        $this->$product;
-        $this->$relatedId;
+        $this->product = $product;
+        $this->relatedId = $relatedId;
     }
 
 

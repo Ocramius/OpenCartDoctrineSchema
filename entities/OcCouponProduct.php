@@ -24,8 +24,8 @@ class OcCouponProduct
 
     public function __construct(OcCoupon $coupon, OcProduct $product)
     {
-        $this->$coupon;
-        $this->$product;
+        $this->coupon = $coupon;
+        $this->product = $product;
     }
 
 

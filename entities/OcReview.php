@@ -54,14 +54,14 @@ class OcReview
 
     public function __construct(OcCustomer $customer, OcProduct $product, $author, $text, $rating, $status, DateTime $dateAdded, DateTime $dateModified)
     {
-        $this->$customer;
-        $this->$product;
-        $this->$author;
-        $this->$text;
-        $this->$rating;
-        $this->$status;
-        $this->$dateAdded;
-        $this->$dateModified;
+        $this->customer = $customer;
+        $this->product = $product;
+        $this->author = $author;
+        $this->text = $text;
+        $this->rating = $rating;
+        $this->status = $status;
+        $this->dateAdded = $dateAdded;
+        $this->dateModified = $dateModified;
     }
 
 

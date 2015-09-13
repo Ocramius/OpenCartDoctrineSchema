@@ -29,9 +29,9 @@ class OcOption
 
     public function __construct(Doctrine\Common\Collections\Collection $language, $type, $sortOrder)
     {
-        $this->$language;
-        $this->$type;
-        $this->$sortOrder;
+        $this->language = $language;
+        $this->type = $type;
+        $this->sortOrder = $sortOrder;
     }
 
 

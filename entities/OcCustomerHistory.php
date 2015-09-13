@@ -29,9 +29,9 @@ class OcCustomerHistory
 
     public function __construct(OcCustomer $customer, $comment, DateTime $dateAdded)
     {
-        $this->$customer;
-        $this->$comment;
-        $this->$dateAdded;
+        $this->customer = $customer;
+        $this->comment = $comment;
+        $this->dateAdded = $dateAdded;
     }
 
 

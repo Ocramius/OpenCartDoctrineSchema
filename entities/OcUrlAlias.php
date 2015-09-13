@@ -24,8 +24,8 @@ class OcUrlAlias
 
     public function __construct($query, $keyword)
     {
-        $this->$query;
-        $this->$keyword;
+        $this->query = $query;
+        $this->keyword = $keyword;
     }
 
 

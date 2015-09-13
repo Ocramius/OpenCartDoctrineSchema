@@ -24,8 +24,8 @@ class OcApiIp
 
     public function __construct(OcApi $api, $ip)
     {
-        $this->$api;
-        $this->$ip;
+        $this->api = $api;
+        $this->ip = $ip;
     }
 
 

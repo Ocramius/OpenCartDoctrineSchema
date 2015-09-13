@@ -39,11 +39,11 @@ class OcOrderRecurringTransaction
 
     public function __construct(OcOrderRecurring $orderRecurring, $reference, $type, $amount, DateTime $dateAdded)
     {
-        $this->$orderRecurring;
-        $this->$reference;
-        $this->$type;
-        $this->$amount;
-        $this->$dateAdded;
+        $this->orderRecurring = $orderRecurring;
+        $this->reference = $reference;
+        $this->type = $type;
+        $this->amount = $amount;
+        $this->dateAdded = $dateAdded;
     }
 
 

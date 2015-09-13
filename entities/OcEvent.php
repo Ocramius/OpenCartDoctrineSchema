@@ -29,9 +29,9 @@ class OcEvent
 
     public function __construct($code, $trigger, $action)
     {
-        $this->$code;
-        $this->$trigger;
-        $this->$action;
+        $this->code = $code;
+        $this->trigger = $trigger;
+        $this->action = $action;
     }
 
 

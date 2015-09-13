@@ -29,9 +29,9 @@ class OcAttribute
 
     public function __construct(OcAttributeGroup $attributeGroup, Doctrine\Common\Collections\Collection $language, $sortOrder)
     {
-        $this->$attributeGroup;
-        $this->$language;
-        $this->$sortOrder;
+        $this->attributeGroup = $attributeGroup;
+        $this->language = $language;
+        $this->sortOrder = $sortOrder;
     }
 
 

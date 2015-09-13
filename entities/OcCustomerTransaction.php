@@ -39,11 +39,11 @@ class OcCustomerTransaction
 
     public function __construct(OcCustomer $customer, OcOrder $order, $description, $amount, DateTime $dateAdded)
     {
-        $this->$customer;
-        $this->$order;
-        $this->$description;
-        $this->$amount;
-        $this->$dateAdded;
+        $this->customer = $customer;
+        $this->order = $order;
+        $this->description = $description;
+        $this->amount = $amount;
+        $this->dateAdded = $dateAdded;
     }
 
 

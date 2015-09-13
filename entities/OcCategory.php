@@ -79,19 +79,19 @@ class OcCategory
 
     public function __construct(Doctrine\Common\Collections\Collection $product, Doctrine\Common\Collections\Collection $coupon, Doctrine\Common\Collections\Collection $store, Doctrine\Common\Collections\Collection $filter, Doctrine\Common\Collections\Collection $language, $parentId, $top, $column, $sortOrder, $status, DateTime $dateAdded, DateTime $dateModified, $image = null)
     {
-        $this->$product;
-        $this->$coupon;
-        $this->$store;
-        $this->$filter;
-        $this->$language;
-        $this->$parentId;
-        $this->$top;
-        $this->$column;
-        $this->$sortOrder;
-        $this->$status;
-        $this->$dateAdded;
-        $this->$dateModified;
-        $this->$image;
+        $this->product = $product;
+        $this->coupon = $coupon;
+        $this->store = $store;
+        $this->filter = $filter;
+        $this->language = $language;
+        $this->parentId = $parentId;
+        $this->top = $top;
+        $this->column = $column;
+        $this->sortOrder = $sortOrder;
+        $this->status = $status;
+        $this->dateAdded = $dateAdded;
+        $this->dateModified = $dateModified;
+        $this->image = $image;
     }
 
 

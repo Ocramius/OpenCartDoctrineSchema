@@ -24,8 +24,8 @@ class OcVoucherTheme
 
     public function __construct(Doctrine\Common\Collections\Collection $language, $image)
     {
-        $this->$language;
-        $this->$image;
+        $this->language = $language;
+        $this->image = $image;
     }
 
 

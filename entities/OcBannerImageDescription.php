@@ -29,10 +29,10 @@ class OcBannerImageDescription
 
     public function __construct(OcBannerImage $bannerImage, OcLanguage $language, OcBanner $banner, $title)
     {
-        $this->$bannerImage;
-        $this->$language;
-        $this->$banner;
-        $this->$title;
+        $this->bannerImage = $bannerImage;
+        $this->language = $language;
+        $this->banner = $banner;
+        $this->title = $title;
     }
 
 

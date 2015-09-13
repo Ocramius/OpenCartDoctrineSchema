@@ -24,9 +24,9 @@ class OcProductToLayout
 
     public function __construct(OcProduct $product, OcStore $store, OcLayout $layout)
     {
-        $this->$product;
-        $this->$store;
-        $this->$layout;
+        $this->product = $product;
+        $this->store = $store;
+        $this->layout = $layout;
     }
 
 

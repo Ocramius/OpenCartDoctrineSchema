@@ -39,11 +39,11 @@ class OcAffiliateActivity
 
     public function __construct(OcAffiliate $affiliate, $key, $data, $ip, DateTime $dateAdded)
     {
-        $this->$affiliate;
-        $this->$key;
-        $this->$data;
-        $this->$ip;
-        $this->$dateAdded;
+        $this->affiliate = $affiliate;
+        $this->key = $key;
+        $this->data = $data;
+        $this->ip = $ip;
+        $this->dateAdded = $dateAdded;
     }
 
 

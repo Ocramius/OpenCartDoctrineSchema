@@ -39,11 +39,11 @@ class OcCustomerGroup
 
     public function __construct(Doctrine\Common\Collections\Collection $taxRate, Doctrine\Common\Collections\Collection $language, Doctrine\Common\Collections\Collection $customField, $approval, $sortOrder)
     {
-        $this->$taxRate;
-        $this->$language;
-        $this->$customField;
-        $this->$approval;
-        $this->$sortOrder;
+        $this->taxRate = $taxRate;
+        $this->language = $language;
+        $this->customField = $customField;
+        $this->approval = $approval;
+        $this->sortOrder = $sortOrder;
     }
 
 

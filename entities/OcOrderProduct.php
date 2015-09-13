@@ -59,15 +59,15 @@ class OcOrderProduct
 
     public function __construct(OcOrder $order, OcProduct $product, $name, $model, $quantity, $price, $total, $tax, $reward)
     {
-        $this->$order;
-        $this->$product;
-        $this->$name;
-        $this->$model;
-        $this->$quantity;
-        $this->$price;
-        $this->$total;
-        $this->$tax;
-        $this->$reward;
+        $this->order = $order;
+        $this->product = $product;
+        $this->name = $name;
+        $this->model = $model;
+        $this->quantity = $quantity;
+        $this->price = $price;
+        $this->total = $total;
+        $this->tax = $tax;
+        $this->reward = $reward;
     }
 
 

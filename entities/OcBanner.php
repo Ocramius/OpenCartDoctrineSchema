@@ -24,8 +24,8 @@ class OcBanner
 
     public function __construct($name, $status)
     {
-        $this->$name;
-        $this->$status;
+        $this->name = $name;
+        $this->status = $status;
     }
 
 

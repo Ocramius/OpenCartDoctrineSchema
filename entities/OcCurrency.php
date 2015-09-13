@@ -54,14 +54,14 @@ class OcCurrency
 
     public function __construct($title, $code, $symbolLeft, $symbolRight, $decimalPlace, $value, $status, DateTime $dateModified)
     {
-        $this->$title;
-        $this->$code;
-        $this->$symbolLeft;
-        $this->$symbolRight;
-        $this->$decimalPlace;
-        $this->$value;
-        $this->$status;
-        $this->$dateModified;
+        $this->title = $title;
+        $this->code = $code;
+        $this->symbolLeft = $symbolLeft;
+        $this->symbolRight = $symbolRight;
+        $this->decimalPlace = $decimalPlace;
+        $this->value = $value;
+        $this->status = $status;
+        $this->dateModified = $dateModified;
     }
 
 

@@ -39,11 +39,11 @@ class OcDownload
 
     public function __construct(Doctrine\Common\Collections\Collection $product, Doctrine\Common\Collections\Collection $language, $filename, $mask, DateTime $dateAdded)
     {
-        $this->$product;
-        $this->$language;
-        $this->$filename;
-        $this->$mask;
-        $this->$dateAdded;
+        $this->product = $product;
+        $this->language = $language;
+        $this->filename = $filename;
+        $this->mask = $mask;
+        $this->dateAdded = $dateAdded;
     }
 
 

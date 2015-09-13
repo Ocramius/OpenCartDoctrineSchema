@@ -24,8 +24,8 @@ class OcWeightClass
 
     public function __construct(Doctrine\Common\Collections\Collection $language, $value)
     {
-        $this->$language;
-        $this->$value;
+        $this->language = $language;
+        $this->value = $value;
     }
 
 

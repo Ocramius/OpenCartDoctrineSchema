@@ -49,13 +49,13 @@ class OcCustomField
 
     public function __construct(Doctrine\Common\Collections\Collection $language, Doctrine\Common\Collections\Collection $customerGroup, $type, $value, $location, $status, $sortOrder)
     {
-        $this->$language;
-        $this->$customerGroup;
-        $this->$type;
-        $this->$value;
-        $this->$location;
-        $this->$status;
-        $this->$sortOrder;
+        $this->language = $language;
+        $this->customerGroup = $customerGroup;
+        $this->type = $type;
+        $this->value = $value;
+        $this->location = $location;
+        $this->status = $status;
+        $this->sortOrder = $sortOrder;
     }
 
 

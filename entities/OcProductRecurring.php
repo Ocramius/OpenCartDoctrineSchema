@@ -24,9 +24,9 @@ class OcProductRecurring
 
     public function __construct(OcCustomerGroup $customerGroup, OcRecurring $recurring, OcProduct $product)
     {
-        $this->$customerGroup;
-        $this->$recurring;
-        $this->$product;
+        $this->customerGroup = $customerGroup;
+        $this->recurring = $recurring;
+        $this->product = $product;
     }
 
 

@@ -24,9 +24,9 @@ class OcCategoryPath
 
     public function __construct(OcCategory $category, $level, $pathId)
     {
-        $this->$category;
-        $this->$level;
-        $this->$pathId;
+        $this->category = $category;
+        $this->level = $level;
+        $this->pathId = $pathId;
     }
 
 

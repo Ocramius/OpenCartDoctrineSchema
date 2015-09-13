@@ -49,13 +49,13 @@ class OcOrderCustomField
 
     public function __construct(OcCustomField $customField, OcOrder $order, OcCustomFieldValue $customFieldValue, $name, $value, $type, $location)
     {
-        $this->$customField;
-        $this->$order;
-        $this->$customFieldValue;
-        $this->$name;
-        $this->$value;
-        $this->$type;
-        $this->$location;
+        $this->customField = $customField;
+        $this->order = $order;
+        $this->customFieldValue = $customFieldValue;
+        $this->name = $name;
+        $this->value = $value;
+        $this->type = $type;
+        $this->location = $location;
     }
 
 

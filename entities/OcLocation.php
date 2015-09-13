@@ -54,14 +54,14 @@ class OcLocation
 
     public function __construct($name, $address, $telephone, $fax, $geocode, $open, $comment, $image = null)
     {
-        $this->$name;
-        $this->$address;
-        $this->$telephone;
-        $this->$fax;
-        $this->$geocode;
-        $this->$open;
-        $this->$comment;
-        $this->$image;
+        $this->name = $name;
+        $this->address = $address;
+        $this->telephone = $telephone;
+        $this->fax = $fax;
+        $this->geocode = $geocode;
+        $this->open = $open;
+        $this->comment = $comment;
+        $this->image = $image;
     }
 
 

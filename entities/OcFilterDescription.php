@@ -29,10 +29,10 @@ class OcFilterDescription
 
     public function __construct(OcLanguage $language, OcFilter $filter, OcFilterGroup $filterGroup, $name)
     {
-        $this->$language;
-        $this->$filter;
-        $this->$filterGroup;
-        $this->$name;
+        $this->language = $language;
+        $this->filter = $filter;
+        $this->filterGroup = $filterGroup;
+        $this->name = $name;
     }
 
 

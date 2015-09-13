@@ -74,18 +74,18 @@ class OcUser
 
     public function __construct(OcUserGroup $userGroup, $username, $password, $salt, $firstname, $lastname, $email, $image, $code, $ip, $status, DateTime $dateAdded)
     {
-        $this->$userGroup;
-        $this->$username;
-        $this->$password;
-        $this->$salt;
-        $this->$firstname;
-        $this->$lastname;
-        $this->$email;
-        $this->$image;
-        $this->$code;
-        $this->$ip;
-        $this->$status;
-        $this->$dateAdded;
+        $this->userGroup = $userGroup;
+        $this->username = $username;
+        $this->password = $password;
+        $this->salt = $salt;
+        $this->firstname = $firstname;
+        $this->lastname = $lastname;
+        $this->email = $email;
+        $this->image = $image;
+        $this->code = $code;
+        $this->ip = $ip;
+        $this->status = $status;
+        $this->dateAdded = $dateAdded;
     }
 
 

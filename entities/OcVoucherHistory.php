@@ -34,10 +34,10 @@ class OcVoucherHistory
 
     public function __construct(OcOrder $order, OcVoucher $voucher, $amount, DateTime $dateAdded)
     {
-        $this->$order;
-        $this->$voucher;
-        $this->$amount;
-        $this->$dateAdded;
+        $this->order = $order;
+        $this->voucher = $voucher;
+        $this->amount = $amount;
+        $this->dateAdded = $dateAdded;
     }
 
 

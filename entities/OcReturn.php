@@ -104,24 +104,24 @@ class OcReturn
 
     public function __construct(OcReturnStatus $returnStatus, OcReturnReason $returnReason, OcCustomer $customer, OcOrder $order, OcReturnAction $returnAction, OcProduct $product2, $firstname, $lastname, $email, $telephone, $product, $model, $quantity, $opened, $dateOrdered, DateTime $dateAdded, DateTime $dateModified, $comment = null)
     {
-        $this->$returnStatus;
-        $this->$returnReason;
-        $this->$customer;
-        $this->$order;
-        $this->$returnAction;
-        $this->$product2;
-        $this->$firstname;
-        $this->$lastname;
-        $this->$email;
-        $this->$telephone;
-        $this->$product;
-        $this->$model;
-        $this->$quantity;
-        $this->$opened;
-        $this->$dateOrdered;
-        $this->$dateAdded;
-        $this->$dateModified;
-        $this->$comment;
+        $this->returnStatus = $returnStatus;
+        $this->returnReason = $returnReason;
+        $this->customer = $customer;
+        $this->order = $order;
+        $this->returnAction = $returnAction;
+        $this->product2 = $product2;
+        $this->firstname = $firstname;
+        $this->lastname = $lastname;
+        $this->email = $email;
+        $this->telephone = $telephone;
+        $this->product = $product;
+        $this->model = $model;
+        $this->quantity = $quantity;
+        $this->opened = $opened;
+        $this->dateOrdered = $dateOrdered;
+        $this->dateAdded = $dateAdded;
+        $this->dateModified = $dateModified;
+        $this->comment = $comment;
     }
 
 

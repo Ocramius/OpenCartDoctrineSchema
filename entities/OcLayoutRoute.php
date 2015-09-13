@@ -29,9 +29,9 @@ class OcLayoutRoute
 
     public function __construct(OcStore $store, OcLayout $layout, $route)
     {
-        $this->$store;
-        $this->$layout;
-        $this->$route;
+        $this->store = $store;
+        $this->layout = $layout;
+        $this->route = $route;
     }
 
 

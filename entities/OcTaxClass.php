@@ -34,10 +34,10 @@ class OcTaxClass
 
     public function __construct($title, $description, DateTime $dateAdded, DateTime $dateModified)
     {
-        $this->$title;
-        $this->$description;
-        $this->$dateAdded;
-        $this->$dateModified;
+        $this->title = $title;
+        $this->description = $description;
+        $this->dateAdded = $dateAdded;
+        $this->dateModified = $dateModified;
     }
 
 

@@ -34,10 +34,10 @@ class OcZone
 
     public function __construct(OcCountry $country, $name, $code, $status)
     {
-        $this->$country;
-        $this->$name;
-        $this->$code;
-        $this->$status;
+        $this->country = $country;
+        $this->name = $name;
+        $this->code = $code;
+        $this->status = $status;
     }
 
 

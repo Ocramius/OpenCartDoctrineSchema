@@ -24,9 +24,9 @@ class OcReturnAction
 
     public function __construct(OcLanguage $language, $name, $returnActionId)
     {
-        $this->$language;
-        $this->$name;
-        $this->$returnActionId;
+        $this->language = $language;
+        $this->name = $name;
+        $this->returnActionId = $returnActionId;
     }
 
 

@@ -24,8 +24,8 @@ class OcCustomFieldValue
 
     public function __construct(OcCustomField $customField, $sortOrder)
     {
-        $this->$customField;
-        $this->$sortOrder;
+        $this->customField = $customField;
+        $this->sortOrder = $sortOrder;
     }
 
 

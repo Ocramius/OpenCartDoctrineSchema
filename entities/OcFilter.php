@@ -34,10 +34,10 @@ class OcFilter
 
     public function __construct(OcFilterGroup $filterGroup, Doctrine\Common\Collections\Collection $product, Doctrine\Common\Collections\Collection $category, $sortOrder)
     {
-        $this->$filterGroup;
-        $this->$product;
-        $this->$category;
-        $this->$sortOrder;
+        $this->filterGroup = $filterGroup;
+        $this->product = $product;
+        $this->category = $category;
+        $this->sortOrder = $sortOrder;
     }
 
 

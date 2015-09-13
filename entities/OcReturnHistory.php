@@ -39,11 +39,11 @@ class OcReturnHistory
 
     public function __construct(OcReturnStatus $returnStatus, OcReturn $return, $notify, $comment, DateTime $dateAdded)
     {
-        $this->$returnStatus;
-        $this->$return;
-        $this->$notify;
-        $this->$comment;
-        $this->$dateAdded;
+        $this->returnStatus = $returnStatus;
+        $this->return = $return;
+        $this->notify = $notify;
+        $this->comment = $comment;
+        $this->dateAdded = $dateAdded;
     }
 
 

@@ -74,18 +74,18 @@ class OcRecurring
 
     public function __construct(Doctrine\Common\Collections\Collection $language, $price, $frequency, $duration, $cycle, $trialStatus, $trialPrice, $trialFrequency, $trialDuration, $trialCycle, $status, $sortOrder)
     {
-        $this->$language;
-        $this->$price;
-        $this->$frequency;
-        $this->$duration;
-        $this->$cycle;
-        $this->$trialStatus;
-        $this->$trialPrice;
-        $this->$trialFrequency;
-        $this->$trialDuration;
-        $this->$trialCycle;
-        $this->$status;
-        $this->$sortOrder;
+        $this->language = $language;
+        $this->price = $price;
+        $this->frequency = $frequency;
+        $this->duration = $duration;
+        $this->cycle = $cycle;
+        $this->trialStatus = $trialStatus;
+        $this->trialPrice = $trialPrice;
+        $this->trialFrequency = $trialFrequency;
+        $this->trialDuration = $trialDuration;
+        $this->trialCycle = $trialCycle;
+        $this->status = $status;
+        $this->sortOrder = $sortOrder;
     }
 
 

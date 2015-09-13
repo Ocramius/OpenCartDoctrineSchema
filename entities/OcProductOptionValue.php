@@ -74,18 +74,18 @@ class OcProductOptionValue
 
     public function __construct(OcOptionValue $optionValue, OcProductOption $productOption, OcOption $option, OcProduct $product, $quantity, $subtract, $price, $pricePrefix, $points, $pointsPrefix, $weight, $weightPrefix)
     {
-        $this->$optionValue;
-        $this->$productOption;
-        $this->$option;
-        $this->$product;
-        $this->$quantity;
-        $this->$subtract;
-        $this->$price;
-        $this->$pricePrefix;
-        $this->$points;
-        $this->$pointsPrefix;
-        $this->$weight;
-        $this->$weightPrefix;
+        $this->optionValue = $optionValue;
+        $this->productOption = $productOption;
+        $this->option = $option;
+        $this->product = $product;
+        $this->quantity = $quantity;
+        $this->subtract = $subtract;
+        $this->price = $price;
+        $this->pricePrefix = $pricePrefix;
+        $this->points = $points;
+        $this->pointsPrefix = $pointsPrefix;
+        $this->weight = $weight;
+        $this->weightPrefix = $weightPrefix;
     }
 
 

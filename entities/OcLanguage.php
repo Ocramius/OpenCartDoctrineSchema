@@ -119,27 +119,27 @@ class OcLanguage
 
     public function __construct(Doctrine\Common\Collections\Collection $option, Doctrine\Common\Collections\Collection $lengthClass, Doctrine\Common\Collections\Collection $product, Doctrine\Common\Collections\Collection $recurring, Doctrine\Common\Collections\Collection $weightClass, Doctrine\Common\Collections\Collection $voucherTheme, Doctrine\Common\Collections\Collection $information, Doctrine\Common\Collections\Collection $filterGroup, Doctrine\Common\Collections\Collection $category, Doctrine\Common\Collections\Collection $attributeGroup, Doctrine\Common\Collections\Collection $customField, Doctrine\Common\Collections\Collection $customerGroup, Doctrine\Common\Collections\Collection $download, Doctrine\Common\Collections\Collection $attribute, $name, $code, $locale, $image, $directory, $sortOrder, $status)
     {
-        $this->$option;
-        $this->$lengthClass;
-        $this->$product;
-        $this->$recurring;
-        $this->$weightClass;
-        $this->$voucherTheme;
-        $this->$information;
-        $this->$filterGroup;
-        $this->$category;
-        $this->$attributeGroup;
-        $this->$customField;
-        $this->$customerGroup;
-        $this->$download;
-        $this->$attribute;
-        $this->$name;
-        $this->$code;
-        $this->$locale;
-        $this->$image;
-        $this->$directory;
-        $this->$sortOrder;
-        $this->$status;
+        $this->option = $option;
+        $this->lengthClass = $lengthClass;
+        $this->product = $product;
+        $this->recurring = $recurring;
+        $this->weightClass = $weightClass;
+        $this->voucherTheme = $voucherTheme;
+        $this->information = $information;
+        $this->filterGroup = $filterGroup;
+        $this->category = $category;
+        $this->attributeGroup = $attributeGroup;
+        $this->customField = $customField;
+        $this->customerGroup = $customerGroup;
+        $this->download = $download;
+        $this->attribute = $attribute;
+        $this->name = $name;
+        $this->code = $code;
+        $this->locale = $locale;
+        $this->image = $image;
+        $this->directory = $directory;
+        $this->sortOrder = $sortOrder;
+        $this->status = $status;
     }
 
 

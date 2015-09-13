@@ -34,10 +34,10 @@ class OcGeoZone
 
     public function __construct($name, $description, DateTime $dateModified, DateTime $dateAdded)
     {
-        $this->$name;
-        $this->$description;
-        $this->$dateModified;
-        $this->$dateAdded;
+        $this->name = $name;
+        $this->description = $description;
+        $this->dateModified = $dateModified;
+        $this->dateAdded = $dateAdded;
     }
 
 

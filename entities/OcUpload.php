@@ -34,10 +34,10 @@ class OcUpload
 
     public function __construct($name, $filename, $code, DateTime $dateAdded)
     {
-        $this->$name;
-        $this->$filename;
-        $this->$code;
-        $this->$dateAdded;
+        $this->name = $name;
+        $this->filename = $filename;
+        $this->code = $code;
+        $this->dateAdded = $dateAdded;
     }
 
 

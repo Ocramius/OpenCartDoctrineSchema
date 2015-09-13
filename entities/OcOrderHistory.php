@@ -39,11 +39,11 @@ class OcOrderHistory
 
     public function __construct(OcOrderStatus $orderStatus, OcOrder $order, $notify, $comment, DateTime $dateAdded)
     {
-        $this->$orderStatus;
-        $this->$order;
-        $this->$notify;
-        $this->$comment;
-        $this->$dateAdded;
+        $this->orderStatus = $orderStatus;
+        $this->order = $order;
+        $this->notify = $notify;
+        $this->comment = $comment;
+        $this->dateAdded = $dateAdded;
     }
 
 

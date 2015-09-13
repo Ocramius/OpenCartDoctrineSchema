@@ -19,7 +19,7 @@ class OcLayout
 
     public function __construct($name)
     {
-        $this->$name;
+        $this->name = $name;
     }
 
 

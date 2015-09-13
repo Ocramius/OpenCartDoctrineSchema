@@ -29,9 +29,9 @@ class OcProductReward
 
     public function __construct(OcCustomerGroup $customerGroup, OcProduct $product, $points)
     {
-        $this->$customerGroup;
-        $this->$product;
-        $this->$points;
+        $this->customerGroup = $customerGroup;
+        $this->product = $product;
+        $this->points = $points;
     }
 
 

@@ -34,10 +34,10 @@ class OcBannerImage
 
     public function __construct(OcBanner $banner, $link, $image, $sortOrder)
     {
-        $this->$banner;
-        $this->$link;
-        $this->$image;
-        $this->$sortOrder;
+        $this->banner = $banner;
+        $this->link = $link;
+        $this->image = $image;
+        $this->sortOrder = $sortOrder;
     }
 
 

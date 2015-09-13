@@ -69,17 +69,17 @@ class OcVoucher
 
     public function __construct(OcVoucherTheme $voucherTheme, OcOrder $order, $code, $fromName, $fromEmail, $toName, $toEmail, $message, $amount, $status, DateTime $dateAdded)
     {
-        $this->$voucherTheme;
-        $this->$order;
-        $this->$code;
-        $this->$fromName;
-        $this->$fromEmail;
-        $this->$toName;
-        $this->$toEmail;
-        $this->$message;
-        $this->$amount;
-        $this->$status;
-        $this->$dateAdded;
+        $this->voucherTheme = $voucherTheme;
+        $this->order = $order;
+        $this->code = $code;
+        $this->fromName = $fromName;
+        $this->fromEmail = $fromEmail;
+        $this->toName = $toName;
+        $this->toEmail = $toEmail;
+        $this->message = $message;
+        $this->amount = $amount;
+        $this->status = $status;
+        $this->dateAdded = $dateAdded;
     }
 
 

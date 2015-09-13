@@ -34,10 +34,10 @@ class OcLayoutModule
 
     public function __construct(OcLayout $layout, $code, $position, $sortOrder)
     {
-        $this->$layout;
-        $this->$code;
-        $this->$position;
-        $this->$sortOrder;
+        $this->layout = $layout;
+        $this->code = $code;
+        $this->position = $position;
+        $this->sortOrder = $sortOrder;
     }
 
 

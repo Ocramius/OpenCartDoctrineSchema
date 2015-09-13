@@ -69,17 +69,17 @@ class OcAddress
 
     public function __construct(OcCountry $country, OcZone $zone, OcCustomer $customer, $firstname, $lastname, $company, $address1, $address2, $city, $postcode, $customField)
     {
-        $this->$country;
-        $this->$zone;
-        $this->$customer;
-        $this->$firstname;
-        $this->$lastname;
-        $this->$company;
-        $this->$address1;
-        $this->$address2;
-        $this->$city;
-        $this->$postcode;
-        $this->$customField;
+        $this->country = $country;
+        $this->zone = $zone;
+        $this->customer = $customer;
+        $this->firstname = $firstname;
+        $this->lastname = $lastname;
+        $this->company = $company;
+        $this->address1 = $address1;
+        $this->address2 = $address2;
+        $this->city = $city;
+        $this->postcode = $postcode;
+        $this->customField = $customField;
     }
 
 

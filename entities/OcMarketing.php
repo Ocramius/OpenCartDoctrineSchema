@@ -39,11 +39,11 @@ class OcMarketing
 
     public function __construct($name, $description, $code, $clicks, DateTime $dateAdded)
     {
-        $this->$name;
-        $this->$description;
-        $this->$code;
-        $this->$clicks;
-        $this->$dateAdded;
+        $this->name = $name;
+        $this->description = $description;
+        $this->code = $code;
+        $this->clicks = $clicks;
+        $this->dateAdded = $dateAdded;
     }
 
 

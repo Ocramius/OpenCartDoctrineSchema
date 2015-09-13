@@ -34,10 +34,10 @@ class OcProductOption
 
     public function __construct(OcOption $option, OcProduct $product, $value, $required)
     {
-        $this->$option;
-        $this->$product;
-        $this->$value;
-        $this->$required;
+        $this->option = $option;
+        $this->product = $product;
+        $this->value = $value;
+        $this->required = $required;
     }
 
 
