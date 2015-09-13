@@ -1,6 +1,7 @@
 {
     "require": {
-        "doctrine/orm": "^2.5"
+        "doctrine/orm": "^2.5",
+        "zendframework/zend-code": "^2.5"
     },
     "autoload": {
         "classmap": [
