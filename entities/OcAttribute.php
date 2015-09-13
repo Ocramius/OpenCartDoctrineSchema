@@ -10,11 +10,6 @@ class OcAttribute
     /**
      * @var integer
      */
-    private $attributeGroupId;
-
-    /**
-     * @var integer
-     */
     private $sortOrder;
 
     /**
@@ -22,63 +17,23 @@ class OcAttribute
      */
     private $attributeId;
 
+    /**
+     * @var \OcAttributeGroup
+     */
+    private $attributeGroup;
 
     /**
-     * Set attributeGroupId
-     *
-     * @param integer $attributeGroupId
-     *
-     * @return OcAttribute
+     * @var \Doctrine\Common\Collections\Collection
      */
-    public function setAttributeGroupId($attributeGroupId)
-    {
-        $this->attributeGroupId = $attributeGroupId;
-
-        return $this;
-    }
+    private $language;
 
     /**
-     * Get attributeGroupId
-     *
-     * @return integer
+     * Constructor
      */
-    public function getAttributeGroupId()
+    public function __construct()
     {
-        return $this->attributeGroupId;
+        $this->language = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    /**
-     * Set sortOrder
-     *
-     * @param integer $sortOrder
-     *
-     * @return OcAttribute
-     */
-    public function setSortOrder($sortOrder)
-    {
-        $this->sortOrder = $sortOrder;
-
-        return $this;
-    }
-
-    /**
-     * Get sortOrder
-     *
-     * @return integer
-     */
-    public function getSortOrder()
-    {
-        return $this->sortOrder;
-    }
-
-    /**
-     * Get attributeId
-     *
-     * @return integer
-     */
-    public function getAttributeId()
-    {
-        return $this->attributeId;
-    }
 }
 

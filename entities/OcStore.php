@@ -27,87 +27,36 @@ class OcStore
      */
     private $storeId;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $product;
 
     /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return OcStore
+     * @var \Doctrine\Common\Collections\Collection
      */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
+    private $manufacturer;
 
     /**
-     * Get name
-     *
-     * @return string
+     * @var \Doctrine\Common\Collections\Collection
      */
-    public function getName()
-    {
-        return $this->name;
-    }
+    private $information;
 
     /**
-     * Set url
-     *
-     * @param string $url
-     *
-     * @return OcStore
+     * @var \Doctrine\Common\Collections\Collection
      */
-    public function setUrl($url)
-    {
-        $this->url = $url;
-
-        return $this;
-    }
+    private $category;
 
     /**
-     * Get url
-     *
-     * @return string
+     * Constructor
      */
-    public function getUrl()
+    public function __construct()
     {
-        return $this->url;
+        $this->product = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->manufacturer = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->information = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->category = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    /**
-     * Set ssl
-     *
-     * @param string $ssl
-     *
-     * @return OcStore
-     */
-    public function setSsl($ssl)
-    {
-        $this->ssl = $ssl;
-
-        return $this;
-    }
-
-    /**
-     * Get ssl
-     *
-     * @return string
-     */
-    public function getSsl()
-    {
-        return $this->ssl;
-    }
-
-    /**
-     * Get storeId
-     *
-     * @return integer
-     */
-    public function getStoreId()
-    {
-        return $this->storeId;
-    }
 }
 

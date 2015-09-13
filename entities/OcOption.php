@@ -22,63 +22,18 @@ class OcOption
      */
     private $optionId;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $language;
 
     /**
-     * Set type
-     *
-     * @param string $type
-     *
-     * @return OcOption
+     * Constructor
      */
-    public function setType($type)
+    public function __construct()
     {
-        $this->type = $type;
-
-        return $this;
+        $this->language = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    /**
-     * Get type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * Set sortOrder
-     *
-     * @param integer $sortOrder
-     *
-     * @return OcOption
-     */
-    public function setSortOrder($sortOrder)
-    {
-        $this->sortOrder = $sortOrder;
-
-        return $this;
-    }
-
-    /**
-     * Get sortOrder
-     *
-     * @return integer
-     */
-    public function getSortOrder()
-    {
-        return $this->sortOrder;
-    }
-
-    /**
-     * Get optionId
-     *
-     * @return integer
-     */
-    public function getOptionId()
-    {
-        return $this->optionId;
-    }
 }
 

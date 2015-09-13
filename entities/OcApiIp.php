@@ -8,11 +8,6 @@
 class OcApiIp
 {
     /**
-     * @var integer
-     */
-    private $apiId;
-
-    /**
      * @var string
      */
     private $ip;
@@ -22,63 +17,11 @@ class OcApiIp
      */
     private $apiIpId;
 
-
     /**
-     * Set apiId
-     *
-     * @param integer $apiId
-     *
-     * @return OcApiIp
+     * @var \OcApi
      */
-    public function setApiId($apiId)
-    {
-        $this->apiId = $apiId;
+    private $api;
 
-        return $this;
-    }
 
-    /**
-     * Get apiId
-     *
-     * @return integer
-     */
-    public function getApiId()
-    {
-        return $this->apiId;
-    }
-
-    /**
-     * Set ip
-     *
-     * @param string $ip
-     *
-     * @return OcApiIp
-     */
-    public function setIp($ip)
-    {
-        $this->ip = $ip;
-
-        return $this;
-    }
-
-    /**
-     * Get ip
-     *
-     * @return string
-     */
-    public function getIp()
-    {
-        return $this->ip;
-    }
-
-    /**
-     * Get apiIpId
-     *
-     * @return integer
-     */
-    public function getApiIpId()
-    {
-        return $this->apiIpId;
-    }
 }
 

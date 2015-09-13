@@ -10,11 +10,6 @@ class OcFilter
     /**
      * @var integer
      */
-    private $filterGroupId;
-
-    /**
-     * @var integer
-     */
     private $sortOrder;
 
     /**
@@ -22,63 +17,29 @@ class OcFilter
      */
     private $filterId;
 
+    /**
+     * @var \OcFilterGroup
+     */
+    private $filterGroup;
 
     /**
-     * Set filterGroupId
-     *
-     * @param integer $filterGroupId
-     *
-     * @return OcFilter
+     * @var \Doctrine\Common\Collections\Collection
      */
-    public function setFilterGroupId($filterGroupId)
-    {
-        $this->filterGroupId = $filterGroupId;
-
-        return $this;
-    }
+    private $product;
 
     /**
-     * Get filterGroupId
-     *
-     * @return integer
+     * @var \Doctrine\Common\Collections\Collection
      */
-    public function getFilterGroupId()
-    {
-        return $this->filterGroupId;
-    }
+    private $category;
 
     /**
-     * Set sortOrder
-     *
-     * @param integer $sortOrder
-     *
-     * @return OcFilter
+     * Constructor
      */
-    public function setSortOrder($sortOrder)
+    public function __construct()
     {
-        $this->sortOrder = $sortOrder;
-
-        return $this;
+        $this->product = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->category = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    /**
-     * Get sortOrder
-     *
-     * @return integer
-     */
-    public function getSortOrder()
-    {
-        return $this->sortOrder;
-    }
-
-    /**
-     * Get filterId
-     *
-     * @return integer
-     */
-    public function getFilterId()
-    {
-        return $this->filterId;
-    }
 }
 

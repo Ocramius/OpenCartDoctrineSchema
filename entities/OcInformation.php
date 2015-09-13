@@ -27,87 +27,24 @@ class OcInformation
      */
     private $informationId;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $store;
 
     /**
-     * Set bottom
-     *
-     * @param integer $bottom
-     *
-     * @return OcInformation
+     * @var \Doctrine\Common\Collections\Collection
      */
-    public function setBottom($bottom)
-    {
-        $this->bottom = $bottom;
-
-        return $this;
-    }
+    private $language;
 
     /**
-     * Get bottom
-     *
-     * @return integer
+     * Constructor
      */
-    public function getBottom()
+    public function __construct()
     {
-        return $this->bottom;
+        $this->store = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->language = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    /**
-     * Set sortOrder
-     *
-     * @param integer $sortOrder
-     *
-     * @return OcInformation
-     */
-    public function setSortOrder($sortOrder)
-    {
-        $this->sortOrder = $sortOrder;
-
-        return $this;
-    }
-
-    /**
-     * Get sortOrder
-     *
-     * @return integer
-     */
-    public function getSortOrder()
-    {
-        return $this->sortOrder;
-    }
-
-    /**
-     * Set status
-     *
-     * @param boolean $status
-     *
-     * @return OcInformation
-     */
-    public function setStatus($status)
-    {
-        $this->status = $status;
-
-        return $this;
-    }
-
-    /**
-     * Get status
-     *
-     * @return boolean
-     */
-    public function getStatus()
-    {
-        return $this->status;
-    }
-
-    /**
-     * Get informationId
-     *
-     * @return integer
-     */
-    public function getInformationId()
-    {
-        return $this->informationId;
-    }
 }
 

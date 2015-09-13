@@ -27,87 +27,18 @@ class OcManufacturer
      */
     private $manufacturerId;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $store;
 
     /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return OcManufacturer
+     * Constructor
      */
-    public function setName($name)
+    public function __construct()
     {
-        $this->name = $name;
-
-        return $this;
+        $this->store = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set image
-     *
-     * @param string $image
-     *
-     * @return OcManufacturer
-     */
-    public function setImage($image)
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    /**
-     * Get image
-     *
-     * @return string
-     */
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    /**
-     * Set sortOrder
-     *
-     * @param integer $sortOrder
-     *
-     * @return OcManufacturer
-     */
-    public function setSortOrder($sortOrder)
-    {
-        $this->sortOrder = $sortOrder;
-
-        return $this;
-    }
-
-    /**
-     * Get sortOrder
-     *
-     * @return integer
-     */
-    public function getSortOrder()
-    {
-        return $this->sortOrder;
-    }
-
-    /**
-     * Get manufacturerId
-     *
-     * @return integer
-     */
-    public function getManufacturerId()
-    {
-        return $this->manufacturerId;
-    }
 }
 

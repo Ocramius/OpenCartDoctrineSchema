@@ -52,207 +52,42 @@ class OcCategory
      */
     private $categoryId;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $product;
 
     /**
-     * Set image
-     *
-     * @param string $image
-     *
-     * @return OcCategory
+     * @var \Doctrine\Common\Collections\Collection
      */
-    public function setImage($image)
-    {
-        $this->image = $image;
-
-        return $this;
-    }
+    private $coupon;
 
     /**
-     * Get image
-     *
-     * @return string
+     * @var \Doctrine\Common\Collections\Collection
      */
-    public function getImage()
-    {
-        return $this->image;
-    }
+    private $store;
 
     /**
-     * Set parentId
-     *
-     * @param integer $parentId
-     *
-     * @return OcCategory
+     * @var \Doctrine\Common\Collections\Collection
      */
-    public function setParentId($parentId)
-    {
-        $this->parentId = $parentId;
-
-        return $this;
-    }
+    private $filter;
 
     /**
-     * Get parentId
-     *
-     * @return integer
+     * @var \Doctrine\Common\Collections\Collection
      */
-    public function getParentId()
-    {
-        return $this->parentId;
-    }
+    private $language;
 
     /**
-     * Set top
-     *
-     * @param boolean $top
-     *
-     * @return OcCategory
+     * Constructor
      */
-    public function setTop($top)
+    public function __construct()
     {
-        $this->top = $top;
-
-        return $this;
+        $this->product = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->coupon = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->store = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->filter = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->language = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    /**
-     * Get top
-     *
-     * @return boolean
-     */
-    public function getTop()
-    {
-        return $this->top;
-    }
-
-    /**
-     * Set column
-     *
-     * @param integer $column
-     *
-     * @return OcCategory
-     */
-    public function setColumn($column)
-    {
-        $this->column = $column;
-
-        return $this;
-    }
-
-    /**
-     * Get column
-     *
-     * @return integer
-     */
-    public function getColumn()
-    {
-        return $this->column;
-    }
-
-    /**
-     * Set sortOrder
-     *
-     * @param integer $sortOrder
-     *
-     * @return OcCategory
-     */
-    public function setSortOrder($sortOrder)
-    {
-        $this->sortOrder = $sortOrder;
-
-        return $this;
-    }
-
-    /**
-     * Get sortOrder
-     *
-     * @return integer
-     */
-    public function getSortOrder()
-    {
-        return $this->sortOrder;
-    }
-
-    /**
-     * Set status
-     *
-     * @param boolean $status
-     *
-     * @return OcCategory
-     */
-    public function setStatus($status)
-    {
-        $this->status = $status;
-
-        return $this;
-    }
-
-    /**
-     * Get status
-     *
-     * @return boolean
-     */
-    public function getStatus()
-    {
-        return $this->status;
-    }
-
-    /**
-     * Set dateAdded
-     *
-     * @param \DateTime $dateAdded
-     *
-     * @return OcCategory
-     */
-    public function setDateAdded($dateAdded)
-    {
-        $this->dateAdded = $dateAdded;
-
-        return $this;
-    }
-
-    /**
-     * Get dateAdded
-     *
-     * @return \DateTime
-     */
-    public function getDateAdded()
-    {
-        return $this->dateAdded;
-    }
-
-    /**
-     * Set dateModified
-     *
-     * @param \DateTime $dateModified
-     *
-     * @return OcCategory
-     */
-    public function setDateModified($dateModified)
-    {
-        $this->dateModified = $dateModified;
-
-        return $this;
-    }
-
-    /**
-     * Get dateModified
-     *
-     * @return \DateTime
-     */
-    public function getDateModified()
-    {
-        return $this->dateModified;
-    }
-
-    /**
-     * Get categoryId
-     *
-     * @return integer
-     */
-    public function getCategoryId()
-    {
-        return $this->categoryId;
-    }
 }
 

@@ -47,183 +47,96 @@ class OcLanguage
      */
     private $languageId;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $option;
 
     /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return OcLanguage
+     * @var \Doctrine\Common\Collections\Collection
      */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
+    private $lengthClass;
 
     /**
-     * Get name
-     *
-     * @return string
+     * @var \Doctrine\Common\Collections\Collection
      */
-    public function getName()
-    {
-        return $this->name;
-    }
+    private $product;
 
     /**
-     * Set code
-     *
-     * @param string $code
-     *
-     * @return OcLanguage
+     * @var \Doctrine\Common\Collections\Collection
      */
-    public function setCode($code)
-    {
-        $this->code = $code;
-
-        return $this;
-    }
+    private $recurring;
 
     /**
-     * Get code
-     *
-     * @return string
+     * @var \Doctrine\Common\Collections\Collection
      */
-    public function getCode()
-    {
-        return $this->code;
-    }
+    private $weightClass;
 
     /**
-     * Set locale
-     *
-     * @param string $locale
-     *
-     * @return OcLanguage
+     * @var \Doctrine\Common\Collections\Collection
      */
-    public function setLocale($locale)
-    {
-        $this->locale = $locale;
-
-        return $this;
-    }
+    private $voucherTheme;
 
     /**
-     * Get locale
-     *
-     * @return string
+     * @var \Doctrine\Common\Collections\Collection
      */
-    public function getLocale()
-    {
-        return $this->locale;
-    }
+    private $information;
 
     /**
-     * Set image
-     *
-     * @param string $image
-     *
-     * @return OcLanguage
+     * @var \Doctrine\Common\Collections\Collection
      */
-    public function setImage($image)
-    {
-        $this->image = $image;
-
-        return $this;
-    }
+    private $filterGroup;
 
     /**
-     * Get image
-     *
-     * @return string
+     * @var \Doctrine\Common\Collections\Collection
      */
-    public function getImage()
-    {
-        return $this->image;
-    }
+    private $category;
 
     /**
-     * Set directory
-     *
-     * @param string $directory
-     *
-     * @return OcLanguage
+     * @var \Doctrine\Common\Collections\Collection
      */
-    public function setDirectory($directory)
-    {
-        $this->directory = $directory;
-
-        return $this;
-    }
+    private $attributeGroup;
 
     /**
-     * Get directory
-     *
-     * @return string
+     * @var \Doctrine\Common\Collections\Collection
      */
-    public function getDirectory()
-    {
-        return $this->directory;
-    }
+    private $customField;
 
     /**
-     * Set sortOrder
-     *
-     * @param integer $sortOrder
-     *
-     * @return OcLanguage
+     * @var \Doctrine\Common\Collections\Collection
      */
-    public function setSortOrder($sortOrder)
-    {
-        $this->sortOrder = $sortOrder;
-
-        return $this;
-    }
+    private $customerGroup;
 
     /**
-     * Get sortOrder
-     *
-     * @return integer
+     * @var \Doctrine\Common\Collections\Collection
      */
-    public function getSortOrder()
-    {
-        return $this->sortOrder;
-    }
+    private $download;
 
     /**
-     * Set status
-     *
-     * @param boolean $status
-     *
-     * @return OcLanguage
+     * @var \Doctrine\Common\Collections\Collection
      */
-    public function setStatus($status)
-    {
-        $this->status = $status;
-
-        return $this;
-    }
+    private $attribute;
 
     /**
-     * Get status
-     *
-     * @return boolean
+     * Constructor
      */
-    public function getStatus()
+    public function __construct()
     {
-        return $this->status;
+        $this->option = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->lengthClass = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->product = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->recurring = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->weightClass = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->voucherTheme = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->information = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->filterGroup = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->category = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->attributeGroup = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->customField = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->customerGroup = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->download = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->attribute = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    /**
-     * Get languageId
-     *
-     * @return integer
-     */
-    public function getLanguageId()
-    {
-        return $this->languageId;
-    }
 }
 

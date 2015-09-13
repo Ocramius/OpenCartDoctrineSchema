@@ -22,63 +22,30 @@ class OcCustomerGroup
      */
     private $customerGroupId;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $taxRate;
 
     /**
-     * Set approval
-     *
-     * @param integer $approval
-     *
-     * @return OcCustomerGroup
+     * @var \Doctrine\Common\Collections\Collection
      */
-    public function setApproval($approval)
-    {
-        $this->approval = $approval;
-
-        return $this;
-    }
+    private $language;
 
     /**
-     * Get approval
-     *
-     * @return integer
+     * @var \Doctrine\Common\Collections\Collection
      */
-    public function getApproval()
-    {
-        return $this->approval;
-    }
+    private $customField;
 
     /**
-     * Set sortOrder
-     *
-     * @param integer $sortOrder
-     *
-     * @return OcCustomerGroup
+     * Constructor
      */
-    public function setSortOrder($sortOrder)
+    public function __construct()
     {
-        $this->sortOrder = $sortOrder;
-
-        return $this;
+        $this->taxRate = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->language = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->customField = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    /**
-     * Get sortOrder
-     *
-     * @return integer
-     */
-    public function getSortOrder()
-    {
-        return $this->sortOrder;
-    }
-
-    /**
-     * Get customerGroupId
-     *
-     * @return integer
-     */
-    public function getCustomerGroupId()
-    {
-        return $this->customerGroupId;
-    }
 }
 

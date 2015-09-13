@@ -27,87 +27,24 @@ class OcDownload
      */
     private $downloadId;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $product;
 
     /**
-     * Set filename
-     *
-     * @param string $filename
-     *
-     * @return OcDownload
+     * @var \Doctrine\Common\Collections\Collection
      */
-    public function setFilename($filename)
-    {
-        $this->filename = $filename;
-
-        return $this;
-    }
+    private $language;
 
     /**
-     * Get filename
-     *
-     * @return string
+     * Constructor
      */
-    public function getFilename()
+    public function __construct()
     {
-        return $this->filename;
+        $this->product = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->language = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    /**
-     * Set mask
-     *
-     * @param string $mask
-     *
-     * @return OcDownload
-     */
-    public function setMask($mask)
-    {
-        $this->mask = $mask;
-
-        return $this;
-    }
-
-    /**
-     * Get mask
-     *
-     * @return string
-     */
-    public function getMask()
-    {
-        return $this->mask;
-    }
-
-    /**
-     * Set dateAdded
-     *
-     * @param \DateTime $dateAdded
-     *
-     * @return OcDownload
-     */
-    public function setDateAdded($dateAdded)
-    {
-        $this->dateAdded = $dateAdded;
-
-        return $this;
-    }
-
-    /**
-     * Get dateAdded
-     *
-     * @return \DateTime
-     */
-    public function getDateAdded()
-    {
-        return $this->dateAdded;
-    }
-
-    /**
-     * Get downloadId
-     *
-     * @return integer
-     */
-    public function getDownloadId()
-    {
-        return $this->downloadId;
-    }
 }
 

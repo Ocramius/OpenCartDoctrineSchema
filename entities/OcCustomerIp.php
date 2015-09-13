@@ -8,11 +8,6 @@
 class OcCustomerIp
 {
     /**
-     * @var integer
-     */
-    private $customerId;
-
-    /**
      * @var string
      */
     private $ip;
@@ -27,87 +22,11 @@ class OcCustomerIp
      */
     private $customerIpId;
 
-
     /**
-     * Set customerId
-     *
-     * @param integer $customerId
-     *
-     * @return OcCustomerIp
+     * @var \OcCustomer
      */
-    public function setCustomerId($customerId)
-    {
-        $this->customerId = $customerId;
+    private $customer;
 
-        return $this;
-    }
 
-    /**
-     * Get customerId
-     *
-     * @return integer
-     */
-    public function getCustomerId()
-    {
-        return $this->customerId;
-    }
-
-    /**
-     * Set ip
-     *
-     * @param string $ip
-     *
-     * @return OcCustomerIp
-     */
-    public function setIp($ip)
-    {
-        $this->ip = $ip;
-
-        return $this;
-    }
-
-    /**
-     * Get ip
-     *
-     * @return string
-     */
-    public function getIp()
-    {
-        return $this->ip;
-    }
-
-    /**
-     * Set dateAdded
-     *
-     * @param \DateTime $dateAdded
-     *
-     * @return OcCustomerIp
-     */
-    public function setDateAdded($dateAdded)
-    {
-        $this->dateAdded = $dateAdded;
-
-        return $this;
-    }
-
-    /**
-     * Get dateAdded
-     *
-     * @return \DateTime
-     */
-    public function getDateAdded()
-    {
-        return $this->dateAdded;
-    }
-
-    /**
-     * Get customerIpId
-     *
-     * @return integer
-     */
-    public function getCustomerIpId()
-    {
-        return $this->customerIpId;
-    }
 }
 

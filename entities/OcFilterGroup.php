@@ -17,39 +17,18 @@ class OcFilterGroup
      */
     private $filterGroupId;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $language;
 
     /**
-     * Set sortOrder
-     *
-     * @param integer $sortOrder
-     *
-     * @return OcFilterGroup
+     * Constructor
      */
-    public function setSortOrder($sortOrder)
+    public function __construct()
     {
-        $this->sortOrder = $sortOrder;
-
-        return $this;
+        $this->language = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    /**
-     * Get sortOrder
-     *
-     * @return integer
-     */
-    public function getSortOrder()
-    {
-        return $this->sortOrder;
-    }
-
-    /**
-     * Get filterGroupId
-     *
-     * @return integer
-     */
-    public function getFilterGroupId()
-    {
-        return $this->filterGroupId;
-    }
 }
 

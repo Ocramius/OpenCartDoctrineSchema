@@ -17,39 +17,18 @@ class OcAttributeGroup
      */
     private $attributeGroupId;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $language;
 
     /**
-     * Set sortOrder
-     *
-     * @param integer $sortOrder
-     *
-     * @return OcAttributeGroup
+     * Constructor
      */
-    public function setSortOrder($sortOrder)
+    public function __construct()
     {
-        $this->sortOrder = $sortOrder;
-
-        return $this;
+        $this->language = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    /**
-     * Get sortOrder
-     *
-     * @return integer
-     */
-    public function getSortOrder()
-    {
-        return $this->sortOrder;
-    }
-
-    /**
-     * Get attributeGroupId
-     *
-     * @return integer
-     */
-    public function getAttributeGroupId()
-    {
-        return $this->attributeGroupId;
-    }
 }
 

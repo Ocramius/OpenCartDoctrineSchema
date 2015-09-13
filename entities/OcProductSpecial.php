@@ -10,16 +10,6 @@ class OcProductSpecial
     /**
      * @var integer
      */
-    private $productId;
-
-    /**
-     * @var integer
-     */
-    private $customerGroupId;
-
-    /**
-     * @var integer
-     */
     private $priority = '1';
 
     /**
@@ -42,159 +32,16 @@ class OcProductSpecial
      */
     private $productSpecialId;
 
+    /**
+     * @var \OcCustomerGroup
+     */
+    private $customerGroup;
 
     /**
-     * Set productId
-     *
-     * @param integer $productId
-     *
-     * @return OcProductSpecial
+     * @var \OcProduct
      */
-    public function setProductId($productId)
-    {
-        $this->productId = $productId;
+    private $product;
 
-        return $this;
-    }
 
-    /**
-     * Get productId
-     *
-     * @return integer
-     */
-    public function getProductId()
-    {
-        return $this->productId;
-    }
-
-    /**
-     * Set customerGroupId
-     *
-     * @param integer $customerGroupId
-     *
-     * @return OcProductSpecial
-     */
-    public function setCustomerGroupId($customerGroupId)
-    {
-        $this->customerGroupId = $customerGroupId;
-
-        return $this;
-    }
-
-    /**
-     * Get customerGroupId
-     *
-     * @return integer
-     */
-    public function getCustomerGroupId()
-    {
-        return $this->customerGroupId;
-    }
-
-    /**
-     * Set priority
-     *
-     * @param integer $priority
-     *
-     * @return OcProductSpecial
-     */
-    public function setPriority($priority)
-    {
-        $this->priority = $priority;
-
-        return $this;
-    }
-
-    /**
-     * Get priority
-     *
-     * @return integer
-     */
-    public function getPriority()
-    {
-        return $this->priority;
-    }
-
-    /**
-     * Set price
-     *
-     * @param string $price
-     *
-     * @return OcProductSpecial
-     */
-    public function setPrice($price)
-    {
-        $this->price = $price;
-
-        return $this;
-    }
-
-    /**
-     * Get price
-     *
-     * @return string
-     */
-    public function getPrice()
-    {
-        return $this->price;
-    }
-
-    /**
-     * Set dateStart
-     *
-     * @param \DateTime $dateStart
-     *
-     * @return OcProductSpecial
-     */
-    public function setDateStart($dateStart)
-    {
-        $this->dateStart = $dateStart;
-
-        return $this;
-    }
-
-    /**
-     * Get dateStart
-     *
-     * @return \DateTime
-     */
-    public function getDateStart()
-    {
-        return $this->dateStart;
-    }
-
-    /**
-     * Set dateEnd
-     *
-     * @param \DateTime $dateEnd
-     *
-     * @return OcProductSpecial
-     */
-    public function setDateEnd($dateEnd)
-    {
-        $this->dateEnd = $dateEnd;
-
-        return $this;
-    }
-
-    /**
-     * Get dateEnd
-     *
-     * @return \DateTime
-     */
-    public function getDateEnd()
-    {
-        return $this->dateEnd;
-    }
-
-    /**
-     * Get productSpecialId
-     *
-     * @return integer
-     */
-    public function getProductSpecialId()
-    {
-        return $this->productSpecialId;
-    }
 }
 

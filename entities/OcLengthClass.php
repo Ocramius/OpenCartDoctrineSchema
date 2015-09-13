@@ -17,39 +17,18 @@ class OcLengthClass
      */
     private $lengthClassId;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $language;
 
     /**
-     * Set value
-     *
-     * @param string $value
-     *
-     * @return OcLengthClass
+     * Constructor
      */
-    public function setValue($value)
+    public function __construct()
     {
-        $this->value = $value;
-
-        return $this;
+        $this->language = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    /**
-     * Get value
-     *
-     * @return string
-     */
-    public function getValue()
-    {
-        return $this->value;
-    }
-
-    /**
-     * Get lengthClassId
-     *
-     * @return integer
-     */
-    public function getLengthClassId()
-    {
-        return $this->lengthClassId;
-    }
 }
 

@@ -37,135 +37,24 @@ class OcCustomField
      */
     private $customFieldId;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $language;
 
     /**
-     * Set type
-     *
-     * @param string $type
-     *
-     * @return OcCustomField
+     * @var \Doctrine\Common\Collections\Collection
      */
-    public function setType($type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
+    private $customerGroup;
 
     /**
-     * Get type
-     *
-     * @return string
+     * Constructor
      */
-    public function getType()
+    public function __construct()
     {
-        return $this->type;
+        $this->language = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->customerGroup = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    /**
-     * Set value
-     *
-     * @param string $value
-     *
-     * @return OcCustomField
-     */
-    public function setValue($value)
-    {
-        $this->value = $value;
-
-        return $this;
-    }
-
-    /**
-     * Get value
-     *
-     * @return string
-     */
-    public function getValue()
-    {
-        return $this->value;
-    }
-
-    /**
-     * Set location
-     *
-     * @param string $location
-     *
-     * @return OcCustomField
-     */
-    public function setLocation($location)
-    {
-        $this->location = $location;
-
-        return $this;
-    }
-
-    /**
-     * Get location
-     *
-     * @return string
-     */
-    public function getLocation()
-    {
-        return $this->location;
-    }
-
-    /**
-     * Set status
-     *
-     * @param boolean $status
-     *
-     * @return OcCustomField
-     */
-    public function setStatus($status)
-    {
-        $this->status = $status;
-
-        return $this;
-    }
-
-    /**
-     * Get status
-     *
-     * @return boolean
-     */
-    public function getStatus()
-    {
-        return $this->status;
-    }
-
-    /**
-     * Set sortOrder
-     *
-     * @param integer $sortOrder
-     *
-     * @return OcCustomField
-     */
-    public function setSortOrder($sortOrder)
-    {
-        $this->sortOrder = $sortOrder;
-
-        return $this;
-    }
-
-    /**
-     * Get sortOrder
-     *
-     * @return integer
-     */
-    public function getSortOrder()
-    {
-        return $this->sortOrder;
-    }
-
-    /**
-     * Get customFieldId
-     *
-     * @return integer
-     */
-    public function getCustomFieldId()
-    {
-        return $this->customFieldId;
-    }
 }
 
