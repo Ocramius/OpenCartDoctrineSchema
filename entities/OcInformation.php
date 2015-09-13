@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcInformation
  */
 class OcInformation
 {
+
     /**
      * @var integer
      */
@@ -37,14 +37,14 @@ class OcInformation
      */
     private $language;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
+    public function __construct(Doctrine\Common\Collections\Collection $store, Doctrine\Common\Collections\Collection $language, $bottom, $sortOrder, $status)
     {
-        $this->store = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->language = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->$store;
+        $this->$language;
+        $this->$bottom;
+        $this->$sortOrder;
+        $this->$status;
     }
 
-}
 
+}

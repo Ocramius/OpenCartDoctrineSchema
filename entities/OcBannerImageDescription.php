@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcBannerImageDescription
  */
 class OcBannerImageDescription
 {
+
     /**
      * @var string
      */
@@ -27,6 +27,13 @@ class OcBannerImageDescription
      */
     private $banner;
 
+    public function __construct(OcBannerImage $bannerImage, OcLanguage $language, OcBanner $banner, $title)
+    {
+        $this->$bannerImage;
+        $this->$language;
+        $this->$banner;
+        $this->$title;
+    }
+
 
 }
-

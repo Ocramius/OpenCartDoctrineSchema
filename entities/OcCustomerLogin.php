@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcCustomerLogin
  */
 class OcCustomerLogin
 {
+
     /**
      * @var string
      */
@@ -37,6 +37,14 @@ class OcCustomerLogin
      */
     private $customerLoginId;
 
+    public function __construct($email, $ip, $total, DateTime $dateAdded, DateTime $dateModified)
+    {
+        $this->$email;
+        $this->$ip;
+        $this->$total;
+        $this->$dateAdded;
+        $this->$dateModified;
+    }
+
 
 }
-

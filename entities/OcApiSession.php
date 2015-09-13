@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcApiSession
  */
 class OcApiSession
 {
+
     /**
      * @var string
      */
@@ -47,6 +47,16 @@ class OcApiSession
      */
     private $api;
 
+    public function __construct(OcApi $api, $token, $sessionId, $sessionName, $ip, DateTime $dateAdded, DateTime $dateModified)
+    {
+        $this->$api;
+        $this->$token;
+        $this->$sessionId;
+        $this->$sessionName;
+        $this->$ip;
+        $this->$dateAdded;
+        $this->$dateModified;
+    }
+
 
 }
-

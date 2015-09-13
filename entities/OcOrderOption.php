@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcOrderOption
  */
 class OcOrderOption
 {
+
     /**
      * @var string
      */
@@ -47,6 +47,16 @@ class OcOrderOption
      */
     private $order;
 
+    public function __construct(OcOrderProduct $orderProduct, OcProductOptionValue $productOptionValue, OcProductOption $productOption, OcOrder $order, $name, $value, $type)
+    {
+        $this->$orderProduct;
+        $this->$productOptionValue;
+        $this->$productOption;
+        $this->$order;
+        $this->$name;
+        $this->$value;
+        $this->$type;
+    }
+
 
 }
-

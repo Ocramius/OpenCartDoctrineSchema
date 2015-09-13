@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcOption
  */
 class OcOption
 {
+
     /**
      * @var string
      */
@@ -27,13 +27,12 @@ class OcOption
      */
     private $language;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
+    public function __construct(Doctrine\Common\Collections\Collection $language, $type, $sortOrder)
     {
-        $this->language = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->$language;
+        $this->$type;
+        $this->$sortOrder;
     }
 
-}
 
+}

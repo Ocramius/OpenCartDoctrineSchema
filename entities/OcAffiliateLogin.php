@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcAffiliateLogin
  */
 class OcAffiliateLogin
 {
+
     /**
      * @var string
      */
@@ -37,6 +37,14 @@ class OcAffiliateLogin
      */
     private $affiliateLoginId;
 
+    public function __construct($email, $ip, $total, DateTime $dateAdded, DateTime $dateModified)
+    {
+        $this->$email;
+        $this->$ip;
+        $this->$total;
+        $this->$dateAdded;
+        $this->$dateModified;
+    }
+
 
 }
-

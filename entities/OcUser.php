@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcUser
  */
 class OcUser
 {
+
     /**
      * @var string
      */
@@ -72,6 +72,21 @@ class OcUser
      */
     private $userGroup;
 
+    public function __construct(OcUserGroup $userGroup, $username, $password, $salt, $firstname, $lastname, $email, $image, $code, $ip, $status, DateTime $dateAdded)
+    {
+        $this->$userGroup;
+        $this->$username;
+        $this->$password;
+        $this->$salt;
+        $this->$firstname;
+        $this->$lastname;
+        $this->$email;
+        $this->$image;
+        $this->$code;
+        $this->$ip;
+        $this->$status;
+        $this->$dateAdded;
+    }
+
 
 }
-

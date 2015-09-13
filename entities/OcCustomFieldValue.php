@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcCustomFieldValue
  */
 class OcCustomFieldValue
 {
+
     /**
      * @var integer
      */
@@ -22,6 +22,11 @@ class OcCustomFieldValue
      */
     private $customField;
 
+    public function __construct(OcCustomField $customField, $sortOrder)
+    {
+        $this->$customField;
+        $this->$sortOrder;
+    }
+
 
 }
-

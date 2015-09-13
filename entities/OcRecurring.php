@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcRecurring
  */
 class OcRecurring
 {
+
     /**
      * @var string
      */
@@ -72,13 +72,21 @@ class OcRecurring
      */
     private $language;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
+    public function __construct(Doctrine\Common\Collections\Collection $language, $price, $frequency, $duration, $cycle, $trialStatus, $trialPrice, $trialFrequency, $trialDuration, $trialCycle, $status, $sortOrder)
     {
-        $this->language = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->$language;
+        $this->$price;
+        $this->$frequency;
+        $this->$duration;
+        $this->$cycle;
+        $this->$trialStatus;
+        $this->$trialPrice;
+        $this->$trialFrequency;
+        $this->$trialDuration;
+        $this->$trialCycle;
+        $this->$status;
+        $this->$sortOrder;
     }
 
-}
 
+}

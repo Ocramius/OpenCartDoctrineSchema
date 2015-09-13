@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcInformationToLayout
  */
 class OcInformationToLayout
 {
+
     /**
      * @var \OcInformation
      */
@@ -22,6 +22,12 @@ class OcInformationToLayout
      */
     private $layout;
 
+    public function __construct(OcInformation $information, OcStore $store, OcLayout $layout)
+    {
+        $this->$information;
+        $this->$store;
+        $this->$layout;
+    }
+
 
 }
-

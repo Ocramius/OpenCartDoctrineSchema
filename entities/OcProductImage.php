@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcProductImage
  */
 class OcProductImage
 {
+
     /**
      * @var string
      */
@@ -27,6 +27,12 @@ class OcProductImage
      */
     private $product;
 
+    public function __construct(OcProduct $product, $sortOrder, $image = null)
+    {
+        $this->$product;
+        $this->$sortOrder;
+        $this->$image;
+    }
+
 
 }
-

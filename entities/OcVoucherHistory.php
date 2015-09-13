@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcVoucherHistory
  */
 class OcVoucherHistory
 {
+
     /**
      * @var string
      */
@@ -32,6 +32,13 @@ class OcVoucherHistory
      */
     private $voucher;
 
+    public function __construct(OcOrder $order, OcVoucher $voucher, $amount, DateTime $dateAdded)
+    {
+        $this->$order;
+        $this->$voucher;
+        $this->$amount;
+        $this->$dateAdded;
+    }
+
 
 }
-

@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcDownload
  */
 class OcDownload
 {
+
     /**
      * @var string
      */
@@ -37,14 +37,14 @@ class OcDownload
      */
     private $language;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
+    public function __construct(Doctrine\Common\Collections\Collection $product, Doctrine\Common\Collections\Collection $language, $filename, $mask, DateTime $dateAdded)
     {
-        $this->product = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->language = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->$product;
+        $this->$language;
+        $this->$filename;
+        $this->$mask;
+        $this->$dateAdded;
     }
 
-}
 
+}

@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcOrderHistory
  */
 class OcOrderHistory
 {
+
     /**
      * @var boolean
      */
@@ -37,6 +37,14 @@ class OcOrderHistory
      */
     private $order;
 
+    public function __construct(OcOrderStatus $orderStatus, OcOrder $order, $notify, $comment, DateTime $dateAdded)
+    {
+        $this->$orderStatus;
+        $this->$order;
+        $this->$notify;
+        $this->$comment;
+        $this->$dateAdded;
+    }
+
 
 }
-

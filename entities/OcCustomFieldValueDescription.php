@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcCustomFieldValueDescription
  */
 class OcCustomFieldValueDescription
 {
+
     /**
      * @var string
      */
@@ -27,6 +27,13 @@ class OcCustomFieldValueDescription
      */
     private $customField;
 
+    public function __construct(OcCustomFieldValue $customFieldValue, OcLanguage $language, OcCustomField $customField, $name)
+    {
+        $this->$customFieldValue;
+        $this->$language;
+        $this->$customField;
+        $this->$name;
+    }
+
 
 }
-

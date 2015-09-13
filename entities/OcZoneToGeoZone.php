@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcZoneToGeoZone
  */
 class OcZoneToGeoZone
 {
+
     /**
      * @var \DateTime
      */
@@ -37,6 +37,14 @@ class OcZoneToGeoZone
      */
     private $geoZone;
 
+    public function __construct(OcCountry $country, OcZone $zone, OcGeoZone $geoZone, DateTime $dateAdded, DateTime $dateModified)
+    {
+        $this->$country;
+        $this->$zone;
+        $this->$geoZone;
+        $this->$dateAdded;
+        $this->$dateModified;
+    }
+
 
 }
-

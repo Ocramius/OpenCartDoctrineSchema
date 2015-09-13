@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcStore
  */
 class OcStore
 {
+
     /**
      * @var string
      */
@@ -47,16 +47,16 @@ class OcStore
      */
     private $category;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
+    public function __construct(Doctrine\Common\Collections\Collection $product, Doctrine\Common\Collections\Collection $manufacturer, Doctrine\Common\Collections\Collection $information, Doctrine\Common\Collections\Collection $category, $name, $url, $ssl)
     {
-        $this->product = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->manufacturer = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->information = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->category = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->$product;
+        $this->$manufacturer;
+        $this->$information;
+        $this->$category;
+        $this->$name;
+        $this->$url;
+        $this->$ssl;
     }
 
-}
 
+}

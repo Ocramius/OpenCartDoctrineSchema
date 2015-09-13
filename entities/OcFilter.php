@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcFilter
  */
 class OcFilter
 {
+
     /**
      * @var integer
      */
@@ -32,14 +32,13 @@ class OcFilter
      */
     private $category;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
+    public function __construct(OcFilterGroup $filterGroup, Doctrine\Common\Collections\Collection $product, Doctrine\Common\Collections\Collection $category, $sortOrder)
     {
-        $this->product = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->category = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->$filterGroup;
+        $this->$product;
+        $this->$category;
+        $this->$sortOrder;
     }
 
-}
 
+}

@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcProductRelated
  */
 class OcProductRelated
 {
+
     /**
      * @var integer
      */
@@ -17,6 +17,11 @@ class OcProductRelated
      */
     private $product;
 
+    public function __construct(OcProduct $product, $relatedId)
+    {
+        $this->$product;
+        $this->$relatedId;
+    }
+
 
 }
-

@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcEvent
  */
 class OcEvent
 {
+
     /**
      * @var string
      */
@@ -27,6 +27,12 @@ class OcEvent
      */
     private $eventId;
 
+    public function __construct($code, $trigger, $action)
+    {
+        $this->$code;
+        $this->$trigger;
+        $this->$action;
+    }
+
 
 }
-

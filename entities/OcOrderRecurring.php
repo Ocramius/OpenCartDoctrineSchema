@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcOrderRecurring
  */
 class OcOrderRecurring
 {
+
     /**
      * @var string
      */
@@ -107,6 +107,28 @@ class OcOrderRecurring
      */
     private $product;
 
+    public function __construct(OcRecurring $recurring, OcOrder $order, OcProduct $product, $reference, $productName, $productQuantity, $recurringName, $recurringDescription, $recurringFrequency, $recurringCycle, $recurringDuration, $recurringPrice, $trial, $trialFrequency, $trialCycle, $trialDuration, $trialPrice, $status, DateTime $dateAdded)
+    {
+        $this->$recurring;
+        $this->$order;
+        $this->$product;
+        $this->$reference;
+        $this->$productName;
+        $this->$productQuantity;
+        $this->$recurringName;
+        $this->$recurringDescription;
+        $this->$recurringFrequency;
+        $this->$recurringCycle;
+        $this->$recurringDuration;
+        $this->$recurringPrice;
+        $this->$trial;
+        $this->$trialFrequency;
+        $this->$trialCycle;
+        $this->$trialDuration;
+        $this->$trialPrice;
+        $this->$status;
+        $this->$dateAdded;
+    }
+
 
 }
-

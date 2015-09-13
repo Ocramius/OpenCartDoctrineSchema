@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcStockStatus
  */
 class OcStockStatus
 {
+
     /**
      * @var string
      */
@@ -22,6 +22,12 @@ class OcStockStatus
      */
     private $language;
 
+    public function __construct(OcLanguage $language, $name, $stockStatusId)
+    {
+        $this->$language;
+        $this->$name;
+        $this->$stockStatusId;
+    }
+
 
 }
-

@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcProductRecurring
  */
 class OcProductRecurring
 {
+
     /**
      * @var \OcCustomerGroup
      */
@@ -22,6 +22,12 @@ class OcProductRecurring
      */
     private $product;
 
+    public function __construct(OcCustomerGroup $customerGroup, OcRecurring $recurring, OcProduct $product)
+    {
+        $this->$customerGroup;
+        $this->$recurring;
+        $this->$product;
+    }
+
 
 }
-

@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcBannerImage
  */
 class OcBannerImage
 {
+
     /**
      * @var string
      */
@@ -32,6 +32,13 @@ class OcBannerImage
      */
     private $banner;
 
+    public function __construct(OcBanner $banner, $link, $image, $sortOrder)
+    {
+        $this->$banner;
+        $this->$link;
+        $this->$image;
+        $this->$sortOrder;
+    }
+
 
 }
-

@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcProductSpecial
  */
 class OcProductSpecial
 {
+
     /**
      * @var integer
      */
@@ -42,6 +42,15 @@ class OcProductSpecial
      */
     private $product;
 
+    public function __construct(OcCustomerGroup $customerGroup, OcProduct $product, $priority, $price, $dateStart, $dateEnd)
+    {
+        $this->$customerGroup;
+        $this->$product;
+        $this->$priority;
+        $this->$price;
+        $this->$dateStart;
+        $this->$dateEnd;
+    }
+
 
 }
-

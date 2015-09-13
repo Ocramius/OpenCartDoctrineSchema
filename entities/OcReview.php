@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcReview
  */
 class OcReview
 {
+
     /**
      * @var string
      */
@@ -52,6 +52,17 @@ class OcReview
      */
     private $product;
 
+    public function __construct(OcCustomer $customer, OcProduct $product, $author, $text, $rating, $status, DateTime $dateAdded, DateTime $dateModified)
+    {
+        $this->$customer;
+        $this->$product;
+        $this->$author;
+        $this->$text;
+        $this->$rating;
+        $this->$status;
+        $this->$dateAdded;
+        $this->$dateModified;
+    }
+
 
 }
-

@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcReturnReason
  */
 class OcReturnReason
 {
+
     /**
      * @var string
      */
@@ -22,6 +22,12 @@ class OcReturnReason
      */
     private $language;
 
+    public function __construct(OcLanguage $language, $name, $returnReasonId)
+    {
+        $this->$language;
+        $this->$name;
+        $this->$returnReasonId;
+    }
+
 
 }
-

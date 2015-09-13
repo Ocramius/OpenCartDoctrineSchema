@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcBanner
  */
 class OcBanner
 {
+
     /**
      * @var string
      */
@@ -22,6 +22,11 @@ class OcBanner
      */
     private $bannerId;
 
+    public function __construct($name, $status)
+    {
+        $this->$name;
+        $this->$status;
+    }
+
 
 }
-

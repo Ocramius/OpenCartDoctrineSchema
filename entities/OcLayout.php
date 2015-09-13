@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcLayout
  */
 class OcLayout
 {
+
     /**
      * @var string
      */
@@ -17,6 +17,10 @@ class OcLayout
      */
     private $layoutId;
 
+    public function __construct($name)
+    {
+        $this->$name;
+    }
+
 
 }
-

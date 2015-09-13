@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcUrlAlias
  */
 class OcUrlAlias
 {
+
     /**
      * @var string
      */
@@ -22,6 +22,11 @@ class OcUrlAlias
      */
     private $urlAliasId;
 
+    public function __construct($query, $keyword)
+    {
+        $this->$query;
+        $this->$keyword;
+    }
+
 
 }
-

@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcCountry
  */
 class OcCountry
 {
+
     /**
      * @var string
      */
@@ -42,6 +42,15 @@ class OcCountry
      */
     private $countryId;
 
+    public function __construct($name, $isoCode2, $isoCode3, $addressFormat, $postcodeRequired, $status)
+    {
+        $this->$name;
+        $this->$isoCode2;
+        $this->$isoCode3;
+        $this->$addressFormat;
+        $this->$postcodeRequired;
+        $this->$status;
+    }
+
 
 }
-

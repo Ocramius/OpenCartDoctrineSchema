@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcTaxRule
  */
 class OcTaxRule
 {
+
     /**
      * @var string
      */
@@ -32,6 +32,13 @@ class OcTaxRule
      */
     private $taxClass;
 
+    public function __construct(OcTaxRate $taxRate, OcTaxClass $taxClass, $based, $priority)
+    {
+        $this->$taxRate;
+        $this->$taxClass;
+        $this->$based;
+        $this->$priority;
+    }
+
 
 }
-

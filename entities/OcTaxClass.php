@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcTaxClass
  */
 class OcTaxClass
 {
+
     /**
      * @var string
      */
@@ -32,6 +32,13 @@ class OcTaxClass
      */
     private $taxClassId;
 
+    public function __construct($title, $description, DateTime $dateAdded, DateTime $dateModified)
+    {
+        $this->$title;
+        $this->$description;
+        $this->$dateAdded;
+        $this->$dateModified;
+    }
+
 
 }
-

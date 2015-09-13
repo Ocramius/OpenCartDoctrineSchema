@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcLayoutModule
  */
 class OcLayoutModule
 {
+
     /**
      * @var string
      */
@@ -32,6 +32,13 @@ class OcLayoutModule
      */
     private $layout;
 
+    public function __construct(OcLayout $layout, $code, $position, $sortOrder)
+    {
+        $this->$layout;
+        $this->$code;
+        $this->$position;
+        $this->$sortOrder;
+    }
+
 
 }
-

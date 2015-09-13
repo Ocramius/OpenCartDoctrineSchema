@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcCurrency
  */
 class OcCurrency
 {
+
     /**
      * @var string
      */
@@ -52,6 +52,17 @@ class OcCurrency
      */
     private $currencyId;
 
+    public function __construct($title, $code, $symbolLeft, $symbolRight, $decimalPlace, $value, $status, DateTime $dateModified)
+    {
+        $this->$title;
+        $this->$code;
+        $this->$symbolLeft;
+        $this->$symbolRight;
+        $this->$decimalPlace;
+        $this->$value;
+        $this->$status;
+        $this->$dateModified;
+    }
+
 
 }
-

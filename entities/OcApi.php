@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcApi
  */
 class OcApi
 {
+
     /**
      * @var string
      */
@@ -37,6 +37,14 @@ class OcApi
      */
     private $apiId;
 
+    public function __construct($name, $key, $status, DateTime $dateAdded, DateTime $dateModified)
+    {
+        $this->$name;
+        $this->$key;
+        $this->$status;
+        $this->$dateAdded;
+        $this->$dateModified;
+    }
+
 
 }
-

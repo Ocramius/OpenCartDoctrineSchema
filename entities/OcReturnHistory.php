@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcReturnHistory
  */
 class OcReturnHistory
 {
+
     /**
      * @var boolean
      */
@@ -37,6 +37,14 @@ class OcReturnHistory
      */
     private $return;
 
+    public function __construct(OcReturnStatus $returnStatus, OcReturn $return, $notify, $comment, DateTime $dateAdded)
+    {
+        $this->$returnStatus;
+        $this->$return;
+        $this->$notify;
+        $this->$comment;
+        $this->$dateAdded;
+    }
+
 
 }
-

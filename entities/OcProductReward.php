@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcProductReward
  */
 class OcProductReward
 {
+
     /**
      * @var integer
      */
@@ -27,6 +27,12 @@ class OcProductReward
      */
     private $product;
 
+    public function __construct(OcCustomerGroup $customerGroup, OcProduct $product, $points)
+    {
+        $this->$customerGroup;
+        $this->$product;
+        $this->$points;
+    }
+
 
 }
-

@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcFilterGroup
  */
 class OcFilterGroup
 {
+
     /**
      * @var integer
      */
@@ -22,13 +22,11 @@ class OcFilterGroup
      */
     private $language;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
+    public function __construct(Doctrine\Common\Collections\Collection $language, $sortOrder)
     {
-        $this->language = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->$language;
+        $this->$sortOrder;
     }
 
-}
 
+}

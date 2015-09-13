@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcCustomerOnline
  */
 class OcCustomerOnline
 {
+
     /**
      * @var string
      */
@@ -32,6 +32,13 @@ class OcCustomerOnline
      */
     private $customer;
 
+    public function __construct(OcCustomer $customer, $url, $referer, DateTime $dateAdded)
+    {
+        $this->$customer;
+        $this->$url;
+        $this->$referer;
+        $this->$dateAdded;
+    }
+
 
 }
-

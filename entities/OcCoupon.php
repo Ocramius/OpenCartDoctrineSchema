@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcCoupon
  */
 class OcCoupon
 {
+
     /**
      * @var string
      */
@@ -82,13 +82,23 @@ class OcCoupon
      */
     private $category;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
+    public function __construct(Doctrine\Common\Collections\Collection $category, $name, $code, $type, $discount, $logged, $shipping, $total, $dateStart, $dateEnd, $usesTotal, $usesCustomer, $status, DateTime $dateAdded)
     {
-        $this->category = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->$category;
+        $this->$name;
+        $this->$code;
+        $this->$type;
+        $this->$discount;
+        $this->$logged;
+        $this->$shipping;
+        $this->$total;
+        $this->$dateStart;
+        $this->$dateEnd;
+        $this->$usesTotal;
+        $this->$usesCustomer;
+        $this->$status;
+        $this->$dateAdded;
     }
 
-}
 
+}

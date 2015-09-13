@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcLanguage
  */
 class OcLanguage
 {
+
     /**
      * @var string
      */
@@ -117,26 +117,30 @@ class OcLanguage
      */
     private $attribute;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
+    public function __construct(Doctrine\Common\Collections\Collection $option, Doctrine\Common\Collections\Collection $lengthClass, Doctrine\Common\Collections\Collection $product, Doctrine\Common\Collections\Collection $recurring, Doctrine\Common\Collections\Collection $weightClass, Doctrine\Common\Collections\Collection $voucherTheme, Doctrine\Common\Collections\Collection $information, Doctrine\Common\Collections\Collection $filterGroup, Doctrine\Common\Collections\Collection $category, Doctrine\Common\Collections\Collection $attributeGroup, Doctrine\Common\Collections\Collection $customField, Doctrine\Common\Collections\Collection $customerGroup, Doctrine\Common\Collections\Collection $download, Doctrine\Common\Collections\Collection $attribute, $name, $code, $locale, $image, $directory, $sortOrder, $status)
     {
-        $this->option = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->lengthClass = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->product = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->recurring = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->weightClass = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->voucherTheme = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->information = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->filterGroup = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->category = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->attributeGroup = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->customField = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->customerGroup = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->download = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->attribute = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->$option;
+        $this->$lengthClass;
+        $this->$product;
+        $this->$recurring;
+        $this->$weightClass;
+        $this->$voucherTheme;
+        $this->$information;
+        $this->$filterGroup;
+        $this->$category;
+        $this->$attributeGroup;
+        $this->$customField;
+        $this->$customerGroup;
+        $this->$download;
+        $this->$attribute;
+        $this->$name;
+        $this->$code;
+        $this->$locale;
+        $this->$image;
+        $this->$directory;
+        $this->$sortOrder;
+        $this->$status;
     }
 
-}
 
+}

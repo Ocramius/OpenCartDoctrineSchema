@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcCustomField
  */
 class OcCustomField
 {
+
     /**
      * @var string
      */
@@ -47,14 +47,16 @@ class OcCustomField
      */
     private $customerGroup;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
+    public function __construct(Doctrine\Common\Collections\Collection $language, Doctrine\Common\Collections\Collection $customerGroup, $type, $value, $location, $status, $sortOrder)
     {
-        $this->language = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->customerGroup = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->$language;
+        $this->$customerGroup;
+        $this->$type;
+        $this->$value;
+        $this->$location;
+        $this->$status;
+        $this->$sortOrder;
     }
 
-}
 
+}

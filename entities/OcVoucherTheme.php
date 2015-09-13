@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcVoucherTheme
  */
 class OcVoucherTheme
 {
+
     /**
      * @var string
      */
@@ -22,13 +22,11 @@ class OcVoucherTheme
      */
     private $language;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
+    public function __construct(Doctrine\Common\Collections\Collection $language, $image)
     {
-        $this->language = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->$language;
+        $this->$image;
     }
 
-}
 
+}

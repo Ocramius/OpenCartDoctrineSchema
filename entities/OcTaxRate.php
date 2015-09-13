@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcTaxRate
  */
 class OcTaxRate
 {
+
     /**
      * @var string
      */
@@ -47,13 +47,16 @@ class OcTaxRate
      */
     private $customerGroup;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
+    public function __construct(OcGeoZone $geoZone, Doctrine\Common\Collections\Collection $customerGroup, $name, $rate, $type, DateTime $dateAdded, DateTime $dateModified)
     {
-        $this->customerGroup = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->$geoZone;
+        $this->$customerGroup;
+        $this->$name;
+        $this->$rate;
+        $this->$type;
+        $this->$dateAdded;
+        $this->$dateModified;
     }
 
-}
 
+}

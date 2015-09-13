@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcLengthClass
  */
 class OcLengthClass
 {
+
     /**
      * @var string
      */
@@ -22,13 +22,11 @@ class OcLengthClass
      */
     private $language;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
+    public function __construct(Doctrine\Common\Collections\Collection $language, $value)
     {
-        $this->language = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->$language;
+        $this->$value;
     }
 
-}
 
+}

@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcOptionValueDescription
  */
 class OcOptionValueDescription
 {
+
     /**
      * @var string
      */
@@ -27,6 +27,13 @@ class OcOptionValueDescription
      */
     private $option;
 
+    public function __construct(OcLanguage $language, OcOptionValue $optionValue, OcOption $option, $name)
+    {
+        $this->$language;
+        $this->$optionValue;
+        $this->$option;
+        $this->$name;
+    }
+
 
 }
-

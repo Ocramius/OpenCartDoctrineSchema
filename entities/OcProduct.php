@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcProduct
  */
 class OcProduct
 {
+
     /**
      * @var string
      */
@@ -187,17 +187,44 @@ class OcProduct
      */
     private $category;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
+    public function __construct(OcWeightClass $weightClass, OcLengthClass $lengthClass, OcStockStatus $stockStatus, OcTaxClass $taxClass, OcManufacturer $manufacturer, Doctrine\Common\Collections\Collection $download, Doctrine\Common\Collections\Collection $store, Doctrine\Common\Collections\Collection $filter, Doctrine\Common\Collections\Collection $language, Doctrine\Common\Collections\Collection $category, $model, $sku, $upc, $ean, $jan, $isbn, $mpn, $location, $quantity, $shipping, $price, $points, $dateAvailable, $weight, $length, $width, $height, $subtract, $minimum, $sortOrder, $status, $viewed, DateTime $dateAdded, DateTime $dateModified, $image = null)
     {
-        $this->download = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->store = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->filter = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->language = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->category = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->$weightClass;
+        $this->$lengthClass;
+        $this->$stockStatus;
+        $this->$taxClass;
+        $this->$manufacturer;
+        $this->$download;
+        $this->$store;
+        $this->$filter;
+        $this->$language;
+        $this->$category;
+        $this->$model;
+        $this->$sku;
+        $this->$upc;
+        $this->$ean;
+        $this->$jan;
+        $this->$isbn;
+        $this->$mpn;
+        $this->$location;
+        $this->$quantity;
+        $this->$shipping;
+        $this->$price;
+        $this->$points;
+        $this->$dateAvailable;
+        $this->$weight;
+        $this->$length;
+        $this->$width;
+        $this->$height;
+        $this->$subtract;
+        $this->$minimum;
+        $this->$sortOrder;
+        $this->$status;
+        $this->$viewed;
+        $this->$dateAdded;
+        $this->$dateModified;
+        $this->$image;
     }
 
-}
 
+}

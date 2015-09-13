@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcFilterDescription
  */
 class OcFilterDescription
 {
+
     /**
      * @var string
      */
@@ -27,6 +27,13 @@ class OcFilterDescription
      */
     private $filterGroup;
 
+    public function __construct(OcLanguage $language, OcFilter $filter, OcFilterGroup $filterGroup, $name)
+    {
+        $this->$language;
+        $this->$filter;
+        $this->$filterGroup;
+        $this->$name;
+    }
+
 
 }
-

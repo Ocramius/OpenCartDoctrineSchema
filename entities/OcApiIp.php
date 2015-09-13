@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcApiIp
  */
 class OcApiIp
 {
+
     /**
      * @var string
      */
@@ -22,6 +22,11 @@ class OcApiIp
      */
     private $api;
 
+    public function __construct(OcApi $api, $ip)
+    {
+        $this->$api;
+        $this->$ip;
+    }
+
 
 }
-

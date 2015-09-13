@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcCategoryToLayout
  */
 class OcCategoryToLayout
 {
+
     /**
      * @var \OcCategory
      */
@@ -22,6 +22,12 @@ class OcCategoryToLayout
      */
     private $layout;
 
+    public function __construct(OcCategory $category, OcStore $store, OcLayout $layout)
+    {
+        $this->$category;
+        $this->$store;
+        $this->$layout;
+    }
+
 
 }
-

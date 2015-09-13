@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcCouponHistory
  */
 class OcCouponHistory
 {
+
     /**
      * @var string
      */
@@ -37,6 +37,14 @@ class OcCouponHistory
      */
     private $coupon;
 
+    public function __construct(OcCustomer $customer, OcOrder $order, OcCoupon $coupon, $amount, DateTime $dateAdded)
+    {
+        $this->$customer;
+        $this->$order;
+        $this->$coupon;
+        $this->$amount;
+        $this->$dateAdded;
+    }
+
 
 }
-

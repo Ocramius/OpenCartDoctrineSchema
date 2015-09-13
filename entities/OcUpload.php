@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcUpload
  */
 class OcUpload
 {
+
     /**
      * @var string
      */
@@ -32,6 +32,13 @@ class OcUpload
      */
     private $uploadId;
 
+    public function __construct($name, $filename, $code, DateTime $dateAdded)
+    {
+        $this->$name;
+        $this->$filename;
+        $this->$code;
+        $this->$dateAdded;
+    }
+
 
 }
-

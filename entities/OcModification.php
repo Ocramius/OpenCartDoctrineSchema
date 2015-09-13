@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcModification
  */
 class OcModification
 {
+
     /**
      * @var string
      */
@@ -52,6 +52,17 @@ class OcModification
      */
     private $modificationId;
 
+    public function __construct($name, $code, $author, $version, $link, $xml, $status, DateTime $dateAdded)
+    {
+        $this->$name;
+        $this->$code;
+        $this->$author;
+        $this->$version;
+        $this->$link;
+        $this->$xml;
+        $this->$status;
+        $this->$dateAdded;
+    }
+
 
 }
-

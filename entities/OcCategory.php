@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcCategory
  */
 class OcCategory
 {
+
     /**
      * @var string
      */
@@ -77,17 +77,22 @@ class OcCategory
      */
     private $language;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
+    public function __construct(Doctrine\Common\Collections\Collection $product, Doctrine\Common\Collections\Collection $coupon, Doctrine\Common\Collections\Collection $store, Doctrine\Common\Collections\Collection $filter, Doctrine\Common\Collections\Collection $language, $parentId, $top, $column, $sortOrder, $status, DateTime $dateAdded, DateTime $dateModified, $image = null)
     {
-        $this->product = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->coupon = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->store = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->filter = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->language = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->$product;
+        $this->$coupon;
+        $this->$store;
+        $this->$filter;
+        $this->$language;
+        $this->$parentId;
+        $this->$top;
+        $this->$column;
+        $this->$sortOrder;
+        $this->$status;
+        $this->$dateAdded;
+        $this->$dateModified;
+        $this->$image;
     }
 
-}
 
+}

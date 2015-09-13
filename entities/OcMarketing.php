@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcMarketing
  */
 class OcMarketing
 {
+
     /**
      * @var string
      */
@@ -37,6 +37,14 @@ class OcMarketing
      */
     private $marketingId;
 
+    public function __construct($name, $description, $code, $clicks, DateTime $dateAdded)
+    {
+        $this->$name;
+        $this->$description;
+        $this->$code;
+        $this->$clicks;
+        $this->$dateAdded;
+    }
+
 
 }
-

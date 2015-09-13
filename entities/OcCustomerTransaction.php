@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcCustomerTransaction
  */
 class OcCustomerTransaction
 {
+
     /**
      * @var string
      */
@@ -37,6 +37,14 @@ class OcCustomerTransaction
      */
     private $order;
 
+    public function __construct(OcCustomer $customer, OcOrder $order, $description, $amount, DateTime $dateAdded)
+    {
+        $this->$customer;
+        $this->$order;
+        $this->$description;
+        $this->$amount;
+        $this->$dateAdded;
+    }
+
 
 }
-

@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcOptionValue
  */
 class OcOptionValue
 {
+
     /**
      * @var string
      */
@@ -27,6 +27,12 @@ class OcOptionValue
      */
     private $option;
 
+    public function __construct(OcOption $option, $image, $sortOrder)
+    {
+        $this->$option;
+        $this->$image;
+        $this->$sortOrder;
+    }
+
 
 }
-

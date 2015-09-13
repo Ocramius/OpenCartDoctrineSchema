@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcProductAttribute
  */
 class OcProductAttribute
 {
+
     /**
      * @var string
      */
@@ -27,6 +27,13 @@ class OcProductAttribute
      */
     private $product;
 
+    public function __construct(OcAttribute $attribute, OcLanguage $language, OcProduct $product, $text)
+    {
+        $this->$attribute;
+        $this->$language;
+        $this->$product;
+        $this->$text;
+    }
+
 
 }
-

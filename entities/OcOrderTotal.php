@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcOrderTotal
  */
 class OcOrderTotal
 {
+
     /**
      * @var string
      */
@@ -37,6 +37,14 @@ class OcOrderTotal
      */
     private $order;
 
+    public function __construct(OcOrder $order, $code, $title, $value, $sortOrder)
+    {
+        $this->$order;
+        $this->$code;
+        $this->$title;
+        $this->$value;
+        $this->$sortOrder;
+    }
+
 
 }
-

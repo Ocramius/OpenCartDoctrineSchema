@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcExtension
  */
 class OcExtension
 {
+
     /**
      * @var string
      */
@@ -22,6 +22,11 @@ class OcExtension
      */
     private $extensionId;
 
+    public function __construct($type, $code)
+    {
+        $this->$type;
+        $this->$code;
+    }
+
 
 }
-

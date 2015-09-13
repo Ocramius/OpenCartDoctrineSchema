@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcOrderCustomField
  */
 class OcOrderCustomField
 {
+
     /**
      * @var string
      */
@@ -47,6 +47,16 @@ class OcOrderCustomField
      */
     private $customFieldValue;
 
+    public function __construct(OcCustomField $customField, OcOrder $order, OcCustomFieldValue $customFieldValue, $name, $value, $type, $location)
+    {
+        $this->$customField;
+        $this->$order;
+        $this->$customFieldValue;
+        $this->$name;
+        $this->$value;
+        $this->$type;
+        $this->$location;
+    }
+
 
 }
-

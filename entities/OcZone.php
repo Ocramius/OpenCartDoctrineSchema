@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcZone
  */
 class OcZone
 {
+
     /**
      * @var string
      */
@@ -32,6 +32,13 @@ class OcZone
      */
     private $country;
 
+    public function __construct(OcCountry $country, $name, $code, $status)
+    {
+        $this->$country;
+        $this->$name;
+        $this->$code;
+        $this->$status;
+    }
+
 
 }
-

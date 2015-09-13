@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcOrderRecurringTransaction
  */
 class OcOrderRecurringTransaction
 {
+
     /**
      * @var string
      */
@@ -37,6 +37,14 @@ class OcOrderRecurringTransaction
      */
     private $orderRecurring;
 
+    public function __construct(OcOrderRecurring $orderRecurring, $reference, $type, $amount, DateTime $dateAdded)
+    {
+        $this->$orderRecurring;
+        $this->$reference;
+        $this->$type;
+        $this->$amount;
+        $this->$dateAdded;
+    }
+
 
 }
-

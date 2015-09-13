@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcUserGroup
  */
 class OcUserGroup
 {
+
     /**
      * @var string
      */
@@ -22,6 +22,11 @@ class OcUserGroup
      */
     private $userGroupId;
 
+    public function __construct($name, $permission)
+    {
+        $this->$name;
+        $this->$permission;
+    }
+
 
 }
-

@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcProductOptionValue
  */
 class OcProductOptionValue
 {
+
     /**
      * @var integer
      */
@@ -72,6 +72,21 @@ class OcProductOptionValue
      */
     private $product;
 
+    public function __construct(OcOptionValue $optionValue, OcProductOption $productOption, OcOption $option, OcProduct $product, $quantity, $subtract, $price, $pricePrefix, $points, $pointsPrefix, $weight, $weightPrefix)
+    {
+        $this->$optionValue;
+        $this->$productOption;
+        $this->$option;
+        $this->$product;
+        $this->$quantity;
+        $this->$subtract;
+        $this->$price;
+        $this->$pricePrefix;
+        $this->$points;
+        $this->$pointsPrefix;
+        $this->$weight;
+        $this->$weightPrefix;
+    }
+
 
 }
-

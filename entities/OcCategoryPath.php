@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcCategoryPath
  */
 class OcCategoryPath
 {
+
     /**
      * @var integer
      */
@@ -22,6 +22,12 @@ class OcCategoryPath
      */
     private $category;
 
+    public function __construct(OcCategory $category, $level, $pathId)
+    {
+        $this->$category;
+        $this->$level;
+        $this->$pathId;
+    }
+
 
 }
-

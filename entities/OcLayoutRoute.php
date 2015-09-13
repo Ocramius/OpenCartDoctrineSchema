@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcLayoutRoute
  */
 class OcLayoutRoute
 {
+
     /**
      * @var string
      */
@@ -27,6 +27,12 @@ class OcLayoutRoute
      */
     private $layout;
 
+    public function __construct(OcStore $store, OcLayout $layout, $route)
+    {
+        $this->$store;
+        $this->$layout;
+        $this->$route;
+    }
+
 
 }
-

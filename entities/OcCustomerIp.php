@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcCustomerIp
  */
 class OcCustomerIp
 {
+
     /**
      * @var string
      */
@@ -27,6 +27,12 @@ class OcCustomerIp
      */
     private $customer;
 
+    public function __construct(OcCustomer $customer, $ip, DateTime $dateAdded)
+    {
+        $this->$customer;
+        $this->$ip;
+        $this->$dateAdded;
+    }
+
 
 }
-

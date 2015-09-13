@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcOrderVoucher
  */
 class OcOrderVoucher
 {
+
     /**
      * @var string
      */
@@ -67,6 +67,20 @@ class OcOrderVoucher
      */
     private $voucher;
 
+    public function __construct(OcVoucherTheme $voucherTheme, OcOrder $order, OcVoucher $voucher, $description, $code, $fromName, $fromEmail, $toName, $toEmail, $message, $amount)
+    {
+        $this->$voucherTheme;
+        $this->$order;
+        $this->$voucher;
+        $this->$description;
+        $this->$code;
+        $this->$fromName;
+        $this->$fromEmail;
+        $this->$toName;
+        $this->$toEmail;
+        $this->$message;
+        $this->$amount;
+    }
+
 
 }
-

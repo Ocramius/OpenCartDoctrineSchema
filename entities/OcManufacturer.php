@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcManufacturer
  */
 class OcManufacturer
 {
+
     /**
      * @var string
      */
@@ -32,13 +32,13 @@ class OcManufacturer
      */
     private $store;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
+    public function __construct(Doctrine\Common\Collections\Collection $store, $name, $sortOrder, $image = null)
     {
-        $this->store = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->$store;
+        $this->$name;
+        $this->$sortOrder;
+        $this->$image;
     }
 
-}
 
+}

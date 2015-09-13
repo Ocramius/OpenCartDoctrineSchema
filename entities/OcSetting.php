@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcSetting
  */
 class OcSetting
 {
+
     /**
      * @var string
      */
@@ -37,6 +37,14 @@ class OcSetting
      */
     private $store;
 
+    public function __construct(OcStore $store, $code, $key, $value, $serialized)
+    {
+        $this->$store;
+        $this->$code;
+        $this->$key;
+        $this->$value;
+        $this->$serialized;
+    }
+
 
 }
-

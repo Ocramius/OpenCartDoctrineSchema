@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcAffiliate
  */
 class OcAffiliate
 {
+
     /**
      * @var string
      */
@@ -162,6 +162,39 @@ class OcAffiliate
      */
     private $zone;
 
+    public function __construct(OcCountry $country, OcZone $zone, $firstname, $lastname, $email, $telephone, $fax, $password, $salt, $company, $website, $address1, $address2, $city, $postcode, $code, $commission, $tax, $payment, $cheque, $paypal, $bankName, $bankBranchNumber, $bankSwiftCode, $bankAccountName, $bankAccountNumber, $ip, $status, $approved, DateTime $dateAdded)
+    {
+        $this->$country;
+        $this->$zone;
+        $this->$firstname;
+        $this->$lastname;
+        $this->$email;
+        $this->$telephone;
+        $this->$fax;
+        $this->$password;
+        $this->$salt;
+        $this->$company;
+        $this->$website;
+        $this->$address1;
+        $this->$address2;
+        $this->$city;
+        $this->$postcode;
+        $this->$code;
+        $this->$commission;
+        $this->$tax;
+        $this->$payment;
+        $this->$cheque;
+        $this->$paypal;
+        $this->$bankName;
+        $this->$bankBranchNumber;
+        $this->$bankSwiftCode;
+        $this->$bankAccountName;
+        $this->$bankAccountNumber;
+        $this->$ip;
+        $this->$status;
+        $this->$approved;
+        $this->$dateAdded;
+    }
+
 
 }
-

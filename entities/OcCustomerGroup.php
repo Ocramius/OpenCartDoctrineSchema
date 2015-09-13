@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcCustomerGroup
  */
 class OcCustomerGroup
 {
+
     /**
      * @var integer
      */
@@ -37,15 +37,14 @@ class OcCustomerGroup
      */
     private $customField;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
+    public function __construct(Doctrine\Common\Collections\Collection $taxRate, Doctrine\Common\Collections\Collection $language, Doctrine\Common\Collections\Collection $customField, $approval, $sortOrder)
     {
-        $this->taxRate = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->language = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->customField = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->$taxRate;
+        $this->$language;
+        $this->$customField;
+        $this->$approval;
+        $this->$sortOrder;
     }
 
-}
 
+}

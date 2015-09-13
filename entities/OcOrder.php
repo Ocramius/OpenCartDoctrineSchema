@@ -1,12 +1,12 @@
 <?php
 
 
-
 /**
  * OcOrder
  */
 class OcOrder
 {
+
     /**
      * @var integer
      */
@@ -312,6 +312,69 @@ class OcOrder
      */
     private $currency;
 
+    public function __construct(OcMarketing $marketing, OcCustomerGroup $customerGroup, OcOrderStatus $orderStatus, OcStore $store, OcAffiliate $affiliate, OcLanguage $language, OcCustomer $customer, OcCurrency $currency, $invoiceNo, $invoicePrefix, $storeName, $storeUrl, $firstname, $lastname, $email, $telephone, $fax, $customField, $paymentFirstname, $paymentLastname, $paymentCompany, $paymentAddress1, $paymentAddress2, $paymentCity, $paymentPostcode, $paymentCountry, $paymentCountryId, $paymentZone, $paymentZoneId, $paymentAddressFormat, $paymentCustomField, $paymentMethod, $paymentCode, $shippingFirstname, $shippingLastname, $shippingCompany, $shippingAddress1, $shippingAddress2, $shippingCity, $shippingPostcode, $shippingCountry, $shippingCountryId, $shippingZone, $shippingZoneId, $shippingAddressFormat, $shippingCustomField, $shippingMethod, $shippingCode, $comment, $total, $commission, $tracking, $currencyCode, $currencyValue, $ip, $forwardedIp, $userAgent, $acceptLanguage, DateTime $dateAdded, DateTime $dateModified)
+    {
+        $this->$marketing;
+        $this->$customerGroup;
+        $this->$orderStatus;
+        $this->$store;
+        $this->$affiliate;
+        $this->$language;
+        $this->$customer;
+        $this->$currency;
+        $this->$invoiceNo;
+        $this->$invoicePrefix;
+        $this->$storeName;
+        $this->$storeUrl;
+        $this->$firstname;
+        $this->$lastname;
+        $this->$email;
+        $this->$telephone;
+        $this->$fax;
+        $this->$customField;
+        $this->$paymentFirstname;
+        $this->$paymentLastname;
+        $this->$paymentCompany;
+        $this->$paymentAddress1;
+        $this->$paymentAddress2;
+        $this->$paymentCity;
+        $this->$paymentPostcode;
+        $this->$paymentCountry;
+        $this->$paymentCountryId;
+        $this->$paymentZone;
+        $this->$paymentZoneId;
+        $this->$paymentAddressFormat;
+        $this->$paymentCustomField;
+        $this->$paymentMethod;
+        $this->$paymentCode;
+        $this->$shippingFirstname;
+        $this->$shippingLastname;
+        $this->$shippingCompany;
+        $this->$shippingAddress1;
+        $this->$shippingAddress2;
+        $this->$shippingCity;
+        $this->$shippingPostcode;
+        $this->$shippingCountry;
+        $this->$shippingCountryId;
+        $this->$shippingZone;
+        $this->$shippingZoneId;
+        $this->$shippingAddressFormat;
+        $this->$shippingCustomField;
+        $this->$shippingMethod;
+        $this->$shippingCode;
+        $this->$comment;
+        $this->$total;
+        $this->$commission;
+        $this->$tracking;
+        $this->$currencyCode;
+        $this->$currencyValue;
+        $this->$ip;
+        $this->$forwardedIp;
+        $this->$userAgent;
+        $this->$acceptLanguage;
+        $this->$dateAdded;
+        $this->$dateModified;
+    }
+
 
 }
-
