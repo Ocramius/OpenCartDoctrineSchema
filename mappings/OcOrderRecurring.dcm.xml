@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="OcOrderRecurring" table="oc_order_recurring">
+    <id name="orderRecurringId" type="integer" column="order_recurring_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="orderId" type="integer" column="order_id" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="reference" type="string" column="reference" length="255" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="productId" type="integer" column="product_id" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="productName" type="string" column="product_name" length="255" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="productQuantity" type="integer" column="product_quantity" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="recurringId" type="integer" column="recurring_id" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="recurringName" type="string" column="recurring_name" length="255" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="recurringDescription" type="string" column="recurring_description" length="255" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="recurringFrequency" type="string" column="recurring_frequency" length="25" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="recurringCycle" type="smallint" column="recurring_cycle" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="recurringDuration" type="smallint" column="recurring_duration" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="recurringPrice" type="decimal" column="recurring_price" precision="10" scale="4" nullable="false"/>
+    <field name="trial" type="boolean" column="trial" nullable="false"/>
+    <field name="trialFrequency" type="string" column="trial_frequency" length="25" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="trialCycle" type="smallint" column="trial_cycle" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="trialDuration" type="smallint" column="trial_duration" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="trialPrice" type="decimal" column="trial_price" precision="10" scale="4" nullable="false"/>
+    <field name="status" type="boolean" column="status" nullable="false"/>
+    <field name="dateAdded" type="datetime" column="date_added" nullable="false"/>
+  </entity>
+</doctrine-mapping>

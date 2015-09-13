@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="OcRecurring" table="oc_recurring">
+    <id name="recurringId" type="integer" column="recurring_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="price" type="decimal" column="price" precision="10" scale="4" nullable="false"/>
+    <field name="frequency" type="string" column="frequency" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="duration" type="integer" column="duration" nullable="false">
+      <options>
+        <option name="unsigned">1</option>
+      </options>
+    </field>
+    <field name="cycle" type="integer" column="cycle" nullable="false">
+      <options>
+        <option name="unsigned">1</option>
+      </options>
+    </field>
+    <field name="trialStatus" type="boolean" column="trial_status" nullable="false"/>
+    <field name="trialPrice" type="decimal" column="trial_price" precision="10" scale="4" nullable="false"/>
+    <field name="trialFrequency" type="string" column="trial_frequency" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="trialDuration" type="integer" column="trial_duration" nullable="false">
+      <options>
+        <option name="unsigned">1</option>
+      </options>
+    </field>
+    <field name="trialCycle" type="integer" column="trial_cycle" nullable="false">
+      <options>
+        <option name="unsigned">1</option>
+      </options>
+    </field>
+    <field name="status" type="boolean" column="status" nullable="false"/>
+    <field name="sortOrder" type="integer" column="sort_order" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="OcUrlAlias" table="oc_url_alias">
+    <indexes>
+      <index name="query" columns="query"/>
+      <index name="keyword" columns="keyword"/>
+    </indexes>
+    <id name="urlAliasId" type="integer" column="url_alias_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="query" type="string" column="query" length="255" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="keyword" type="string" column="keyword" length="255" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

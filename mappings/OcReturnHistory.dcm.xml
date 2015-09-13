@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="OcReturnHistory" table="oc_return_history">
+    <id name="returnHistoryId" type="integer" column="return_history_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="returnId" type="integer" column="return_id" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="returnStatusId" type="integer" column="return_status_id" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="notify" type="boolean" column="notify" nullable="false"/>
+    <field name="comment" type="text" column="comment" length="65535" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="dateAdded" type="datetime" column="date_added" nullable="false"/>
+  </entity>
+</doctrine-mapping>

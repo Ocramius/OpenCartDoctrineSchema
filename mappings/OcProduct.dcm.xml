@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="OcProduct" table="oc_product">
+    <id name="productId" type="integer" column="product_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="model" type="string" column="model" length="64" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="sku" type="string" column="sku" length="64" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="upc" type="string" column="upc" length="12" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="ean" type="string" column="ean" length="14" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="jan" type="string" column="jan" length="13" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="isbn" type="string" column="isbn" length="17" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="mpn" type="string" column="mpn" length="64" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="location" type="string" column="location" length="128" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="quantity" type="integer" column="quantity" nullable="false">
+      <options>
+        <option name="unsigned"/>
+        <option name="default">0</option>
+      </options>
+    </field>
+    <field name="stockStatusId" type="integer" column="stock_status_id" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="image" type="string" column="image" length="255" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="manufacturerId" type="integer" column="manufacturer_id" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="shipping" type="boolean" column="shipping" nullable="false">
+      <options>
+        <option name="default">1</option>
+      </options>
+    </field>
+    <field name="price" type="decimal" column="price" precision="15" scale="4" nullable="false">
+      <options>
+        <option name="default">0.0000</option>
+      </options>
+    </field>
+    <field name="points" type="integer" column="points" nullable="false">
+      <options>
+        <option name="unsigned"/>
+        <option name="default">0</option>
+      </options>
+    </field>
+    <field name="taxClassId" type="integer" column="tax_class_id" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="dateAvailable" type="date" column="date_available" nullable="false">
+      <options>
+        <option name="default">0000-00-00</option>
+      </options>
+    </field>
+    <field name="weight" type="decimal" column="weight" precision="15" scale="8" nullable="false">
+      <options>
+        <option name="default">0.00000000</option>
+      </options>
+    </field>
+    <field name="weightClassId" type="integer" column="weight_class_id" nullable="false">
+      <options>
+        <option name="unsigned"/>
+        <option name="default">0</option>
+      </options>
+    </field>
+    <field name="length" type="decimal" column="length" precision="15" scale="8" nullable="false">
+      <options>
+        <option name="default">0.00000000</option>
+      </options>
+    </field>
+    <field name="width" type="decimal" column="width" precision="15" scale="8" nullable="false">
+      <options>
+        <option name="default">0.00000000</option>
+      </options>
+    </field>
+    <field name="height" type="decimal" column="height" precision="15" scale="8" nullable="false">
+      <options>
+        <option name="default">0.00000000</option>
+      </options>
+    </field>
+    <field name="lengthClassId" type="integer" column="length_class_id" nullable="false">
+      <options>
+        <option name="unsigned"/>
+        <option name="default">0</option>
+      </options>
+    </field>
+    <field name="subtract" type="boolean" column="subtract" nullable="false">
+      <options>
+        <option name="default">1</option>
+      </options>
+    </field>
+    <field name="minimum" type="integer" column="minimum" nullable="false">
+      <options>
+        <option name="unsigned"/>
+        <option name="default">1</option>
+      </options>
+    </field>
+    <field name="sortOrder" type="integer" column="sort_order" nullable="false">
+      <options>
+        <option name="unsigned"/>
+        <option name="default">0</option>
+      </options>
+    </field>
+    <field name="status" type="boolean" column="status" nullable="false">
+      <options>
+        <option name="default">0</option>
+      </options>
+    </field>
+    <field name="viewed" type="integer" column="viewed" nullable="false">
+      <options>
+        <option name="unsigned"/>
+        <option name="default">0</option>
+      </options>
+    </field>
+    <field name="dateAdded" type="datetime" column="date_added" nullable="false"/>
+    <field name="dateModified" type="datetime" column="date_modified" nullable="false"/>
+  </entity>
+</doctrine-mapping>

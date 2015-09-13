@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="OcCoupon" table="oc_coupon">
+    <id name="couponId" type="integer" column="coupon_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="name" type="string" column="name" length="128" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="code" type="string" column="code" length="10" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="type" type="string" column="type" length="1" nullable="false">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="discount" type="decimal" column="discount" precision="15" scale="4" nullable="false"/>
+    <field name="logged" type="boolean" column="logged" nullable="false"/>
+    <field name="shipping" type="boolean" column="shipping" nullable="false"/>
+    <field name="total" type="decimal" column="total" precision="15" scale="4" nullable="false"/>
+    <field name="dateStart" type="date" column="date_start" nullable="false">
+      <options>
+        <option name="default">0000-00-00</option>
+      </options>
+    </field>
+    <field name="dateEnd" type="date" column="date_end" nullable="false">
+      <options>
+        <option name="default">0000-00-00</option>
+      </options>
+    </field>
+    <field name="usesTotal" type="integer" column="uses_total" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="usesCustomer" type="string" column="uses_customer" length="11" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="status" type="boolean" column="status" nullable="false"/>
+    <field name="dateAdded" type="datetime" column="date_added" nullable="false"/>
+  </entity>
+</doctrine-mapping>
